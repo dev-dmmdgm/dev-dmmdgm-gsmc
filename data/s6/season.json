@@ -1,7 +1,7 @@
 {
     "achievements":  [],
     "active":        true,
-    "bannerURL":     "/data/s6/banner.avif",
+    "bannerURL":     "/data/s6/gallery/fireworks_3.avif",
     "contentURL":    "/data/s6/content.md",
     "description":   "The final Geesecraft season: college while it lasts (cwil).",
     "modifications": [

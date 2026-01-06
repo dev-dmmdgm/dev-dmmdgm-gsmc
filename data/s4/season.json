@@ -7,7 +7,7 @@
         "McGeese, serving up free eggs"
     ],
     "active":        false,
-    "bannerURL":     "/data/s4/banner.avif",
+    "bannerURL":     "/data/s4/gallery/goose_rockets.avif",
     "contentURL":    "/data/s4/content.md",
     "description":   "First modded Geesecraft season: a huge mess.",
     "modifications": [
@@ -26,7 +26,7 @@
         "WTHIT"
     ],
     "packURL":       "/data/s4/pack.jsonc",
-    "platform":      "fabric",
+    "platform":      "Fabric",
     "players":       [
         "8018c39c-3d81-434e-a02d-6e0813340fd6",
         "d9736929-859d-478a-8575-02cc397673d7",

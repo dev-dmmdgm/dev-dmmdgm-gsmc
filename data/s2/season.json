@@ -6,7 +6,7 @@
         "Killed both the wither, as well as a Warden"
     ],
     "active":        false,
-    "bannerURL":     "/data/s2/banner.avif",
+    "bannerURL":     "/data/s2/gallery/water_fountain.avif",
     "contentURL":    "/data/s2/content.md",
     "description":   "The real, proper kick off of Geesecraft.",
     "modifications": [
@@ -14,7 +14,7 @@
         "GSit"
     ],
     "packURL":       null,
-    "platform":      "paper",
+    "platform":      "Paper",
     "players":       [
         "8018c39c-3d81-434e-a02d-6e0813340fd6",
         "d9736929-859d-478a-8575-02cc397673d7",

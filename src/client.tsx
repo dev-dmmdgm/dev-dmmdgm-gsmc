@@ -8,19 +8,24 @@ import type { Archive } from "./type";
 // Defines routes
 function HomeRoute() {
     // Defines splash
-    const splashURLs = [
-        "/data/s1/gallery/park_at_night.avif",
-        "/data/s2/gallery/stable.avif",
-        "/data/s3/gallery/ancient_city_full.avif",
-        "/data/s3/gallery/welcome_to_geeseville.avif",
-        "/data/s4/gallery/race_to_space.avif",
-        "/data/s5/gallery/main_basement_2.avif",
-        "/data/s6/gallery/fountain_beacon.avif",
-        "/data/s6/gallery/iron_farm_sunrise.avif",
-    ];
-    let splashIndex = Math.floor(Math.random() * splashURLs.length);
     useEffect(() => {
-        // Defines elements
+        // Creates splash urls
+        const splashURLs = [
+            "/data/s1/gallery/park_at_night.avif",
+            "/data/s2/gallery/stable.avif",
+            "/data/s3/gallery/ancient_city_full.avif",
+            "/data/s3/gallery/welcome_to_geeseville.avif",
+            "/data/s4/gallery/race_to_space.avif",
+            "/data/s5/gallery/main_basement_2.avif",
+            "/data/s6/gallery/fountain_beacon.avif",
+            "/data/s6/gallery/iron_farm_sunrise.avif",
+        ];
+        let splashIndex = Math.floor(Math.random() * splashURLs.length);
+
+        // Creates timeout
+        let splashTimeout = setTimeout(() => {});
+
+        // Fetches elements
         const splashBack = document.getElementById("splash-back") as HTMLImageElement;
         const splashFront = document.getElementById("splash-front") as HTMLImageElement;
         
@@ -29,22 +34,23 @@ function HomeRoute() {
         splashIndex = (splashIndex + 1) % splashURLs.length;
         splashBack.src = splashURLs[splashIndex];
         
-        // Cycles elements
-        let timeout: NodeJS.Timeout = setTimeout(() => {});
-        const interval = setInterval(async () => {
+        // Creates animation
+        const splashInterval = setInterval(async () => {
             splashFront.style.opacity = "0%";
-            timeout = setTimeout(() => {
+            splashTimeout = setTimeout(() => {
                 splashFront.src = splashBack.src;
                 splashFront.style.opacity = "";
-                timeout = setTimeout(() => {
+                splashTimeout = setTimeout(() => {
                     splashIndex = (splashIndex + 1) % splashURLs.length;
                     splashBack.src = splashURLs[splashIndex];
                 }, 3000);
             }, 3000);
         }, 15000);
+
+        // Creates disposer
         return () => {
-            clearTimeout(timeout);
-            clearInterval(interval);
+            clearTimeout(splashTimeout);
+            clearInterval(splashInterval);
         };
     }, []);
 
@@ -57,7 +63,7 @@ function HomeRoute() {
             <h2>"Of the Gees, by the Gees, for the Gees!"</h2>
             <div>🞃</div>
         </div>
-        <div class="about">
+        <section>
             <h3>A Community of Geese</h3>
             <div>
                 <p>
@@ -83,8 +89,8 @@ function HomeRoute() {
                 <img src="/data/s6/gallery/dmmd_ruby.avif"/>
                 <img src="/data/s6/gallery/k4ffu_staring_contest.avif"/>
             </div>
-        </div>
-        <div class="about float">
+        </section>
+        <section class="high">
             <h3>Freedom for All</h3>
             <div>
                 <p>
@@ -110,8 +116,8 @@ function HomeRoute() {
                     If it is possible within the realm of vanilla Minecraft (or within the realm of whatever mods we've decided to include in that season), it's all fair game.
                 </p>
             </div>
-        </div>
-        <div class="about">
+        </section>
+        <section>
             <h3>Technology and Automation First</h3>
             <div>
                 <p>
@@ -152,8 +158,8 @@ function HomeRoute() {
                 <img src="/data/s4/gallery/goose_rockets.avif"/>
                 <img src="/data/s4/gallery/looking_chilly.avif"/>
             </div>
-        </div>
-        <div class="about float">
+        </section>
+        <section class="high">
             <h3>Making the Most out of Memories</h3>
             <div>
                 <p>
@@ -182,8 +188,8 @@ function HomeRoute() {
             <div>
                 <p>&lt;3</p>
             </div>
-        </div>
-        <div class="about">
+        </section>
+        <section>
             <h3>Nyaa~ Kachow! :3</h3>
             <div>
                 <p>
@@ -200,22 +206,128 @@ function HomeRoute() {
                 <img src="/data/s6/gallery/rainbow.avif"/>
                 <img src="/data/s6/gallery/ravine_sunset.avif"/>
             </div>
-        </div>
+        </section>
     </main>;
 }
 function ArchiveRoute() {
     return <></>;   
 }
 function ArchivesRoute() {
-    const [ archives, setArchives ] = useState<Archive[]>([]);
-
+    // Defines archives
+    let archiveIndex = 0;
     useEffect(() => {
-        fetch("http://127.0.0.1:3000/api/archives").then(async (response) => setArchives(await response.json() as Archive[]));
+        // Defines updater
+        function updateArchive(archiveElement: HTMLDivElement, archive: Archive): void {
+            // Fetches elements
+            const archiveAnchor = archiveElement.children.item(0) as HTMLAnchorElement;
+            const archiveBanner = archiveAnchor.children.item(0) as HTMLImageElement;
+            const archiveSection = archiveAnchor.children.item(1) as HTMLElement;
+            const archiveTitle = archiveSection.children.item(0) as HTMLHeadingElement;
+            const archiveDescription = archiveSection.children.item(1) as HTMLParagraphElement;
+            
+            // Updates elements
+            archiveAnchor.href = `/archives/${archive.season}`;
+            archiveBanner.src = archive.bannerURL ?? "/assets/bread.png";
+            archiveTitle.innerText = archive.title;
+            archiveDescription.innerText = archive.description;
+        }
+
+        // Creates listeners
+        let archivePreviousListener = async () => {};
+        let archiveNextListener = async () => {};
+
+        // Creates timeout
+        let archiveTimeout = setTimeout(() => {});
+
+        // Fetches elements
+        const archivePrevious = document.getElementById("archive-previous") as HTMLButtonElement;
+        const archiveNext = document.getElementById("archive-next") as HTMLButtonElement;
+        let archiveLeft = document.getElementById("archive-0") as HTMLDivElement;
+        let archiveRight = document.getElementById("archive-1") as HTMLDivElement;
+        let archiveBack = document.getElementById("archive-2") as HTMLDivElement;
+        let archiveFront = document.getElementById("archive-3") as HTMLDivElement;
+
+        // Fetches api
+        let archiveBusy = true;
+        fetch("http://127.0.0.1:3000/api/archives").then(async (response) => {
+            // Creates archives
+            const archives = await response.json() as Archive[];
+            if(archives.length === 0) return;
+            archives.sort((a, b) => +new Date(a.since) - +new Date(b.since));
+            console.log(archives);
+            // Updates listeners
+            archivePreviousListener = async () => {
+                if(archiveBusy) return;
+                archiveBusy = true;
+                updateArchive(archiveBack, archives[(archives.length + archiveIndex - 2) % archives.length]);
+                archiveLeft.classList.remove("archive-left");
+                archiveLeft.classList.add("archive-front");
+                archiveRight.classList.remove("archive-right");
+                archiveRight.classList.add("archive-back");
+                archiveBack.classList.remove("archive-back");
+                archiveBack.classList.add("archive-left");
+                archiveFront.classList.remove("archive-front");
+                archiveFront.classList.add("archive-right");
+                [ archiveLeft, archiveRight, archiveBack, archiveFront ] = [ archiveBack, archiveFront, archiveRight, archiveLeft ];
+                archiveTimeout = setTimeout(() => {
+                    archiveIndex = (archives.length + archiveIndex - 1) % archives.length;
+                    archiveBusy = false;
+                }, 1000);
+            };
+            archiveNextListener = async () => {
+                if(archiveBusy) return;
+                archiveBusy = true;
+                updateArchive(archiveBack, archives[(archiveIndex + 2) % archives.length]);
+                archiveLeft.classList.remove("archive-left");
+                archiveLeft.classList.add("archive-back");
+                archiveRight.classList.remove("archive-right");
+                archiveRight.classList.add("archive-front");
+                archiveBack.classList.remove("archive-back");
+                archiveBack.classList.add("archive-right");
+                archiveFront.classList.remove("archive-front");
+                archiveFront.classList.add("archive-left");
+                [ archiveLeft, archiveRight, archiveBack, archiveFront ] = [ archiveFront, archiveBack, archiveLeft, archiveRight ];
+                archiveTimeout = setTimeout(() => {
+                    archiveIndex = (archiveIndex + 1) % archives.length;
+                    archiveBusy = false;
+                }, 1000);
+            };
+            
+            // Appends listeners
+            archivePrevious.addEventListener("click", archivePreviousListener);
+            archiveNext.addEventListener("click", archiveNextListener);
+
+            // Updates archives
+            archiveIndex = archives.length - 1;
+            updateArchive(archiveFront, archives[archiveIndex]);
+            updateArchive(archiveLeft, archives[(archives.length + archiveIndex - 1) % archives.length]);
+            updateArchive(archiveRight, archives[(archiveIndex + 1) % archives.length]);
+            archiveLeft.classList.add("archive-left");
+            archiveRight.classList.add("archive-right");
+            archiveBack.classList.add("archive-back");
+            archiveFront.classList.add("archive-front");
+            archiveBusy = false;
+        });
+
+        // Creates disposer
+        return () => {
+            archivePrevious.removeEventListener("click", archivePreviousListener);
+            archiveNext.removeEventListener("click", archiveNextListener);
+            clearTimeout(archiveTimeout);
+        }
     }, []);
+
     return <main id="archives">
-        {archives.map((archive) => {
-            return <div>{ archive.title }</div>;
-        })}
+        <h1>Season Archives</h1>
+        <h2>"Behold, the entire history of Geesecraft!"</h2>
+        <div id="archive-list">
+            <button id="archive-previous">🞀</button>
+            <button id="archive-next">🞂</button>
+            <div class="archive" id="archive-0"><a><img/><section><h3/><p/></section></a></div>
+            <div class="archive" id="archive-1"><a><img/><section><h3/><p/></section></a></div>
+            <div class="archive" id="archive-2"><a><img/><section><h3/><p/></section></a></div>
+            <div class="archive" id="archive-3"><a><img/><section><h3/><p/></section></a></div>
+        </div>
     </main>;
 }
 function GalleryRoute() {

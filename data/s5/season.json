@@ -6,7 +6,7 @@
         "Killed the wither (rather poorly)"
     ],
     "active":        false,
-    "bannerURL":     "/data/s5/banner.avif",
+    "bannerURL":     "/data/s5/gallery/main_basement.avif",
     "contentURL":    "/data/s5/content.md",
     "description":   "The next generation Geesecraft season.",
     "modifications": [
@@ -33,7 +33,7 @@
         "You're In Grave Danger"
     ],
     "packURL":       "/data/s5/pack.jsonc",
-    "platform":      "fabric",
+    "platform":      "Fabric",
     "players":       [
         "8018c39c-3d81-434e-a02d-6e0813340fd6",
         "d9736929-859d-478a-8575-02cc397673d7",

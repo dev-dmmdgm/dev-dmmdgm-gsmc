@@ -6,7 +6,7 @@
         "Killed the wither (rather poorly)"
     ],
     "active":        false,
-    "bannerURL":     "/data/s1/banner.avif",
+    "bannerURL":     "/data/s1/gallery/park_at_night.avif",
     "contentURL":    "/data/s1/content.md",
     "description":   "The original Geesecraft season.",
     "modifications": [
@@ -14,7 +14,7 @@
         "GSit"
     ],
     "packURL":       null,
-    "platform":      "paper",
+    "platform":      "Paper",
     "players":       [
         "8018c39c-3d81-434e-a02d-6e0813340fd6",
         "d9736929-859d-478a-8575-02cc397673d7",
