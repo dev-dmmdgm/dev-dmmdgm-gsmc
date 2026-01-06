@@ -13,7 +13,7 @@
         "DiscordSRV",
         "GSit"
     ],
-    "packURL":       "/data/s2/pack.jsonc",
+    "packURL":       null,
     "platform":      "paper",
     "players":       [
         "8018c39c-3d81-434e-a02d-6e0813340fd6",

@@ -1,0 +1,42 @@
+[
+    // Library
+    "architectury-api;modrinth;fabric;1.21.5",
+    "cardinal-components-api;modrinth;fabric;1.21.5",
+    "cloth-config;modrinth;fabric;1.21.5",
+    "fabric-api;modrinth;fabric;1.21.5",
+    "fabric-language-kotlin;modrinth;fabric;1.21.5",
+    "glitchcore;modrinth;fabric;1.21.5",
+    "mcpitanlibarch;modrinth;fabric;1.21.5",
+    "placeholder-api;modrinth;fabric;1.21.5",
+    "thermoo;modrinth;fabric;1.21.5",
+    "yacl;modrinth;fabric;1.21.5",
+
+    // Decoration
+    "adorn;modrinth;fabric;1.21.5",
+    "macaws-bridges;modrinth;fabric;1.21.5",
+    "macaws-doors;modrinth;fabric;1.21.5",
+    "macaws-fences-and-walls;modrinth;fabric;1.21.5",
+    "macaws-furniture;modrinth;fabric;1.21.5",
+    "macaws-holidays;modrinth;fabric;1.21.5",
+    "macaws-lights-and-lamps;modrinth;fabric;1.21.5",
+    "macaws-paintings;modrinth;fabric;1.21.5",
+    "macaws-paths-and-pavings;modrinth;fabric;1.21.5",
+    "macaws-roofs;modrinth;fabric;1.21.5",
+    "macaws-stairs;modrinth;fabric;1.21.5",
+    "macaws-trapdoors;modrinth;fabric;1.21.5",
+    "macaws-windows;modrinth;fabric;1.21.5",
+    "promenade;modrinth;fabric;1.21.5",
+
+    // Feature
+    "advanced-reborn;download;mod;https://cdn.iipython.dev/AdvancedReborn-1.21.5-1.3.7.jar",
+    "enderscape;modrinth;fabric;1.21.5",
+    "farmers-delight-refabricated;modrinth;fabric;1.21.5",
+    "fsit;modrinth;fabric;1.21.5",
+    "frostiful;modrinth;fabric;1.21.5",
+    "incendium;modrinth;fabric;1.21.5",
+    "more-villagers-re-employed;modrinth;fabric;1.21.5",
+    "serene-seasons;modrinth;fabric;1.21.5",
+    "scorchful;modrinth;fabric;1.21.5",
+    "tech-reborn;download;mod;https://github.com/TechReborn/TechReborn/releases/download/5.13.4/TechReborn-5.13.4.jar",
+    "travelersbackpack;modrinth;fabric;1.21.5"
+]
