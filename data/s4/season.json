@@ -1,0 +1,43 @@
+{
+    "achievements":  [
+        "Colonized the moon, both Agape and Ad Astra",
+        "Infinite supply of UU-Matter",
+        "Raid farm, XP farm, Bad omen farm, Raid farm, Gunpowder farm",
+        "AE2-based Wi-Fi network",
+        "McGeese, serving up free eggs"
+    ],
+    "active":        false,
+    "bannerURL":     "/data/s4/banner.avif",
+    "contentURL":    "/data/s4/content.md",
+    "description":   "First modded Geesecraft season: a huge mess.",
+    "modifications": [
+        "Ad Astra",
+        "Adorn",
+        "Agape Space",
+        "Applied Energistics 2",
+        "BlueMap",
+        "Chunkloaders",
+        "Croptopia",
+        "Iron Jetpacks",
+        "Not Just Biomes",
+        "SimpleDiscordLink",
+        "Tech Reborn",
+        "UU-Extended",
+        "WTHIT"
+    ],
+    "packURL":       "/data/s4/pack.jsonc",
+    "platform":      "fabric",
+    "players":       [
+        "8018c39c-3d81-434e-a02d-6e0813340fd6",
+        "d9736929-859d-478a-8575-02cc397673d7",
+        "617d0b8a-148f-47c0-b4f4-36dfe1ac79c7",
+        "bf0f7598-e7fe-4e09-b7a2-a1289d907bbd",
+        "271f1987-57dc-4550-b7ad-a1b1c4bb1a7c"
+    ],
+    "season":        "s4",
+    "since":         "2023-06-27T00:00:00.000Z",
+    "title":         "Season 4",
+    "until":         "2023-09-21T00:00:00.000Z",
+    "version":       "1.20.1",
+    "worldURL":      "https://cdn.iipython.dev/geesecraft/GC_S4M.7z"
+}

@@ -1,0 +1,34 @@
+{
+    "achievements":  [
+        "DmmD learning how to do 2-block wall jumps",
+        "RIP to the ender dragon",
+        "Successful election of DmmD as town mayor",
+        "A somewhat efficient XP farm, based in the end",
+        "Huge interdimensional iron farm",
+        "Massive wheat farm cared for by Emy"
+    ],
+    "active":        false,
+    "bannerURL":     "/data/s3/banner.avif",
+    "contentURL":    "/data/s3/content.md",
+    "description":   "Spring edition of Geesecraft, starting in early 2023.",
+    "modifications": [
+        "DiscordSRV",
+        "GSit",
+        "RHLeafDecay"
+    ],
+    "packURL":       "/data/s3/pack.jsonc",
+    "platform":      "paper",
+    "players":       [
+        "8018c39c-3d81-434e-a02d-6e0813340fd6",
+        "d9736929-859d-478a-8575-02cc397673d7",
+        "617d0b8a-148f-47c0-b4f4-36dfe1ac79c7",
+        "bf0f7598-e7fe-4e09-b7a2-a1289d907bbd",
+        "6102acab-975f-42bd-a720-144ca3995585"
+    ],
+    "season":        "s3",
+    "since":         "2023-02-04T00:00:00.000Z",
+    "title":         "Season 3",
+    "until":         "2023-06-10T00:00:00.000Z",
+    "version":       "1.19",
+    "worldURL":      "https://cdn.iipython.dev/geesecraft/GC_S3M.7z"
+}

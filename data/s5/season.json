@@ -1,0 +1,50 @@
+{
+    "achievements":  [
+        "Built a full Geese town, complete with border",
+        "Somewhat working economy",
+        "Beautiful park designed by DmmD",
+        "Killed the wither (rather poorly)"
+    ],
+    "active":        false,
+    "bannerURL":     "/data/s5/banner.avif",
+    "contentURL":    "/data/s5/content.md",
+    "description":   "The next generation Geesecraft season.",
+    "modifications": [
+        "Ad Astra",
+        "Ad-Astra: Giselle Addon",
+        "Applied Energistics 2",
+        "Cat Jam",
+        "Chunkloaders",
+        "Cobblemon",
+        "Croptopia",
+        "Discord Integration",
+        "Hephaestus",
+        "Iron Jetpacks",
+        "Leaves Be Gone",
+        "Megane",
+        "Mine Cells",
+        "Paladin's Furniture",
+        "Sculk Depths",
+        "Tech Reborn",
+        "The Bumblezone",
+        "Traveler's Backpack",
+        "UU-Extended",
+        "WTHIT",
+        "You're In Grave Danger"
+    ],
+    "packURL":       "/data/s5/pack.jsonc",
+    "platform":      "fabric",
+    "players":       [
+        "8018c39c-3d81-434e-a02d-6e0813340fd6",
+        "d9736929-859d-478a-8575-02cc397673d7",
+        "617d0b8a-148f-47c0-b4f4-36dfe1ac79c7",
+        "bf0f7598-e7fe-4e09-b7a2-a1289d907bbd",
+        "a695d266-e3fe-4931-a961-0d8eafc0385d"
+    ],
+    "season":        "s5",
+    "since":         "2024-06-27T00:00:00.000Z",
+    "title":         "Season 5",
+    "until":         "2024-08-30T00:00:00.000Z",
+    "version":       "1.20.1",
+    "worldURL":      "https://cdn.iipython.dev/geesecraft/GC_S5M.7z"
+}

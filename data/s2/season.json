@@ -1,0 +1,31 @@
+{
+    "achievements":  [
+        "Automatic farms for Slime/Totems/Iron/Gunpowder/XP",
+        "Massive work-in-progress town",
+        "Functional villager trading center, albeit small",
+        "Killed both the wither, as well as a Warden"
+    ],
+    "active":        false,
+    "bannerURL":     "/data/s2/banner.avif",
+    "contentURL":    "/data/s2/content.md",
+    "description":   "The real, proper kick off of Geesecraft.",
+    "modifications": [
+        "DiscordSRV",
+        "GSit"
+    ],
+    "packURL":       "/data/s2/pack.jsonc",
+    "platform":      "paper",
+    "players":       [
+        "8018c39c-3d81-434e-a02d-6e0813340fd6",
+        "d9736929-859d-478a-8575-02cc397673d7",
+        "617d0b8a-148f-47c0-b4f4-36dfe1ac79c7",
+        "bf0f7598-e7fe-4e09-b7a2-a1289d907bbd",
+        "2fb80ffb-b4e8-46be-86f3-e7eae1a6c38f"
+    ],
+    "season":        "s2",
+    "since":         "2022-06-16T00:00:00.000Z",
+    "title":         "Season 2",
+    "until":         "2022-09-09T00:00:00.000Z",
+    "version":       "1.18 - 1.19",
+    "worldURL":      null
+}

@@ -1,5 +1,3 @@
-# Haii
+# Geesecraft / Season 1
 
-## hai?
-
-:3333
+TBD.
