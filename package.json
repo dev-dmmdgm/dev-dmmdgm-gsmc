@@ -3,7 +3,8 @@
         "@types/bun": "^1.3.5",
         "dompurify": "^3.3.1",
         "marked": "^17.0.1",
-        "preact": "^10.26.9"
+        "preact": "^10.26.9",
+        "preact-iso": "^2.11.1"
     },
     "devDependencies": {
         "@preact/preset-vite": "^2.10.2",

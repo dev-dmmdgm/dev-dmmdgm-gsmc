@@ -26,7 +26,7 @@ const server = Bun.serve({
             async GET(request) {
                 // Fetches archive
                 const dirname = nodePath.resolve(data, request.params.season);
-                if(!dirname.startsWith(data)) return new Response(null, { status: 404 });
+                if(!dirname.startsWith(data)) return Response.error();
                 const filename = nodePath.resolve(dirname, "season.json");
                 const archive = await Bun.file(filename).json() as Archive;
                 return Response.json(archive);
@@ -46,11 +46,17 @@ const server = Bun.serve({
             async GET(request) {
                 // Fetches gallery
                 const dirname = nodePath.resolve(data, request.params.season, "gallery");
-                if(!dirname.startsWith(data)) return new Response(null, { status: 404 });
+                if(!dirname.startsWith(data)) return Response.error();
                 const glob = new Bun.Glob(nodePath.resolve(dirname, "*.json"));
                 const filenames = await Array.fromAsync(glob.scan());
                 const gallery = await Array.fromAsync(filenames.map((filename) => Bun.file(filename).json())) as Gallery;
                 return Response.json(gallery);
+            }
+        },
+        "/api/*": {
+            async GET() {
+                // Returns error
+                return Response.error();
             }
         },
 
@@ -60,7 +66,7 @@ const server = Bun.serve({
                 // Fetches file
                 const url = new URL(request.url);
                 const filename = nodePath.resolve(data, url.pathname.slice("/data/".length));
-                if(!filename.startsWith(data)) return new Response(null, { status: 404 });
+                if(!filename.startsWith(data)) return Response.error();
                 return new Response(Bun.file(filename));
             }
         },
@@ -71,7 +77,7 @@ const server = Bun.serve({
                 // Fetches assets
                 const url = new URL(request.url);
                 const filename = nodePath.resolve(dist, "assets", url.pathname.slice("/assets/".length));
-                if(!filename.startsWith(dist)) return new Response(null, { status: 404 });
+                if(!filename.startsWith(dist)) return Response.error();
                 return new Response(Bun.file(filename));
             }
         },
