@@ -1,1 +1,41 @@
-[]
+[
+    // Library
+    "resourceful-lib;modrinth;fabric;1.20.1",
+    "resourceful-config;modrinth;fabric;1.20.1",
+    "botarium;modrinth;fabric;1.20.1",
+    "supermartijn642s-core-lib;modrinth;fabric;1.20.1",
+    "supermartijn642s-config-lib;modrinth;fabric;1.20.1",
+    "fabric-api;modrinth;fabric;1.20.1",
+    "cucumber;modrinth;fabric;1.20.1",
+    "puzzles-lib;modrinth;fabric;1.20.1",
+    "forge-config-api-port;modrinth;fabric;1.20.1",
+    "owo-lib;modrinth;fabric;1.20.1",
+    "midnightlib;modrinth;fabric;1.20.1",
+    "cloth-config;modrinth;fabric;1.20.1",
+    "cardinal-components-api;modrinth;fabric;1.20.1",
+    "badpackets;modrinth;fabric;1.20.1",
+
+    // Compatibility
+    "megane;modrinth;fabric;1.20.1",
+    "wthit;modrinth;fabric;1.20.1",
+
+    // Feature
+    "ad-astra;modrinth;fabric;1.20.1",
+    "ad-astra-giselle-addon;modrinth;fabric;1.20.1",
+    "ae2;modrinth;fabric;1.20.1",
+    "cat_jam;modrinth;fabric;1.20.1",
+    "chunk-loaders;modrinth;fabric;1.20.1",
+    "cobblemon;modrinth;fabric;1.20.1",
+    "croptopia;CURSEFORGE_REPLACE;fabric;1.20.1",
+    "hephaestus;modrinth;fabric;1.20.1",
+    "iron-jetpacks;modrinth;fabric;1.20.1",
+    "leaves-be-gone;modrinth;fabric;1.20.1",
+    "minecells;modrinth;fabric;1.20.1",
+    "the-bumblezone-fabric;modrinth;fabric;1.20.1",
+    "travelersbackpack;modrinth;fabric;1.20.1",
+    "paladins-furniture;modrinth;fabric;1.20.1",
+    "sculk-depths;modrinth;fabric;1.20.1",
+    "uu-extended;modrinth;fabric;1.20.1",
+    "yigd;modrinth;fabric;1.20.1",
+    "tech-reborn;CURSEFORGE_REPLACE;fabric;1.20.1"
+]

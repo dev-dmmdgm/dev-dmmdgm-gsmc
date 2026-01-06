@@ -1,1 +1,26 @@
-[]
+[
+    // Library
+    "resourceful-lib;modrinth;fabric;1.20.1",
+    "resourceful-config;modrinth;fabric;1.20.1",
+    "botarium;modrinth;fabric;1.20.1",
+    "supermartijn642s-core-lib;modrinth;fabric;1.20.1",
+    "supermartijn642s-config-lib;modrinth;fabric;1.20.1",
+    "fabric-api;modrinth;fabric;1.20.1",
+    "cloth-config;modrinth;fabric;1.20.1",
+    "badpackets;modrinth;fabric;1.20.1",
+
+    // Compatibility
+    "wthit;modrinth;fabric;1.20.1",
+
+    // Feature
+    "ad-astra;modrinth;fabric;1.20.1",
+    "adorn;modrinth;fabric;1.20.1",
+    "moon-and-space-dimensions-fabric;CURSEFORGE_REPLACE;fabric;1.20.1",
+    "ae2;modrinth;fabric;1.20.1",
+    "chunk-loaders;modrinth;fabric;1.20.1",
+    "croptopia;CURSEFORGE_REPLACE;fabric;1.20.1",
+    "iron-jetpacks;modrinth;fabric;1.20.1",
+    "not-just-biomes;CURSEFORGE_REPLACE;fabric;1.20.1",
+    "tech-reborn;CURSEFORGE_REPLACE;fabric;1.20.1",
+    "uu-extended;modrinth;fabric;1.20.1"
+]
