@@ -43,10 +43,22 @@ def validate_timestamp(_, timestamp: str) -> bool:
 
 # Handle auto detection
 for file in Path("data").rglob("*.avif"):
-    data_file = file.with_suffix(".json")
-    if data_file.is_file():
+    data_file, image_data = file.with_suffix(".json"), {}
+
+    # Figure out what we're missing
+    if not data_file.is_file():
+        required_fields = ["name", "description", "time", "camera"]
+
+    else:
+        image_data, required_fields = json.loads(data_file.read_text()), []
+        for key, value in image_data.items():
+            if isinstance(value, str) and not value.strip():
+                required_fields.append(key)
+
+    if not required_fields:
         continue
 
+    # Load data
     season_id = file.parents[1].name
     season_data = json.loads((file.parents[1] / "season.json").read_text())
 
@@ -54,26 +66,22 @@ for file in Path("data").rglob("*.avif"):
     subprocess.run(["vscodium", file.absolute()])
 
     # Ask our questions
-    answers = inquirer.prompt([
-        inquirer.Text("name", message = "Screenshot Name", validate = lambda _, v: v.strip()),
-        inquirer.Text("description", message = "Short Description", validate = lambda _, v: v.strip()),
-        inquirer.Text("time", message = "Timestamp", validate = validate_timestamp, default = season_data["since"]),
-        inquirer.List(
-            "camera",
-            message = "Who took it?",
-            choices = KNOWN_USERS
-        )
-    ])
+    queries = {
+        "name": inquirer.Text("name", message = "Screenshot Name", validate = lambda _, v: v.strip()),
+        "description": inquirer.Text("description", message = "Short Description", validate = lambda _, v: v.strip()),
+        "time": inquirer.Text("time", message = "Timestamp", validate = validate_timestamp, default = season_data["since"]),
+        "camera": inquirer.List("camera", message = "Who took it?", choices = KNOWN_USERS)
+    }
+    answers = inquirer.prompt([queries[x] for x in ["name", "description", "time", "camera"] if x in required_fields])
     if answers is None:
         break
 
+    if "time" in answers:
+        answers["time"] = process_timestamp(answers["time"])
+
     # Save data to disk
-    data_file.write_text(json.dumps({
-        "camera": KNOWN_UUIDS[answers["camera"]],
-        "description": answers["description"],
+    data_file.write_text(json.dumps(image_data | answers | {
         "filename": file.name,
-        "name": answers["name"],
         "season": season_id,
-        "time": process_timestamp(answers["time"]),
         "url": f"/data/{season_id}/gallery/{file.name}"
     }, indent = 4))
