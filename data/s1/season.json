@@ -1,0 +1,21 @@
+{
+    "achievements":  [],
+    "active":        false,
+    "bannerURL":     "/data/s1/banner.avif",
+    "contentURL":    "/data/s1/content.md",
+    "description":   "",
+    "modifications": [],
+    "packURL":       "/data/s1/pack.jsonc",
+    "platform":      "paper?",
+    "players":       [
+        "8018c39c-3d81-434e-a02d-6e0813340fd6",
+        "d9736929-859d-478a-8575-02cc397673d7",
+        "617d0b8a-148f-47c0-b4f4-36dfe1ac79c7"
+    ],
+    "season":        "s1",
+    "since":         "1970-01-01T00:00:00.000Z",
+    "title":         "Season 1",
+    "until":         "1970-01-01T00:00:00.000Z",
+    "version":       "1.15 - 1.16",
+    "worldURL":      null
+}
