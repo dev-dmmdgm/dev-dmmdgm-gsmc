@@ -19,7 +19,10 @@ const server = Bun.serve({
                 const glob = new Bun.Glob(dirname);
                 const filenames = await Array.fromAsync(glob.scan());
                 const archives = await Array.fromAsync(filenames.map((filename) => Bun.file(filename).json())) as Archive[];
-                return Response.json(archives);
+                const response = Response.json(archives);
+                response.headers.set("access-control-allow-origin", "*");
+                response.headers.set("cache-control", "max-age=86400");
+                return response;
             }
         },
         "/api/archives/:season": {
@@ -29,7 +32,10 @@ const server = Bun.serve({
                 if(!dirname.startsWith(data)) return Response.error();
                 const filename = nodePath.resolve(dirname, "season.json");
                 const archive = await Bun.file(filename).json() as Archive;
-                return Response.json(archive);
+                const response =Response.json(archive);
+                response.headers.set("access-control-allow-origin", "*");
+                response.headers.set("cache-control", "max-age=86400");
+                return response;
             }
         },
         "/api/galleries": {
@@ -39,7 +45,10 @@ const server = Bun.serve({
                 const glob = new Bun.Glob(dirname);
                 const filenames = await Array.fromAsync(glob.scan());
                 const galleries = await Array.fromAsync(filenames.map((filename) => Bun.file(filename).json())) as Gallery[];
-                return Response.json(galleries.flat());
+                const response =Response.json(galleries.flat());
+                response.headers.set("access-control-allow-origin", "*");
+                response.headers.set("cache-control", "max-age=86400");
+                return response;
             }
         },
         "/api/galleries/:season": {
@@ -50,7 +59,10 @@ const server = Bun.serve({
                 const glob = new Bun.Glob(nodePath.resolve(dirname, "*.json"));
                 const filenames = await Array.fromAsync(glob.scan());
                 const gallery = await Array.fromAsync(filenames.map((filename) => Bun.file(filename).json())) as Gallery;
-                return Response.json(gallery);
+                const response =Response.json(gallery);
+                response.headers.set("access-control-allow-origin", "*");
+                response.headers.set("cache-control", "max-age=86400");
+                return response;
             }
         },
         "/api/*": {
@@ -67,7 +79,10 @@ const server = Bun.serve({
                 const url = new URL(request.url);
                 const filename = nodePath.resolve(data, url.pathname.slice("/data/".length));
                 if(!filename.startsWith(data)) return Response.error();
-                return new Response(Bun.file(filename));
+                const response =new Response(Bun.file(filename));
+                response.headers.set("access-control-allow-origin", "*");
+                response.headers.set("cache-control", "max-age=86400");
+                return response;
             }
         },
 
@@ -78,7 +93,10 @@ const server = Bun.serve({
                 const url = new URL(request.url);
                 const filename = nodePath.resolve(dist, "assets", url.pathname.slice("/assets/".length));
                 if(!filename.startsWith(dist)) return Response.error();
-                return new Response(Bun.file(filename));
+                const response =new Response(Bun.file(filename));
+                response.headers.set("access-control-allow-origin", "*");
+                response.headers.set("cache-control", "max-age=86400");
+                return response;
             }
         },
 
@@ -87,7 +105,10 @@ const server = Bun.serve({
             async GET() {
                 // Fetches index
                 const filename = nodePath.resolve(dist, "index.html");
-                return new Response(Bun.file(filename));
+                const response = new Response(Bun.file(filename));
+                response.headers.set("access-control-allow-origin", "*");
+                response.headers.set("cache-control", "max-age=86400");
+                return response;
             }
         }
     }
