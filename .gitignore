@@ -1,2 +1,3 @@
+data/**/*.avif
 dist
 node_modules

@@ -1,19 +1,10 @@
 // Imports
 import type { Archive, Gallery, Profile } from "./type";
 import nodePath from "node:path";
-import sharp from "sharp";
 
 // Defines paths
 const data = nodePath.resolve("data");
 const dist = nodePath.resolve("dist");
-
-// Converts png to avif
-const pngs = await Array.fromAsync(new Bun.Glob(nodePath.resolve(data, "**", "*.png")).scan());
-for(const png of pngs) {
-    const avif = png.slice(0, ".png".length * -1) + ".avif";
-    if(await Bun.file(avif).exists()) continue;
-    sharp(png).avif().toFile(avif);
-}
 
 // Defines server
 const server = Bun.serve({
