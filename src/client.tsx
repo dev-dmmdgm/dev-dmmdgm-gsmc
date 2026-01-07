@@ -328,7 +328,7 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                     </section>
                 </div>
             </div>
-            <div id="gallery">{gallery.map((screenshot, index) => <button onClick={() => setScreenshotIndex(index)}><img src={screenshot.url}/><span>{screenshot.name}</span></button>)}</div>
+            <div id="archive-gallery">{gallery.map((screenshot, index) => <button onClick={() => setScreenshotIndex(index)}><img src={screenshot.url}/><span>{screenshot.name}</span></button>)}</div>
         </div>
         {screenshotIndex !== null ? <div id="screenshot">
             <button id="screenshot-previous" onClick={() => setScreenshotIndex((gallery.length + screenshotIndex - 1) % gallery.length)}>🞀</button>

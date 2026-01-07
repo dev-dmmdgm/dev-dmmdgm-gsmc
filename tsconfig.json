@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
-        "target": "esnext",
         "jsx": "react-jsx",
         "jsxImportSource": "preact",
         "module": "esnext",
         "moduleResolution": "bundler",
-        "strict": true
+        "strict": true,
+        "target": "esnext"
     }
 }

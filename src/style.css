@@ -291,9 +291,6 @@ main#archive {
         /* Changes size */
         height: 400px;
         width: 100%;
-
-        /* Changes spacing */
-        margin-bottom: 25px;
         
         /* Fits image */
         object-fit: cover;
@@ -307,6 +304,9 @@ main#archive {
         /* Changes size */
         width: 100%;
 
+        /* Changes spacing */
+        margin: 25px 0px;
+        
         /* Forces columns */
         display: flex;
         flex-direction: column;
@@ -390,6 +390,21 @@ main#archive {
                     & ul { display: flex; flex-direction: column; list-style: none; }
                     & span { align-items: center; display: flex; gap: 0px 5px; }
                     & img { height: 15px; width: 15px; }
+                }
+            }
+        }
+
+        /* Styles gallery */
+        & #archive-gallery {
+            background-color: #1f1f1f;
+            margin: 0px 25px;
+            border-radius: 5px;
+
+            /* Styles button */
+            & button {
+                width: 5%;
+                & img {
+                    width: 100%;
                 }
             }
         }

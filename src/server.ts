@@ -7,11 +7,12 @@ import sharp from "sharp";
 const data = nodePath.resolve("data");
 const dist = nodePath.resolve("dist");
 
-// PNG -> AVIF
-for await (const image of new Bun.Glob(nodePath.resolve(data, "**", "*.png")).scan()) {
-    const avifFile = `${image.slice(0, -4)}.avif`;
-    if (await Bun.file(avifFile).exists()) continue;
-    sharp(image).avif().toFile(avifFile);
+// Converts png to avif
+const pngs = await Array.fromAsync(new Bun.Glob(nodePath.resolve(data, "**", "*.png")).scan());
+for(const png of pngs) {
+    const avif = png.slice(0, ".png".length * -1) + ".avif";
+    if(await Bun.file(avif).exists()) continue;
+    sharp(png).avif().toFile(avif);
 }
 
 // Defines server
