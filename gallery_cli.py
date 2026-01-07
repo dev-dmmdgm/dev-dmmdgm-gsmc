@@ -42,7 +42,7 @@ def validate_timestamp(_, timestamp: str) -> bool:
         raise ValidationError("", reason = "Invalid timestamp given.")
 
 # Handle auto detection
-for file in Path("data").rglob("*.avif"):
+for file in Path("data").rglob("*.png"):
     data_file, image_data = file.with_suffix(".json"), {}
 
     # Figure out what we're missing
