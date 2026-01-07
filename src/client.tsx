@@ -8,8 +8,8 @@ import { LocationProvider, Route, Router } from "preact-iso";
 import { useEffect, useState } from "preact/hooks";
 import "./style.css";
 
-// Defines apis
-const gsmcAPI = "http://127.0.0.1:3000";
+// Defines root
+const root = "http://127.0.0.1:3000";
 
 // Defines routes
 function HomeRoute() {
@@ -204,7 +204,7 @@ function HomeRoute() {
             </div>
             <div>
                 <p>
-                    Go checkout the other pages on this website.
+                    Go check out the other pages on this website.
                 </p>
             </div>
             <div>
@@ -253,7 +253,7 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
     const [ camera, setCamera ] = useState<Profile | null>(null);
     useEffect(() => {
         // Fetches api
-        fetch(new URL(`/api/archives/${props.season}`, gsmcAPI)).then(async (response) => {
+        fetch(new URL(`/api/archives/${props.season}`, root)).then(async (response) => {
             // Creates archive
             if(!response.ok) return;
             const archiveJSON = await response.json() as Archive;
@@ -267,12 +267,12 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                 });
             }
         });
-        fetch(new URL(`/api/archives/${props.season}/gallery`, gsmcAPI)).then(async (response) => {
+        fetch(new URL(`/api/archives/${props.season}/gallery`, root)).then(async (response) => {
             // Creates gallery
             if(!response.ok) return;
             setGallery(await response.json() as Gallery);
         });
-        fetch(new URL(`/api/archives/${props.season}/profiles`, gsmcAPI)).then(async (response) => {
+        fetch(new URL(`/api/archives/${props.season}/profiles`, root)).then(async (response) => {
             // Creates profiles
             if(!response.ok) return;
             setProfiles(await response.json() as Profile[]);
@@ -280,7 +280,7 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
     }, []);
     useEffect(() => {
         if(screenshotIndex === null) setCamera(null);
-        else fetch(new URL(`/api/profiles/${gallery[screenshotIndex].camera}`, gsmcAPI)).then(async (response) => {
+        else fetch(new URL(`/api/profiles/${gallery[screenshotIndex].camera}`, root)).then(async (response) => {
             if(!response.ok) setCamera({ avatarURL: "", username: "", uuid: "" });
             setCamera(await response.json() as Profile);
         });
@@ -308,15 +308,15 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                     </section>
                     <section>
                         <h3>Achievements</h3>
-                        <ul>{archive.achievements.map((achievement) => <li><span>{achievement}</span></li>)}</ul>
+                        <ul>{archive.achievements.map((achievement) => <li><span>• {achievement}</span></li>)}</ul>
                     </section>
                     <section>
                         <h3>Modifications</h3>
-                        <ul>{archive.modifications.map((modification) => <li><span>{modification}</span></li>)}</ul>
+                        <ul>{archive.modifications.map((modification) => <li><span>• {modification}</span></li>)}</ul>
                     </section>
                     <section>
                         <h3>Players</h3>
-                        <ul>{profiles.map((profile) => <li><img src={profile.avatarURL}/><span>{profile.username}</span></li>)}</ul>
+                        <ul>{profiles.map((profile) => <li><span>• <img src={profile.avatarURL}/> {profile.username}</span></li>)}</ul>
                     </section>
                     <section>
                         <h3>Pack Download</h3>
@@ -382,7 +382,7 @@ function ArchivesRoute() {
         let archiveFront = document.getElementById("archive-3") as HTMLDivElement;
 
         // Fetches api
-        fetch(new URL("/api/archives", gsmcAPI)).then(async (response) => {
+        fetch(new URL("/api/archives", root)).then(async (response) => {
             // Creates archives
             if(!response.ok) return;
             const archives = await response.json() as Archive[];
@@ -471,9 +471,6 @@ function ArchivesRoute() {
 function GalleryRoute() {
     return <></>;
 }
-function GalleriesRoute() {
-    return <></>;
-}
 function PackerRoute() {
     return <></>;
 }
@@ -501,18 +498,19 @@ function App() {
             <ul id="tabs">
                 <li><a href="/">Home</a></li>
                 <li><a href="/archives">Archives</a></li>
-                <li><a href="/galleries">Galleries</a></li>
+                <li><a href="/gallery">Gallery</a></li>
                 <li><a href="/packer">Packer</a></li>
                 <li><a href="/more">More</a></li>
             </ul>
-            <a id="github" href="https://github.com/dev-dmmdgm/dev-dmmdgm-gsmc" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a>
+            <div id="github">
+                <a href="https://github.com/dev-dmmdgm/dev-dmmdgm-gsmc" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a>
+            </div>
         </nav>
         <Router>
             <Route path="/" component={HomeRoute}/>
             <Route path="/archives" component={ArchivesRoute}/>
             <Route path="/archives/:season" component={ArchiveRoute}/>
-            <Route path="/galleries" component={GalleriesRoute}/>
-            <Route path="/galleries/:season" component={GalleryRoute}/>
+            <Route path="/gallery/" component={GalleryRoute}/>
             <Route path="/packer" component={PackerRoute}/>
             <Route path="/more" component={MoreRoute}/>
             <Route default component={ErrorRoute}/>

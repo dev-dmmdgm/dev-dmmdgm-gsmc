@@ -129,19 +129,32 @@ nav {
             align-items: center;
             justify-content: center;
             text-align: center;
+
+            /* Styles anchor */
+            & a { font-size: 12px; line-height: 22px; }
         }
     }
 
     /* Styles github */
     & #github {
-        /* Changes color */
-        color: #6f6f6f;
-
         /* Changes size */
         width: 150px;
 
-        /* Centers element */
-        text-align: right;
+        /* Forces rows */
+        display: flex;
+
+        /* Aligns elements */
+        justify-content: right;
+        
+        /* Styles anchor */
+        & a {
+            /* Changes color */
+            color: #6f6f6f;
+
+            /* Changes font */
+            font-size: 12px;
+            line-height: 22px;
+        }
     }
 
     /* Handles mobile */
@@ -318,13 +331,7 @@ main#archive {
             justify-content: center;
 
             /* Styles objects */
-            & div {
-                color: #6f6f6f;
-                padding: 5px 10px;
-                text-align: center;
-                width: 150px;
-                font-size: 12px;
-            }
+            & div { color: #6f6f6f; font-size: 12px; line-height: 22px; text-align: center; width: 150px; }
         }
 
         /* Styles body */
@@ -338,19 +345,52 @@ main#archive {
 
             /* Styles content */
             & #archive-content {
+                /* Changes color */
                 background-color: #1f1f1f;
+
+                /* Changes size */
                 flex: 1;
-                padding: 25px 50px;
+
+                /* Changes spacing */
+                padding: 20px 25px;
+
+                /* Trims borders */
                 border-radius: 5px;
             }
 
             /* Styles logistics */
             & #archive-logistics {
-                width: 20%;
-                min-width: 200px;
+                /* Changes color */
                 background-color: #1f1f1f;
-                padding: 25px 50px;
+
+                /* Changes size */
+                width: 200px;
+
+                /* Changes spacing */
+                padding: 20px 25px;
+
+                /* Forces columns */
+                display: flex;
+                flex-direction: column;
+                gap: 10px 0px;
+
+                /* Trims borders */
                 border-radius: 5px;
+
+                /* Styles section */
+                & section {
+                    /* Forces columns */
+                    display: flex;
+                    flex-direction: column;
+
+                    /* Styles objects */
+                    & h3 { font-size: 12px; line-height: 22px; }
+                    & a { color: #8f4f4f; font-size: 12px; line-height: 22px; }
+                    & p, span { color: #6f6f6f; font-size: 12px; line-height: 22px; }
+                    & ul { display: flex; flex-direction: column; list-style: none; }
+                    & span { align-items: center; display: flex; gap: 0px 5px; }
+                    & img { height: 15px; width: 15px; }
+                }
             }
         }
     }
