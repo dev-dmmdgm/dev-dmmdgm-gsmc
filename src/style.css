@@ -306,7 +306,7 @@ main#archive {
 
         /* Changes spacing */
         margin: 25px 0px;
-        
+
         /* Forces columns */
         display: flex;
         flex-direction: column;
@@ -356,6 +356,9 @@ main#archive {
 
                 /* Trims borders */
                 border-radius: 5px;
+
+                /* Creates shadow */
+                box-shadow: 0px 0px 5px 3px #000;
             }
 
             /* Styles logistics */
@@ -377,6 +380,9 @@ main#archive {
                 /* Trims borders */
                 border-radius: 5px;
 
+                /* Creates shadow */
+                box-shadow: 0px 0px 5px 3px #000;
+
                 /* Styles section */
                 & section {
                     /* Forces columns */
@@ -396,16 +402,56 @@ main#archive {
 
         /* Styles gallery */
         & #archive-gallery {
+            /* Changes color */
             background-color: #1f1f1f;
+
+            /* Changes spacing */
             margin: 0px 25px;
+            padding: 25px 25px;
+
+            /* Forces rows */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px 25px;
+
+            /* Centers elements */
+            justify-content: space-around;
+
+            /* Trims borders */
             border-radius: 5px;
+
+            /* Creates shadow */
+            box-shadow: 0px 0px 5px 5px #000;
 
             /* Styles button */
             & button {
-                width: 5%;
-                & img {
-                    width: 100%;
-                }
+                /* Changes color */
+                background-color: #2f2f2f;
+
+                /* Changes size */
+                width: 175px;
+
+                /* Change spacing */
+                padding: 5px 5px;
+                
+                /* Forces columns */
+                display: flex;
+                flex-direction: column;
+                gap: 5px 0px;
+
+                /* Centers elements */
+                align-items: center;
+                justify-content: center;
+
+                /* Trims borders */
+                border-radius: 5px;
+
+                /* Creates shadow */
+                box-shadow: 0px 0px 3px 3px #111;
+
+                /* Styles objects */
+                & img { flex: 1; object-fit: contain; width: 100%; }
+                & span { color: #6f6f6f; font-size: 12px; line-height: 22px; text-align: center; }
             }
         }
     }
