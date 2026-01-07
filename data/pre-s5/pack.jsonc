@@ -1,0 +1,8 @@
+[
+    // Library
+    "fabric-api;modrinth;fabric;1.20.1",
+
+    // Feature
+    "tech-reborn;download;mod;https://github.com/TechReborn/TechReborn/releases/download/5.8.7/TechReborn-5.8.7.jar",
+    "paladins-furniture;modrinth;fabric;1.20.1"
+]

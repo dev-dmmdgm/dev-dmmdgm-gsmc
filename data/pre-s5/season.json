@@ -1,0 +1,43 @@
+{
+    "achievements":  [],
+    "active":        false,
+    "bannerURL":     "/data/pre-s5/gallery/room_2.avif",
+    "contentURL":    "/data/pre-s5/content.md",
+    "description":   "TBD.",
+    "modifications": [
+        "Ad Astra",
+        "Ad-Astra: Giselle Addon",
+        "Applied Energistics 2",
+        "Cat Jam",
+        "Chunkloaders",
+        "Cobblemon",
+        "Croptopia",
+        "Discord Integration",
+        "Hephaestus",
+        "Iron Jetpacks",
+        "Leaves Be Gone",
+        "Megane",
+        "Mine Cells",
+        "Paladin's Furniture",
+        "Sculk Depths",
+        "Tech Reborn",
+        "The Bumblezone",
+        "Traveler's Backpack",
+        "UU-Extended",
+        "WTHIT",
+        "You're In Grave Danger"
+    ],
+    "packURL":       "/data/pre-s5/pack.jsonc",
+    "platform":      "Fabric",
+    "players":       [
+        "8018c39c-3d81-434e-a02d-6e0813340fd6",
+        "d9736929-859d-478a-8575-02cc397673d7",
+        "bf0f7598-e7fe-4e09-b7a2-a1289d907bbd"
+    ],
+    "season":        "pre-s5",
+    "since":         "2024-06-21T00:00:00.000Z",
+    "title":         "Pre-Season 5",
+    "until":         "2024-06-23T00:00:00.000Z",
+    "version":       "1.20.1",
+    "worldURL":      "https://cdn.iipython.dev/geesecraft/GC_PS5M.7z"
+}
