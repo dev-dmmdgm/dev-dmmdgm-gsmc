@@ -79,6 +79,9 @@ for file in Path("data").rglob("*.avif"):
     if "time" in answers:
         answers["time"] = process_timestamp(answers["time"])
 
+    if "name" in answers:
+        answers["name"] = KNOWN_UUIDS[answers["name"]]
+
     # Save data to disk
     data_file.write_text(json.dumps(image_data | answers | {
         "filename": file.name,
