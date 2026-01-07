@@ -6,7 +6,6 @@
     "supermartijn642s-core-lib;modrinth;fabric;1.20.1",
     "supermartijn642s-config-lib;modrinth;fabric;1.20.1",
     "fabric-api;modrinth;fabric;1.20.1",
-    "cucumber;modrinth;fabric;1.20.1",
     "puzzles-lib;modrinth;fabric;1.20.1",
     "forge-config-api-port;modrinth;fabric;1.20.1",
     "owo-lib;modrinth;fabric;1.20.1",
@@ -14,6 +13,9 @@
     "cloth-config;modrinth;fabric;1.20.1",
     "cardinal-components-api;modrinth;fabric;1.20.1",
     "badpackets;modrinth;fabric;1.20.1",
+    "epherolib;modrinth;fabric;1.20.1",
+    "architectury-api;modrinth;fabric;1.20.1",
+    "autoconfig1u;download;mod;https://mediafilez.forgecdn.net/files/3668/220/autoconfig1u-3.4.0.jar",
 
     // Compatibility
     "megane;modrinth;fabric;1.20.1",
@@ -26,16 +28,16 @@
     "cat_jam;modrinth;fabric;1.20.1",
     "chunk-loaders;modrinth;fabric;1.20.1",
     "cobblemon;modrinth;fabric;1.20.1",
-    "croptopia;CURSEFORGE_REPLACE;fabric;1.20.1",
+    "croptopia;download;mod;https://mediafilez.forgecdn.net/files/4997/461/Croptopia-1.20.1-FABRIC-3.0.4.jar",
     "hephaestus;modrinth;fabric;1.20.1",
-    "iron-jetpacks;modrinth;fabric;1.20.1",
+    "iron-jetpacks;download;mod;https://mediafilez.forgecdn.net/files/4594/926/iron-jetpacks-0.4.7.jar",
     "leaves-be-gone;modrinth;fabric;1.20.1",
     "minecells;modrinth;fabric;1.20.1",
+    "tech-reborn;download;mod;https://github.com/TechReborn/TechReborn/releases/download/5.8.7/TechReborn-5.8.7.jar",
     "the-bumblezone-fabric;modrinth;fabric;1.20.1",
     "travelersbackpack;modrinth;fabric;1.20.1",
     "paladins-furniture;modrinth;fabric;1.20.1",
     "sculk-depths;modrinth;fabric;1.20.1",
     "uu-extended;modrinth;fabric;1.20.1",
-    "yigd;modrinth;fabric;1.20.1",
-    "tech-reborn;CURSEFORGE_REPLACE;fabric;1.20.1"
+    "yigd;modrinth;fabric;1.20.1"
 ]
