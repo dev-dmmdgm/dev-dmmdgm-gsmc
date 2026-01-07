@@ -32,7 +32,7 @@
         "Traveler's Backpack"
     ],
     "packURL":       "/data/s6/pack.jsonc",
-    "platform":      "fabric",
+    "platform":      "Fabric",
     "players":       [
         "8018c39c-3d81-434e-a02d-6e0813340fd6",
         "d9736929-859d-478a-8575-02cc397673d7",
@@ -41,7 +41,7 @@
         "a695d266-e3fe-4931-a961-0d8eafc0385d"
     ],
     "season":        "s6",
-    "since":         "2025-09-1T00:00:00.000Z",
+    "since":         "2025-09-01T00:00:00.000Z",
     "title":         "CWIL",
     "until":         "2029-06-30T00:00:00.000Z",
     "version":       "1.21.5",

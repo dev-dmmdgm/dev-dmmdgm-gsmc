@@ -1,312 +1,497 @@
 /* Animations */
-@keyframes oscillate {
-    0% {
-        translate: 0px -5px;
-    }
-
-    50% {
-        translate: 0px 5px;
-    }
-
-    100% {
-        translate: 0px -5px;
-    }
+@keyframes float {
+    /* Oscillates element */
+    0% { translate: 0px -5px; }
+    50% { translate: 0px 5px; }
+    100% { translate: 0px -5px; }
 }
 
 /* Reset */
 * {
+    /* Changes color */
     color: #efefef;
+    
+    /* Changes font */
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
-    line-height: 30px;
+    line-height: 25px;
+
+    /* Resets position */
+    position: relative;
+
+    /* Resets spacing */
     margin: 0px;
     padding: 0px;
-    position: relative;
 }
 
 /* Body */
-html, body, #app {
+body {
+    /* Changes color */
     background-color: #0f0f0f;
-    height: 100%;
-    width: 100%;
 }
 
 /* Anchor */
 a {
+    /* Removes underline */
     text-decoration: none;
-    transition: opacity 0.2s ease;
 
-    &:hover {
-        opacity: 75%;    
-    }
+    /* Creates hover effect */
+    transition: opacity 0.2s ease;
+    &:hover { opacity: 75%; }
 }
 
 /* Button */
 button {
+    /* Removes background */
     background: none;
     border: none;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
 
-    &:hover {
-        opacity: 75%;
-    }
+    /* Changes cursor */
+    cursor: pointer;
+
+    /* Creates hover effect */
+    transition: opacity 0.2s ease;
+    &:hover { opacity: 75%; }
+}
+
+/* App */
+#app {
+    /* Forces columns */
+    display: flex;
+    flex-direction: column;
+
+    /* Sets minimum height */
+    min-height: 100vh;
 }
 
 /* Navigation */
 nav {
-    align-items: center;
+    
+    /* Changes color */
     background-color: #1f1f1f;
-    box-shadow: 0px 0px 5px 5px #0f0f0f;
+
+    /* Changes spacing */
+    padding: 10px 25px;
+
+    /* Forces rows */
     display: flex;
     gap: 10px 25px;
+
+    /* Centers elements */
+    align-items: center;
     justify-content: space-between;
-    padding: 10px 25px;
+    
+    /* Creates shadow */
+    box-shadow: 0px 0px 5px 5px #0f0f0f;
     z-index: 1;
     
+    /* Styles geesecraft */
     & #geesecraft {
-        align-items: center;
-        display: flex;
-        justify-content: left;
+        /* Changes size */
         width: 150px;
+
+        /* Forces rows */
+        display: flex;
         gap: 0px 10px;
 
-        & img {
-            height: 25px;
-            width: 25px;
-        }
+        /* Centers elements */
+        align-items: center;
+        justify-content: left;
 
-        & div {
-            font-weight: bold;
-            text-align: center;
-        }
+        /* Styles logo */
+        & img { height: 25px; width: 25px; }
+        & div { font-weight: bold; text-align: center; }
     }
 
+    /* Styles tabs */
     & #tabs {
-        align-items: center;
+        /* Forces rows */
         display: flex;
         flex-wrap: wrap;
         gap: 0px 25px;
+
+        /* Centers elements */
+        align-items: center;
         justify-content: space-around;
+        
+        /* Removes bullet points */
         list-style: none;
 
+        /* Styles tab */
         & li {
-            align-items: center;
+            /* Changes size */
+            width: 75px;
+            
+            /* Forces rows */
             display: flex;
+
+            /* Centers element */
+            align-items: center;
             justify-content: center;
             text-align: center;
-            width: 75px;
         }
     }
 
+    /* Styles github */
     & #github {
+        /* Changes color */
         color: #6f6f6f;
-        text-align: right;
+
+        /* Changes size */
         width: 150px;
+
+        /* Centers element */
+        text-align: right;
     }
 
+    /* Handles mobile */
     @media screen and (max-width: 900px) {
         & {
+            /* Forces columns */
             flex-direction: column;
     
-            & #geesecraft {
-                justify-content: center;
-            }
+            /* Centers geesecraft */
+            & #geesecraft { justify-content: center; }
     
-            & #github {
-                display: none;
-            }
+            /* Hides github */
+            & #github { display: none; }
         }
     }
 }
 
 /* Main */
 main {
-    min-height: 100%;
+    /* Stretches main */
+    flex: 1;
 }
 
 /* Home Route */
 main#home {
+    /* Forces columns */
     display: flex;
     flex-direction: column;
 
+    /* Styles splash */
     & #splash {
-        align-items: center;
+        /* Changes size */
+        height: 650px;
+        width: 100%;
+
+        /* Forces columns */
         display: flex;
         flex-direction: column;
-        height: 500px;
-        gap: 25px 0px;
+        gap: 40px 0px;
+
+        /* Centers elements */
+        align-items: center;
         justify-content: center;
-        width: 100%;
+
+        /* Creates shadow */
         box-shadow: 0px 0px 5px 5px #000;
 
+        /* Styles background */
         & img {
+            /* Changes size */
             height: 100%;
-            object-fit: cover;
-            position: absolute;
-            transition: opacity 3s ease;
             width: 100%;
+
+            /* Changes position */
+            position: absolute;
+
+            /* Fits image */
+            object-fit: cover;
+
+            /* Creates fade effect */
+            transition: opacity 3s ease;
         }
 
+        /* Styles text */
         & h1, h2, div {
+            /* Changes color */
             color: #8f4f4f;
             filter: invert(100%);
-            font-size: 20px;
-            line-height: 40px;
             mix-blend-mode: difference;
+
+            /* Changes font */
+            font-size: 20px;
+            line-height: 30px;
+
+            /* Centers elements */
             text-align: center;
         }
 
-        & h1 {
-            font-size: 50px;
-            line-height: 100px;
-        }
+        /* Styles title */
+        & h1 { font-size: 50px; line-height: 60px; }
 
-        & div {
-            animation: 3s ease-in-out infinite oscillate;
-            translate: 0% 0%;
-        }
+        /* Styles floater */
+        & div { animation: 3s ease-in-out infinite float; translate: 0% 0%; }
     }
 
+    /* Styles details */
     & section {
-        align-items: center;
+        /* Changes spacing */
+        padding: 50px 50px;
+
+        /* Forces columns */
         display: flex;
         flex-direction: column;
         gap: 25px 0px;
-        padding: 50px 100px;
 
-        & h3 {
-            font-size: 30px;
-            line-height: 60px;
-            text-align: center;
-        }
+        /* Centers elements */
+        align-items: center;
 
+        /* Styles title */
+        & h3 { font-size: 30px; line-height: 40px; text-align: center; }
+
+        /* Styles description */
         & div {
+            /* Forces rows */
             display: flex;
-            gap: 25px 25px;
-            justify-content: space-around;
             flex-wrap: wrap;
+            gap: 25px 25px;
 
-            & p {
-                text-align: center;
-            }
-    
-            & img {
-                max-height: 150px;
-                object-fit: contain;
-                max-width: 100%;
-            }
+            /* Centers elements */
+            justify-content: center;
+
+            /* Styles objects */
+            & p { text-align: center; }
+            & img { max-height: 200px; max-width: 100%; object-fit: contain; }
         }
 
-        &.high {
-            background-color: #1f1f1f;
-            box-shadow: 0px 0px 5px 5px #000;
-        }
-    }    
+        /* Creates subclass */
+        &.high { background-color: #1f1f1f; box-shadow: 0px 0px 5px 5px #000; }
+    }
 }
 
 /* Archive Route */
-main#archives {
-    align-items: center;
+main#archive {
+    /* Forces columns */
     display: flex;
     flex-direction: column;
-    margin: 50px 100px;
+    gap: 25px 0px;
 
-    & h1 {
-        font-size: 40px;
-        line-height: 80px;   
+    /* Centers elements */
+    align-items: center;
+
+    /* Styles splash */
+    & #archive-splash {
+        /* Changes size */
+        height: 400px;
+        width: 100%;
+
+        /* Changes spacing */
+        margin-bottom: 25px;
+        
+        /* Fits image */
+        object-fit: cover;
+
+        /* Creates shadow */
+        box-shadow: 0px 0px 5px 5px #000;
     }
 
-    & #archive-list {
-        height: 300px;
+    /* Styles data */
+    & #archive-data {
+        /* Changes size */
+        width: 100%;
+
+        /* Forces columns */
         display: flex;
+        flex-direction: column;
+        gap: 25px 0px;
+
+        /* Styles titles */
+        & h1 { font-size: 40px; line-height: 50px; text-align: center; }
+        & h2 { text-align: center; }
+
+        /* Styles meta */
+        & #archive-meta {
+            /* Changes spacing */
+            margin: 0px 50px;
+
+            /* Forces rows */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0px 25px;
+
+            /* Centers elements */
+            align-items: center;
+            justify-content: center;
+
+            /* Styles objects */
+            & div {
+                color: #6f6f6f;
+                padding: 5px 10px;
+                text-align: center;
+                width: 150px;
+                font-size: 12px;
+            }
+        }
+
+        /* Styles body */
+        & #archive-body {
+            /* Changes spacing */
+            margin: 0px 25px;
+
+            /* Forces rows */
+            display: flex;
+            gap: 25px 25px;
+
+            /* Styles content */
+            & #archive-content {
+                background-color: #1f1f1f;
+                flex: 1;
+                padding: 25px 50px;
+                border-radius: 5px;
+            }
+
+            /* Styles logistics */
+            & #archive-logistics {
+                width: 20%;
+                min-width: 200px;
+                background-color: #1f1f1f;
+                padding: 25px 50px;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+/* Archives Route */
+main#archives {
+    /* Changes spacing */
+    margin: 50px 50px;
+
+    /* Forces columns */
+    display: flex;
+    flex-direction: column;
+    gap: 25px 0px;
+
+    /* Centers elements */
+    align-items: center;
+
+    /* Styles titles */
+    & h1 { font-size: 40px; line-height: 50px; text-align: center; }
+    & h2 { text-align: center; }
+
+    /* Styles list */
+    & #archive-list {
+        /* Changes size */
+        width: 100%;
+
+        /* Forces rows */
+        display: flex;
+        gap: 0px 25px;
+
+        /* Centers elements */
         align-items: center;
         justify-content: space-between;
-        gap: 0px 25px;
-        width: 100%;
-        margin-top: 50px;
 
+        /* Styles button */
         & button {
+            /* Changes color */
             background-color: #1f1f1f;
-            border-radius: 5px;
+
+            /* Changes size */
             height: fit-content;
+
+            /* Changes spacing */
             padding: 10px 10px;
+
+            /* Trims borders */
+            border-radius: 5px;
         }
 
-        & .archive {
+        /* Styles blank */
+        & #archive-blank {
+            /* Changes size */
             aspect-ratio: 16 / 9;
-            background-color: #1f1f1f;
-            box-shadow: 0px 0px 5px 5px #000;
-            border-radius: 5px;
-            max-height: 100%;
-            overflow: hidden;
-            position: absolute;
-            transition: height 1s ease, width 1s ease, left 1s ease, translate 1s ease, z-index 1s ease;
+            width: 50%;
+        }
 
+        /* Styles archive */
+        & .archive {
+            /* Changes color */
+            background-color: #1f1f1f;
+
+            /* Changes position */
+            left: 50%;
+            position: absolute;
+            translate: -50% 0%;
+
+            /* Changes size */
+            aspect-ratio: 16 / 9;
+            height: fit-content;
+
+            /* Creates shadow */
+            box-shadow: 0px 0px 5px 5px #000;
+
+            /* Trims borders */
+            border-radius: 5px;
+            overflow: hidden;
+
+            /* Creates cycle animation */
+            &.archive-back { left: 50%; translate: -50% 0%; width: 25%; z-index: 0; }
+            &.archive-left { left: 25%; translate: -25% 0%; width: 40%; z-index: 1; }
+            &.archive-right { left: 75%; translate: -75% 0%; width: 40%; z-index: 2; }
+            &.archive-front { left: 50%; translate: -50% 0%; width: 50%; z-index: 3; }
+            transition: left 0.5s ease, translate 0.5s ease, width 0.5s ease, z-index 0.5s ease;
+
+            /* Styles cards */
             & a {
+                /* Changes size */
+                height: 100%;
+
+                /* Forces columns */
                 display: flex;
                 flex-direction: column;
-                height: 100%;
                 gap: 5px 0px;
 
-                & img {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                }
+                /* Styles background */
+                & img { height: 100%; object-fit: cover; width: 100%; }
 
+                /* Styles details */
                 & section {
-                    position: absolute;
-                    font-size: 12px;
-                    padding: 10px 0px;
-                    display: flex;
-                    flex-direction: column;
+                    /* Changes color */
+                    background-color: #1f1f1fbf;
+                    
+                    /* Changes position */
                     bottom: 0px;
                     left: 0px;
+                    position: absolute;
+                    
+                    /* Changes spacing */
+                    padding: 10px 0px;
+                    
+                    /* Changes size */
                     width: 100%;
-                    background-color: #1f1f1fbf;
+                    
+                    /* Forces columns */
+                    display: flex;
+                    flex-direction: column;
 
-                    & h3, p {
-                        font-size: 12px;
-                        padding: 0px 25px;
-                        line-height: 24px;
-                    }
+                    /* Styles text */
+                    & h3, p { font-size: 12px; line-height: 22px; padding: 0px 25px; }
                 }
-            }
-
-            &.archive-left {
-                left: 25%;
-                translate: -25% 0%;
-                width: 40%;
-                z-index: 1;
-            }
-
-            &.archive-right {
-                left: 75%;
-                translate: -75% 0%;
-                width: 40%;
-                z-index: 2;
-            }
-
-            &.archive-back {
-                left: 50%;
-                translate: -50% 0%;
-                width: 25%;
-                z-index: 0;
-            }
-
-            &.archive-front {
-                left: 50%;
-                translate: -50% 0%;
-                width: 50%;
-                z-index: 3;
             }
         }
     }
 
-    @media screen and (max-width: 900px) {
-        & #archive-list {
-            & .archive {
+    /* Handles mobile */
+    @media screen and (max-width: 700px) {
+        & {
+            /* Styles list */
+            & #archive-list {
+                /* Styles blank */
+                & #archive-blank {
+                    /* Changes size */
+                    aspect-ratio: 3 / 4;
+                }
+
+                /* Styles archive */
+                & .archive {
+                    /* Changes size */
+                    aspect-ratio: 3 / 4;
+                }
             }
         }
     }
@@ -314,41 +499,52 @@ main#archives {
 
 /* Error Route */
 main#error {
-    align-items: center;
+    /* Changes spacing */
+    margin: 50px 50px;
+
+    /* Forces columns */
     display: flex;
     flex-direction: column;
-    margin: 50px 100px;
+    gap: 25px 0px;
 
-    & h1 {
-        font-size: 40px;
-        line-height: 80px;
-    }
+    /* Centers elements */
+    align-items: center;
 
-    & a {
-        margin-top: 100px;
-    }
+    /* Styles titles */
+    & h1 { font-size: 40px; line-height: 50px; text-align: center; }
+    & h2 { text-align: center; }
+
+    /* Styles link */
+    & a { margin-top: 100px; }
 }
 
 /* Footer */
 footer {
-    align-items: center;
-    background: #1f1f1f;
-    box-shadow: 0px 0px 5px 5px #000;
+    /* Changes color */
+    background-color: #1f1f1f;
+
+    /* Changes spacing */
+    padding: 10px 25px;
+
+    /* Forces rows */
     display: flex;
     gap: 10px 25px;
+
+    /* Centers elements */
+    align-items: center;
     justify-content: space-around;
-    padding: 10px 25px;
+
+    /* Creates shadow */
+    box-shadow: 0px 0px 5px 5px #000;
     z-index: 1;
 
-    & a, div {
-        color: #6f6f6f;
-        font-size: 10px;
-        line-height: 20px;
-        text-align: center;
-    }
+    /* Styles details */
+    & a, div { color: #6f6f6f; font-size: 10px; line-height: 20px; text-align: center; }
 
+    /* Handles mobile */
     @media screen and (max-width: 900px) {
         & {
+            /* Forces columns */
             flex-direction: column;
         }
     }

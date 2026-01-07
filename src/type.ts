@@ -17,15 +17,22 @@ export interface Archive {
     worldURL:      string | null;  // URL to the world download.
 }
 
+// Defines profile interface
+export interface Profile {
+    avatarURL:     string;         // URL to the player's avatar.
+    username:      string;         // Minecraft in-game username for the player.
+    uuid:          string;         // Player's Minecraft UUID.
+}
+
 // Defines screenshot interface
 export interface Screenshot {
-    camera:      string;           // Player UUID of the person who took this screenshot.
-    description: string;           // Short description about the screenshot.
-    filename:    string;           // Screenshot filename for download.
-    name:        string;           // Short title for the screenshot.
-    season:      string;           // Season ID for API usage.
-    time:        string;           // Time when the screenshot was taken.
-    url:         string;           // URL to the screenshot file.
+    camera:        string;         // Player UUID of the person who took this screenshot.
+    description:   string;         // Short description about the screenshot.
+    filename:      string;         // Screenshot filename for download.
+    name:          string;         // Short title for the screenshot.
+    season:        string;         // Season ID for API usage.
+    time:          string;         // Time when the screenshot was taken.
+    url:           string;         // URL to the screenshot file.
 }
 
 // Defines gallery type

@@ -1,5 +1,5 @@
 // Imports
-import type { Archive, Gallery } from "./type";
+import type { Archive, Gallery, Profile } from "./type";
 import nodePath from "node:path";
 
 // Defines paths
@@ -19,6 +19,8 @@ const server = Bun.serve({
                 const glob = new Bun.Glob(dirname);
                 const filenames = await Array.fromAsync(glob.scan());
                 const archives = await Array.fromAsync(filenames.map((filename) => Bun.file(filename).json())) as Archive[];
+
+                // Creates response
                 const response = Response.json(archives);
                 response.headers.set("access-control-allow-origin", "*");
                 response.headers.set("cache-control", "max-age=86400");
@@ -32,7 +34,45 @@ const server = Bun.serve({
                 if(!dirname.startsWith(data)) return Response.error();
                 const filename = nodePath.resolve(dirname, "season.json");
                 const archive = await Bun.file(filename).json() as Archive;
-                const response =Response.json(archive);
+
+                // Creates response
+                const response = Response.json(archive);
+                response.headers.set("access-control-allow-origin", "*");
+                response.headers.set("cache-control", "max-age=86400");
+                return response;
+            }
+        },
+        "/api/archives/:season/gallery": {
+            async GET(request) {
+                // Creates response
+                const response = Response.redirect(`/api/galleries/${request.params.season}`);
+                response.headers.set("access-control-allow-origin", "*");
+                response.headers.set("cache-control", "max-age=86400");
+                return response;
+            }
+        },
+        "/api/archives/:season/profiles": {
+            async GET(request) {
+                // Fetches archive
+                const dirname = nodePath.resolve(data, request.params.season);
+                if(!dirname.startsWith(data)) return Response.error();
+                const filename = nodePath.resolve(dirname, "season.json");
+                const archive = await Bun.file(filename).json() as Archive;
+
+                // Fetches profiles
+                const players = await Array.fromAsync(archive.players.map(async (player) => { 
+                    const response = await fetch(new URL(`/minecraft/profile/lookup/${player}`, "https://api.minecraftservices.com"));
+                    if(!response.ok) return { id: player, name: player };
+                    return await response.json() as { id: string; name: string; };
+                }));
+                const profiles: Profile[] = players.map((player) => ({
+                    avatarURL: new URL(`/avatar/${player.id}`, "https://mc-heads.net").toString(),
+                    username: player.name,
+                    uuid: player.id
+                }));
+
+                // Creates response
+                const response = Response.json(profiles);
                 response.headers.set("access-control-allow-origin", "*");
                 response.headers.set("cache-control", "max-age=86400");
                 return response;
@@ -45,7 +85,9 @@ const server = Bun.serve({
                 const glob = new Bun.Glob(dirname);
                 const filenames = await Array.fromAsync(glob.scan());
                 const galleries = await Array.fromAsync(filenames.map((filename) => Bun.file(filename).json())) as Gallery[];
-                const response =Response.json(galleries.flat());
+
+                // Creates response
+                const response = Response.json(galleries.flat());
                 response.headers.set("access-control-allow-origin", "*");
                 response.headers.set("cache-control", "max-age=86400");
                 return response;
@@ -59,7 +101,56 @@ const server = Bun.serve({
                 const glob = new Bun.Glob(nodePath.resolve(dirname, "*.json"));
                 const filenames = await Array.fromAsync(glob.scan());
                 const gallery = await Array.fromAsync(filenames.map((filename) => Bun.file(filename).json())) as Gallery;
-                const response =Response.json(gallery);
+
+                // Creates response
+                const response = Response.json(gallery);
+                response.headers.set("access-control-allow-origin", "*");
+                response.headers.set("cache-control", "max-age=86400");
+                return response;
+            }
+        },
+        "/api/profiles": {
+            async GET() {
+                // Fetches archives
+                const dirname = nodePath.resolve(data, "*", "season.json");
+                const glob = new Bun.Glob(dirname);
+                const filenames = await Array.fromAsync(glob.scan());
+                const archives = await Array.fromAsync(filenames.map((filename) => Bun.file(filename).json())) as Archive[];
+
+                // Fetches profiles
+                const uuids = Array.from(new Set(archives.flatMap((archive) => archive.players)));
+                const players = await Array.fromAsync(uuids.map(async (uuid) => { 
+                    const query = await fetch(new URL(`/minecraft/profile/lookup/${uuid}`, "https://api.minecraftservices.com"));
+                    if(!query.ok) return { id: "", name: "" };
+                    return await query.json() as { id: string; name: string; };
+                }));
+                const profiles: Profile[] = players.map((player) => ({
+                    avatarURL: new URL(`/avatar/${player.id}`, "https://mc-heads.net").toString(),
+                    username: player.name,
+                    uuid: player.id
+                }));
+
+                // Creates response
+                const response = Response.json(profiles);
+                response.headers.set("access-control-allow-origin", "*");
+                response.headers.set("cache-control", "max-age=86400");
+                return response;
+            }
+        },
+        "/api/profiles/:player": {
+            async GET(request) {
+                // Fetches profile
+                const uuid = request.params.player;
+                const query = await fetch(new URL(`/minecraft/profile/lookup/${uuid}`, "https://api.minecraftservices.com"));
+                const player = query.ok ? await query.json() as { id: string; name: string; } : { id: "", name: "" };
+                const profile: Profile = {
+                    avatarURL: new URL(`/avatar/${player.id}`, "https://mc-heads.net").toString(),
+                    username: player.name,
+                    uuid: player.id
+                };
+
+                // Creates response
+                const response = Response.json(profile);
                 response.headers.set("access-control-allow-origin", "*");
                 response.headers.set("cache-control", "max-age=86400");
                 return response;
@@ -79,7 +170,9 @@ const server = Bun.serve({
                 const url = new URL(request.url);
                 const filename = nodePath.resolve(data, url.pathname.slice("/data/".length));
                 if(!filename.startsWith(data)) return Response.error();
-                const response =new Response(Bun.file(filename));
+
+                // Creates response
+                const response = new Response(Bun.file(filename));
                 response.headers.set("access-control-allow-origin", "*");
                 response.headers.set("cache-control", "max-age=86400");
                 return response;
@@ -93,7 +186,9 @@ const server = Bun.serve({
                 const url = new URL(request.url);
                 const filename = nodePath.resolve(dist, "assets", url.pathname.slice("/assets/".length));
                 if(!filename.startsWith(dist)) return Response.error();
-                const response =new Response(Bun.file(filename));
+
+                // Creates response
+                const response = new Response(Bun.file(filename));
                 response.headers.set("access-control-allow-origin", "*");
                 response.headers.set("cache-control", "max-age=86400");
                 return response;
@@ -105,6 +200,8 @@ const server = Bun.serve({
             async GET() {
                 // Fetches index
                 const filename = nodePath.resolve(dist, "index.html");
+
+                // Creates response
                 const response = new Response(Bun.file(filename));
                 response.headers.set("access-control-allow-origin", "*");
                 response.headers.set("cache-control", "max-age=86400");

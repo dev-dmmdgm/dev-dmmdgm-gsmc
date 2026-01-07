@@ -1,9 +1,15 @@
 // Imports
+import type { RoutePropsForPath } from "preact-iso";
+import type { Archive, Gallery, Profile, Screenshot } from "./type";
+import DOMPurity from "dompurify";
+import { marked } from "marked";
 import { render } from "preact";
 import { LocationProvider, Route, Router } from "preact-iso";
 import { useEffect, useState } from "preact/hooks";
 import "./style.css";
-import type { Archive } from "./type";
+
+// Defines apis
+const gsmcAPI = "http://127.0.0.1:3000";
 
 // Defines routes
 function HomeRoute() {
@@ -209,8 +215,135 @@ function HomeRoute() {
         </section>
     </main>;
 }
-function ArchiveRoute() {
-    return <></>;   
+function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
+    // Defines date handlers
+    function dateDelta(since: Date, until: Date): number {
+        // Calculates delta
+        const delta = until.getTime() - since.getTime();
+        return Math.floor(delta / 1000 / 60 / 60 / 24);
+    }
+    function dateUTC(date: Date): string {
+        // Formats date
+        const offset = date.getTimezoneOffset() * 60 * 1000;
+        return new Date(date.getTime() + offset).toLocaleDateString();
+    }
+
+    // Defines archive
+    const [ archive, setArchive ] = useState<Archive>({
+        achievements: [],
+        active: false,
+        bannerURL: null,
+        contentURL: null,
+        description: "",
+        modifications: [],
+        packURL: null,
+        platform: "",
+        players: [],
+        season: "",
+        since: "",
+        title: "",
+        until: "",
+        version: "",
+        worldURL: null
+    });
+    const [ content, setContent ] = useState<string>("");
+    const [ profiles, setProfiles ] = useState<Profile[]>([]);
+    const [ gallery, setGallery ] = useState<Gallery>([]);
+    const [ screenshotIndex, setScreenshotIndex ] = useState<number | null>(null);
+    const [ camera, setCamera ] = useState<Profile | null>(null);
+    useEffect(() => {
+        // Fetches api
+        fetch(new URL(`/api/archives/${props.season}`, gsmcAPI)).then(async (response) => {
+            // Creates archive
+            if(!response.ok) return;
+            const archiveJSON = await response.json() as Archive;
+            setArchive(archiveJSON);
+
+            // Creates content
+            if(archiveJSON.contentURL !== null) {
+                fetch(archiveJSON.contentURL).then(async (subresponse) => {
+                    if(!subresponse.ok) return;
+                    setContent(await subresponse.text());
+                });
+            }
+        });
+        fetch(new URL(`/api/archives/${props.season}/gallery`, gsmcAPI)).then(async (response) => {
+            // Creates gallery
+            if(!response.ok) return;
+            setGallery(await response.json() as Gallery);
+        });
+        fetch(new URL(`/api/archives/${props.season}/profiles`, gsmcAPI)).then(async (response) => {
+            // Creates profiles
+            if(!response.ok) return;
+            setProfiles(await response.json() as Profile[]);
+        });
+    }, []);
+    useEffect(() => {
+        if(screenshotIndex === null) setCamera(null);
+        else fetch(new URL(`/api/profiles/${gallery[screenshotIndex].camera}`, gsmcAPI)).then(async (response) => {
+            if(!response.ok) setCamera({ avatarURL: "", username: "", uuid: "" });
+            setCamera(await response.json() as Profile);
+        });
+    }, [ screenshotIndex ]);
+    
+    // Creates archive route
+    return <main id="archive">
+        <img id="archive-splash" src={archive.bannerURL ?? ""}/>
+        <div id="archive-data">
+            <h1>{archive.title}</h1>
+            <h2>{archive.description}</h2>
+            <div id="archive-meta">
+                <div>{dateUTC(new Date(archive.since))} - {dateUTC(new Date(archive.until))}</div>
+                <div>{dateDelta(new Date(archive.since), new Date(archive.until))} Day(s)</div>
+                <div>{archive.platform}</div>
+                <div>{archive.version}</div>
+                <div>{archive.active ? "Active" : "Sunset"}</div>
+            </div>
+            <div id="archive-body">
+                <div id="archive-content" dangerouslySetInnerHTML={{ __html: DOMPurity.sanitize(marked.parse(content, { async: false })) }}/>
+                <div id="archive-logistics">
+                    <section>
+                        <h3>Description</h3>
+                        <p>{archive.description}</p>
+                    </section>
+                    <section>
+                        <h3>Achievements</h3>
+                        <ul>{archive.achievements.map((achievement) => <li><span>{achievement}</span></li>)}</ul>
+                    </section>
+                    <section>
+                        <h3>Modifications</h3>
+                        <ul>{archive.modifications.map((modification) => <li><span>{modification}</span></li>)}</ul>
+                    </section>
+                    <section>
+                        <h3>Players</h3>
+                        <ul>{profiles.map((profile) => <li><img src={profile.avatarURL}/><span>{profile.username}</span></li>)}</ul>
+                    </section>
+                    <section>
+                        <h3>Pack Download</h3>
+                        {archive.packURL !== null ? <a href={archive.packURL} download="pack.jsonc">Click to Download</a> : <p>Download Not Available</p>}
+                    </section>
+                    <section>
+                        <h3>World Download</h3>
+                        {archive.worldURL !== null ? <a href={archive.worldURL} download="world.zip">Click to Download</a> : <p>Download Not Available</p>}
+                    </section>
+                </div>
+            </div>
+            <div id="gallery">{gallery.map((screenshot, index) => <button onClick={() => setScreenshotIndex(index)}><img src={screenshot.url}/><span>{screenshot.name}</span></button>)}</div>
+        </div>
+        {screenshotIndex !== null ? <div id="screenshot">
+            <button id="screenshot-previous" onClick={() => setScreenshotIndex((gallery.length + screenshotIndex - 1) % gallery.length)}>🞀</button>
+            <div id="screenshot-display">
+                <img id="screenshot-image" src={gallery[screenshotIndex].url}/>
+                <section>
+                    <div>{gallery[screenshotIndex].name}</div>
+                    <div>{gallery[screenshotIndex].description}</div>
+                    {camera !== null ? <div><img src={camera.avatarURL}/> {camera.username}</div> : <></>}
+                    <button id="screenshot-close" onClick={() => setScreenshotIndex(null)}>Close</button>
+                </section>
+            </div>
+            <button id="screenshot-next" onClick={() => setScreenshotIndex((screenshotIndex + 1) % gallery.length)}>🞂</button>
+        </div> : <></>}
+    </main>;   
 }
 function ArchivesRoute() {
     // Defines archives
@@ -227,7 +360,7 @@ function ArchivesRoute() {
             
             // Updates elements
             archiveAnchor.href = `/archives/${archive.season}`;
-            archiveBanner.src = archive.bannerURL ?? "/assets/bread.png";
+            archiveBanner.src = archive.bannerURL ?? "";
             archiveTitle.innerText = archive.title;
             archiveDescription.innerText = archive.description;
         }
@@ -238,59 +371,62 @@ function ArchivesRoute() {
 
         // Creates timeout
         let archiveTimeout = setTimeout(() => {});
+        let archiveBusy = true;
 
         // Fetches elements
         const archivePrevious = document.getElementById("archive-previous") as HTMLButtonElement;
         const archiveNext = document.getElementById("archive-next") as HTMLButtonElement;
-        let archiveLeft = document.getElementById("archive-0") as HTMLDivElement;
-        let archiveRight = document.getElementById("archive-1") as HTMLDivElement;
-        let archiveBack = document.getElementById("archive-2") as HTMLDivElement;
+        let archiveBack = document.getElementById("archive-0") as HTMLDivElement;
+        let archiveLeft = document.getElementById("archive-1") as HTMLDivElement;
+        let archiveRight = document.getElementById("archive-2") as HTMLDivElement;
         let archiveFront = document.getElementById("archive-3") as HTMLDivElement;
 
         // Fetches api
-        let archiveBusy = true;
-        fetch("http://127.0.0.1:3000/api/archives").then(async (response) => {
+        fetch(new URL("/api/archives", gsmcAPI)).then(async (response) => {
             // Creates archives
+            if(!response.ok) return;
             const archives = await response.json() as Archive[];
             if(archives.length === 0) return;
             archives.sort((a, b) => +new Date(a.since) - +new Date(b.since));
-            console.log(archives);
+            
             // Updates listeners
             archivePreviousListener = async () => {
+                // Checks busy
                 if(archiveBusy) return;
                 archiveBusy = true;
+
+                // Cycles elements
                 updateArchive(archiveBack, archives[(archives.length + archiveIndex - 2) % archives.length]);
-                archiveLeft.classList.remove("archive-left");
-                archiveLeft.classList.add("archive-front");
-                archiveRight.classList.remove("archive-right");
-                archiveRight.classList.add("archive-back");
-                archiveBack.classList.remove("archive-back");
-                archiveBack.classList.add("archive-left");
-                archiveFront.classList.remove("archive-front");
-                archiveFront.classList.add("archive-right");
-                [ archiveLeft, archiveRight, archiveBack, archiveFront ] = [ archiveBack, archiveFront, archiveRight, archiveLeft ];
+                archiveBack.classList.replace("archive-back", "archive-left");
+                archiveLeft.classList.replace("archive-left", "archive-front");
+                archiveRight.classList.replace("archive-right", "archive-back");
+                archiveFront.classList.replace("archive-front", "archive-right");
+                [ archiveLeft, archiveFront, archiveBack, archiveRight ] = [ archiveBack, archiveLeft, archiveRight, archiveFront ];
+
+                // Awaits animation
                 archiveTimeout = setTimeout(() => {
                     archiveIndex = (archives.length + archiveIndex - 1) % archives.length;
                     archiveBusy = false;
-                }, 1000);
+                }, 500);
             };
             archiveNextListener = async () => {
+                // Checks busy
                 if(archiveBusy) return;
                 archiveBusy = true;
+
+                // Cycles elements
                 updateArchive(archiveBack, archives[(archiveIndex + 2) % archives.length]);
-                archiveLeft.classList.remove("archive-left");
-                archiveLeft.classList.add("archive-back");
-                archiveRight.classList.remove("archive-right");
-                archiveRight.classList.add("archive-front");
-                archiveBack.classList.remove("archive-back");
-                archiveBack.classList.add("archive-right");
-                archiveFront.classList.remove("archive-front");
-                archiveFront.classList.add("archive-left");
-                [ archiveLeft, archiveRight, archiveBack, archiveFront ] = [ archiveFront, archiveBack, archiveLeft, archiveRight ];
+                archiveBack.classList.replace("archive-back", "archive-right");
+                archiveLeft.classList.replace("archive-left", "archive-back");
+                archiveRight.classList.replace("archive-right", "archive-front");
+                archiveFront.classList.replace("archive-front", "archive-left");
+                [ archiveRight, archiveBack, archiveFront, archiveLeft ] = [ archiveBack, archiveLeft, archiveRight, archiveFront ];
+                
+                // Awaits animation
                 archiveTimeout = setTimeout(() => {
                     archiveIndex = (archiveIndex + 1) % archives.length;
                     archiveBusy = false;
-                }, 1000);
+                }, 500);
             };
             
             // Appends listeners
@@ -299,12 +435,12 @@ function ArchivesRoute() {
 
             // Updates archives
             archiveIndex = archives.length - 1;
-            updateArchive(archiveFront, archives[archiveIndex]);
             updateArchive(archiveLeft, archives[(archives.length + archiveIndex - 1) % archives.length]);
             updateArchive(archiveRight, archives[(archiveIndex + 1) % archives.length]);
+            updateArchive(archiveFront, archives[archiveIndex]);
+            archiveBack.classList.add("archive-back");
             archiveLeft.classList.add("archive-left");
             archiveRight.classList.add("archive-right");
-            archiveBack.classList.add("archive-back");
             archiveFront.classList.add("archive-front");
             archiveBusy = false;
         });
@@ -314,14 +450,16 @@ function ArchivesRoute() {
             archivePrevious.removeEventListener("click", archivePreviousListener);
             archiveNext.removeEventListener("click", archiveNextListener);
             clearTimeout(archiveTimeout);
-        }
+        };
     }, []);
 
+    // Creates archives route
     return <main id="archives">
         <h1>Season Archives</h1>
         <h2>"Behold, the entire history of Geesecraft!"</h2>
         <div id="archive-list">
             <button id="archive-previous">🞀</button>
+            <div id="archive-blank"/>
             <button id="archive-next">🞂</button>
             <div class="archive" id="archive-0"><a><img/><section><h3/><p/></section></a></div>
             <div class="archive" id="archive-1"><a><img/><section><h3/><p/></section></a></div>
