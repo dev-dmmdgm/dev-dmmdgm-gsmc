@@ -335,11 +335,11 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
             <div id="screenshot-display">
                 <img id="screenshot-image" src={gallery[screenshotIndex].url}/>
                 <section>
-                    <div>{gallery[screenshotIndex].name}</div>
-                    <div>{gallery[screenshotIndex].description}</div>
-                    {camera !== null ? <div><img src={camera.avatarURL}/> {camera.username}</div> : <></>}
-                    <button id="screenshot-close" onClick={() => setScreenshotIndex(null)}>Close</button>
+                    <h3>{gallery[screenshotIndex].name} ({gallery[screenshotIndex].filename})</h3>
+                    <span>{gallery[screenshotIndex].description}</span>
+                    <span>{camera !== null ? <><span><img src={camera.avatarURL}/> {camera.username}</span><span>•</span></> : <></>} {dateUTC(new Date(gallery[screenshotIndex].time))}</span>
                 </section>
+                <button id="screenshot-close" onClick={() => setScreenshotIndex(null)}>Close</button>
             </div>
             <button id="screenshot-next" onClick={() => setScreenshotIndex((screenshotIndex + 1) % gallery.length)}>🞂</button>
         </div> : <></>}

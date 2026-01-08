@@ -1,6 +1,6 @@
 /* Animations */
 @keyframes float {
-    /* Oscillates element */
+    /* Animates element */
     0% { translate: 0px -5px; }
     50% { translate: 0px 5px; }
     100% { translate: 0px -5px; }
@@ -8,94 +8,84 @@
 
 /* Reset */
 * {
-    /* Changes color */
-    color: #efefef;
-    
     /* Changes font */
+    color: #efefef;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     line-height: 25px;
 
-    /* Resets position */
+    /* Changes position */
     position: relative;
 
-    /* Resets spacing */
+    /* Changes size */
     margin: 0px;
     padding: 0px;
 }
 
 /* Body */
 body {
-    /* Changes color */
+    /* Changes background */
     background-color: #0f0f0f;
 }
 
 /* Anchor */
 a {
-    /* Removes underline */
+    /* Changes font */
     text-decoration: none;
 
     /* Creates hover effect */
+    cursor: pointer;
     transition: opacity 0.2s ease;
     &:hover { opacity: 75%; }
 }
 
 /* Button */
 button {
-    /* Removes background */
+    /* Changes background */
     background: none;
     border: none;
-
-    /* Changes cursor */
-    cursor: pointer;
-
+    
     /* Creates hover effect */
+    cursor: pointer;
     transition: opacity 0.2s ease;
     &:hover { opacity: 75%; }
 }
 
 /* App */
 #app {
+    /* Changes size */
+    min-height: 100vh;
+
     /* Forces columns */
     display: flex;
     flex-direction: column;
-
-    /* Sets minimum height */
-    min-height: 100vh;
 }
 
 /* Navigation */
 nav {
-    
-    /* Changes color */
+    /* Changes background */
     background-color: #1f1f1f;
+    box-shadow: 0px 0px 5px 5px #0f0f0f;
+    z-index: 1;
 
-    /* Changes spacing */
+    /* Changes size */
     padding: 10px 25px;
 
     /* Forces rows */
+    align-items: center;
     display: flex;
     gap: 10px 25px;
-
-    /* Centers elements */
-    align-items: center;
     justify-content: space-between;
-    
-    /* Creates shadow */
-    box-shadow: 0px 0px 5px 5px #0f0f0f;
-    z-index: 1;
-    
+
     /* Styles geesecraft */
     & #geesecraft {
         /* Changes size */
         width: 150px;
 
         /* Forces rows */
+        align-items: center;
         display: flex;
         gap: 0px 10px;
-
-        /* Centers elements */
-        align-items: center;
         justify-content: left;
 
         /* Styles logo */
@@ -105,17 +95,15 @@ nav {
 
     /* Styles tabs */
     & #tabs {
+        /* Changes list */
+        list-style: none;
+
         /* Forces rows */
+        align-items: center;
         display: flex;
         flex-wrap: wrap;
         gap: 0px 25px;
-
-        /* Centers elements */
-        align-items: center;
         justify-content: space-around;
-        
-        /* Removes bullet points */
-        list-style: none;
 
         /* Styles tab */
         & li {
@@ -123,10 +111,8 @@ nav {
             width: 75px;
             
             /* Forces rows */
-            display: flex;
-
-            /* Centers element */
             align-items: center;
+            display: flex;
             justify-content: center;
             text-align: center;
 
@@ -142,39 +128,28 @@ nav {
 
         /* Forces rows */
         display: flex;
-
-        /* Aligns elements */
         justify-content: right;
-        
-        /* Styles anchor */
-        & a {
-            /* Changes color */
-            color: #6f6f6f;
 
-            /* Changes font */
-            font-size: 12px;
-            line-height: 22px;
-        }
+        /* Styles anchor */
+        & a { color: #6f6f6f; font-size: 12px; line-height: 22px; }
     }
 
     /* Handles mobile */
-    @media screen and (max-width: 900px) {
-        & {
-            /* Forces columns */
-            flex-direction: column;
-    
-            /* Centers geesecraft */
-            & #geesecraft { justify-content: center; }
-    
-            /* Hides github */
-            & #github { display: none; }
-        }
-    }
+    @media screen and (max-width: 900px) { & {
+        /* Forces columns */
+        flex-direction: column;
+
+        /* Styles geesecraft */
+        & #geesecraft { justify-content: center; }
+
+        /* Styles github */
+        & #github { display: none; }
+    } }
 }
 
 /* Main */
 main {
-    /* Stretches main */
+    /* Changes size */
     flex: 1;
 }
 
@@ -186,72 +161,40 @@ main#home {
 
     /* Styles splash */
     & #splash {
+        /* Changes background */
+        box-shadow: 0px 0px 5px 5px #000;
+        
         /* Changes size */
         height: 650px;
         width: 100%;
 
         /* Forces columns */
+        align-items: center;
         display: flex;
         flex-direction: column;
         gap: 40px 0px;
-
-        /* Centers elements */
-        align-items: center;
         justify-content: center;
 
-        /* Creates shadow */
-        box-shadow: 0px 0px 5px 5px #000;
-
         /* Styles background */
-        & img {
-            /* Changes size */
-            height: 100%;
-            width: 100%;
-
-            /* Changes position */
-            position: absolute;
-
-            /* Fits image */
-            object-fit: cover;
-
-            /* Creates fade effect */
-            transition: opacity 3s ease;
-        }
-
-        /* Styles text */
-        & h1, h2, div {
-            /* Changes color */
-            color: #8f4f4f;
-            filter: invert(100%);
-            mix-blend-mode: difference;
-
-            /* Changes font */
-            font-size: 20px;
-            line-height: 30px;
-
-            /* Centers elements */
-            text-align: center;
-        }
-
-        /* Styles title */
+        & img { height: 100%; object-fit: cover; position: absolute; width: 100%; transition: opacity 3s ease; }
+        
+        /* Styles foreground */
+        & h1, h2, div { color: #8f4f4f; filter: invert(100%); mix-blend-mode: difference; text-align: center; }
         & h1 { font-size: 50px; line-height: 60px; }
-
-        /* Styles floater */
+        & h2, div { font-size: 20px; line-height: 30px; }
         & div { animation: 3s ease-in-out infinite float; translate: 0% 0%; }
     }
 
-    /* Styles details */
+    /* Styles section */
     & section {
-        /* Changes spacing */
+        /* Changes size */
         padding: 50px 50px;
 
         /* Forces columns */
+        align-items: center;
         display: flex;
         flex-direction: column;
         gap: 25px 0px;
-
-        /* Centers elements */
-        align-items: center;
 
         /* Styles title */
         & h3 { font-size: 30px; line-height: 40px; text-align: center; }
@@ -262,8 +205,6 @@ main#home {
             display: flex;
             flex-wrap: wrap;
             gap: 25px 25px;
-
-            /* Centers elements */
             justify-content: center;
 
             /* Styles objects */
@@ -271,7 +212,7 @@ main#home {
             & img { max-height: 200px; max-width: 100%; object-fit: contain; }
         }
 
-        /* Creates subclass */
+        /* Styles subclass */
         &.high { background-color: #1f1f1f; box-shadow: 0px 0px 5px 5px #000; }
     }
 }
@@ -279,33 +220,19 @@ main#home {
 /* Archive Route */
 main#archive {
     /* Forces columns */
+    align-items: center;
     display: flex;
     flex-direction: column;
     gap: 25px 0px;
 
-    /* Centers elements */
-    align-items: center;
-
     /* Styles splash */
-    & #archive-splash {
-        /* Changes size */
-        height: 400px;
-        width: 100%;
-        
-        /* Fits image */
-        object-fit: cover;
-
-        /* Creates shadow */
-        box-shadow: 0px 0px 5px 5px #000;
-    }
+    & #archive-splash { box-shadow: 0px 0px 5px 5px #000; height: 400px; object-fit: cover; width: 100%; }
 
     /* Styles data */
     & #archive-data {
         /* Changes size */
-        width: 100%;
-
-        /* Changes spacing */
         margin: 25px 0px;
+        width: 100%;
 
         /* Forces columns */
         display: flex;
@@ -313,30 +240,28 @@ main#archive {
         gap: 25px 0px;
 
         /* Styles titles */
-        & h1 { font-size: 40px; line-height: 50px; text-align: center; }
-        & h2 { text-align: center; }
+        & h1 { font-size: 40px; line-height: 50px; margin: 0px 25px; text-align: center; }
+        & h2 { margin: 0px 25px; text-align: center; }
 
         /* Styles meta */
         & #archive-meta {
-            /* Changes spacing */
+            /* Changes size */
             margin: 0px 50px;
 
             /* Forces rows */
+            align-items: center;
             display: flex;
             flex-wrap: wrap;
-            gap: 0px 25px;
-
-            /* Centers elements */
-            align-items: center;
+            gap: 10px 25px;
             justify-content: center;
 
-            /* Styles objects */
+            /* Styles text */
             & div { color: #6f6f6f; font-size: 12px; line-height: 22px; text-align: center; width: 150px; }
         }
 
         /* Styles body */
         & #archive-body {
-            /* Changes spacing */
+            /* Changes size */
             margin: 0px 25px;
 
             /* Forces rows */
@@ -345,43 +270,31 @@ main#archive {
 
             /* Styles content */
             & #archive-content {
-                /* Changes color */
+                /* Changes background */
                 background-color: #1f1f1f;
+                border-radius: 5px;
+                box-shadow: 0px 0px 5px 3px #000;
 
                 /* Changes size */
                 flex: 1;
-
-                /* Changes spacing */
                 padding: 20px 25px;
-
-                /* Trims borders */
-                border-radius: 5px;
-
-                /* Creates shadow */
-                box-shadow: 0px 0px 5px 3px #000;
             }
 
             /* Styles logistics */
             & #archive-logistics {
-                /* Changes color */
+                /* Changes background */
                 background-color: #1f1f1f;
+                border-radius: 5px;
+                box-shadow: 0px 0px 5px 3px #000;
 
                 /* Changes size */
-                width: 200px;
-
-                /* Changes spacing */
                 padding: 20px 25px;
+                width: 200px;
 
                 /* Forces columns */
                 display: flex;
                 flex-direction: column;
                 gap: 10px 0px;
-
-                /* Trims borders */
-                border-radius: 5px;
-
-                /* Creates shadow */
-                box-shadow: 0px 0px 5px 3px #000;
 
                 /* Styles section */
                 & section {
@@ -402,10 +315,12 @@ main#archive {
 
         /* Styles gallery */
         & #archive-gallery {
-            /* Changes color */
+            /* Changes background */
             background-color: #1f1f1f;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 5px #000;
 
-            /* Changes spacing */
+            /* Changes size */
             margin: 0px 25px;
             padding: 25px 25px;
 
@@ -413,41 +328,25 @@ main#archive {
             display: flex;
             flex-wrap: wrap;
             gap: 25px 25px;
-
-            /* Centers elements */
             justify-content: space-around;
 
-            /* Trims borders */
-            border-radius: 5px;
-
-            /* Creates shadow */
-            box-shadow: 0px 0px 5px 5px #000;
-
-            /* Styles button */
+            /* Styles screenshot */
             & button {
-                /* Changes color */
+                /* Changes background */
                 background-color: #2f2f2f;
+                border-radius: 5px;
+                box-shadow: 0px 0px 3px 3px #111;
 
                 /* Changes size */
+                padding: 5px 5px;
                 width: 175px;
 
-                /* Change spacing */
-                padding: 5px 5px;
-                
                 /* Forces columns */
+                align-items: center;
                 display: flex;
                 flex-direction: column;
                 gap: 5px 0px;
-
-                /* Centers elements */
-                align-items: center;
                 justify-content: center;
-
-                /* Trims borders */
-                border-radius: 5px;
-
-                /* Creates shadow */
-                box-shadow: 0px 0px 3px 3px #111;
 
                 /* Styles objects */
                 & img { flex: 1; object-fit: contain; width: 100%; }
@@ -455,20 +354,153 @@ main#archive {
             }
         }
     }
+
+    /* Styles screenshot */
+    & #screenshot {
+        /* Changes background */
+        background-color: #0f0f0fef;
+        z-index: 10;
+
+        /* Changes position */
+        left: 0px;
+        position: fixed;
+        top: 0px;
+        
+        /* Changes size */
+        height: 100%;
+        width: 100%; 
+        
+        /* Forces rows */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Styles buttons */
+        & #screenshot-previous, #screenshot-next {
+            /* Changes background */
+            background-color: #2f2f2f;
+            border-radius: 5px;
+
+            /* Changes size */
+            height: fit-content;
+            margin: 0px 50px;
+            padding: 10px 10px;
+            width: fit-content;
+        }
+
+        /* Styles display */
+        & #screenshot-display {
+            /* Changes size */
+            height: 100%;
+            flex: 1;
+
+            /* Forces columns */
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 25px 0px;
+            justify-content: center;
+            text-align: center;
+
+            /* Styles image */
+            & #screenshot-image {
+                /* Changes background */
+                background-color: #2f2f2f;
+                border-radius: 5px;
+                box-shadow: 0px 0px 5px 5px #000;
+                object-fit: contain;
+
+                /* Changes size */
+                padding: 5px 5px;
+                width: 100%;
+            }
+
+            /* Styles section */
+            & section {
+                /* Forces columns */
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                /* Styles texts */
+                & h3, span {
+                    /* Changes font */
+                    font-size: 12px;
+                    line-height: 22px;
+
+                    /* Forces rows */
+                    align-items: center;
+                    display: flex;
+                    gap: 0px 5px;
+
+                    /* Styles image */
+                    & img { height: 15px; width: 15px; }
+                }
+                & span { color: #6f6f6f; }
+            }
+
+            /* Styles close */
+            & #screenshot-close {
+                /* Changes background */
+                background-color: #2f2f2f;
+                border-radius: 5px;
+
+                /* Change ssize */
+                padding: 5px 10px;
+
+                /* Changes font */
+                font-size: 12px;
+                line-height: 22px;
+            }
+        }
+    }
+
+    /* Handles mobile */
+    @media screen and (max-width: 700px) { & {
+        /* Styles data */
+        & #archive-data {
+            /* Styles body */
+            & #archive-body {
+                /* Forces columns */
+                flex-direction: column-reverse;
+
+                /* Styles logistics */
+                & #archive-logistics { width: auto; }
+            }
+        }
+
+        /* Styles screenshot */
+        & #screenshot {
+            /* Styles buttons */
+            & #screenshot-previous, #screenshot-next { display: none; }
+
+            /* Styles display */
+            & #screenshot-display { margin: 0px 50px; }
+        }
+    } }
+    @media screen and (max-width: 500px) { & {
+        /* Styles data */
+        & #archive-data {
+            /* Styles gallery */
+            & #archive-gallery {
+                /* Styles screenshot */
+                & button { width: 100%; }
+            }
+        }
+    } }
 }
 
 /* Archives Route */
 main#archives {
-    /* Changes spacing */
+    /* Changes size */
     margin: 50px 50px;
 
     /* Forces columns */
+    align-items: center;
     display: flex;
     flex-direction: column;
     gap: 25px 0px;
-
-    /* Centers elements */
-    align-items: center;
 
     /* Styles titles */
     & h1 { font-size: 40px; line-height: 50px; text-align: center; }
@@ -480,39 +512,32 @@ main#archives {
         width: 100%;
 
         /* Forces rows */
+        align-items: center;
         display: flex;
         gap: 0px 25px;
-
-        /* Centers elements */
-        align-items: center;
         justify-content: space-between;
 
         /* Styles button */
         & button {
-            /* Changes color */
+            /* Changes background */
             background-color: #1f1f1f;
+            border-radius: 5px;
 
             /* Changes size */
             height: fit-content;
-
-            /* Changes spacing */
             padding: 10px 10px;
-
-            /* Trims borders */
-            border-radius: 5px;
         }
 
         /* Styles blank */
-        & #archive-blank {
-            /* Changes size */
-            aspect-ratio: 16 / 9;
-            width: 50%;
-        }
+        & #archive-blank { aspect-ratio: 16 / 9; width: 50%; }
 
         /* Styles archive */
         & .archive {
-            /* Changes color */
+            /* Changes background */
             background-color: #1f1f1f;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 5px #000;
+            overflow: hidden;
 
             /* Changes position */
             left: 50%;
@@ -522,13 +547,6 @@ main#archives {
             /* Changes size */
             aspect-ratio: 16 / 9;
             height: fit-content;
-
-            /* Creates shadow */
-            box-shadow: 0px 0px 5px 5px #000;
-
-            /* Trims borders */
-            border-radius: 5px;
-            overflow: hidden;
 
             /* Creates cycle animation */
             &.archive-back { left: 50%; translate: -50% 0%; width: 25%; z-index: 0; }
@@ -552,7 +570,7 @@ main#archives {
 
                 /* Styles details */
                 & section {
-                    /* Changes color */
+                    /* Changes background */
                     background-color: #1f1f1fbf;
                     
                     /* Changes position */
@@ -560,17 +578,15 @@ main#archives {
                     left: 0px;
                     position: absolute;
                     
-                    /* Changes spacing */
-                    padding: 10px 0px;
-                    
                     /* Changes size */
+                    padding: 10px 0px;
                     width: 100%;
                     
                     /* Forces columns */
                     display: flex;
                     flex-direction: column;
 
-                    /* Styles text */
+                    /* Styles texts */
                     & h3, p { font-size: 12px; line-height: 22px; padding: 0px 25px; }
                 }
             }
@@ -578,75 +594,57 @@ main#archives {
     }
 
     /* Handles mobile */
-    @media screen and (max-width: 700px) {
-        & {
-            /* Styles list */
-            & #archive-list {
-                /* Styles blank */
-                & #archive-blank {
-                    /* Changes size */
-                    aspect-ratio: 3 / 4;
-                }
+    @media screen and (max-width: 700px) { & {
+        /* Styles list */
+        & #archive-list {
+            /* Styles blank */
+            & #archive-blank { aspect-ratio: 3 / 4; }
 
-                /* Styles archive */
-                & .archive {
-                    /* Changes size */
-                    aspect-ratio: 3 / 4;
-                }
-            }
+            /* Styles archive */
+            & .archive { aspect-ratio: 3 / 4; }
         }
-    }
+    } }
 }
 
 /* Error Route */
 main#error {
-    /* Changes spacing */
+    /* Changes size */
     margin: 50px 50px;
 
     /* Forces columns */
+    align-items: center;
     display: flex;
     flex-direction: column;
     gap: 25px 0px;
 
-    /* Centers elements */
-    align-items: center;
-
-    /* Styles titles */
+    /* Styles texts */
     & h1 { font-size: 40px; line-height: 50px; text-align: center; }
     & h2 { text-align: center; }
-
-    /* Styles link */
     & a { margin-top: 100px; }
 }
 
 /* Footer */
 footer {
-    /* Changes color */
+    /* Changes background */
     background-color: #1f1f1f;
-
-    /* Changes spacing */
-    padding: 10px 25px;
-
-    /* Forces rows */
-    display: flex;
-    gap: 10px 25px;
-
-    /* Centers elements */
-    align-items: center;
-    justify-content: space-around;
-
-    /* Creates shadow */
     box-shadow: 0px 0px 5px 5px #000;
     z-index: 1;
 
-    /* Styles details */
+    /* Changes size */
+    padding: 10px 25px;
+
+    /* Forces rows */
+    align-items: center;
+    display: flex;
+    gap: 10px 25px;
+    justify-content: space-around;
+
+    /* Styles texts */
     & a, div { color: #6f6f6f; font-size: 10px; line-height: 20px; text-align: center; }
 
     /* Handles mobile */
-    @media screen and (max-width: 900px) {
-        & {
-            /* Forces columns */
-            flex-direction: column;
-        }
-    }
+    @media screen and (max-width: 900px) { & {
+        /* Forces columns */
+        flex-direction: column;
+    } }
 }
