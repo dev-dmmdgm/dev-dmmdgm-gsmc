@@ -16,6 +16,6 @@ for (const png of pngs) {
     if(await Bun.file(avif).exists()) continue;
     
     // Writes avif
-    sharp(png).avif().toFile(avif);
+    await sharp(png).avif().toFile(avif);
     console.log(`Converted ${png} to ${avif}.`);
 }
