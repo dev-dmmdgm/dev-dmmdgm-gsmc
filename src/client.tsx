@@ -208,7 +208,7 @@ function HomeRoute() {
                 </p>
             </div>
             <div>
-                <img src="/data/s6/gallery/iipython_sailing_into_sunset.avif"/>
+                <img src="/data/s6/gallery/iipython_sailing_into_the_sunset.avif"/>
                 <img src="/data/s6/gallery/rainbow.avif"/>
                 <img src="/data/s6/gallery/ravine_sunset.avif"/>
             </div>

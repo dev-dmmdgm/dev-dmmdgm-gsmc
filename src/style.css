@@ -557,7 +557,7 @@ main#archives {
             &.archive-front { left: 50%; translate: -50% 0%; width: 50%; z-index: 3; }
             transition: left 0.5s ease, translate 0.5s ease, width 0.5s ease, z-index 0.5s ease;
 
-            /* Styles cards */
+            /* Styles card */
             & a {
                 /* Changes size */
                 height: 100%;
@@ -570,7 +570,7 @@ main#archives {
                 /* Styles background */
                 & img { height: 100%; object-fit: cover; width: 100%; }
 
-                /* Styles details */
+                /* Styles card */
                 & section {
                     /* Changes background */
                     background-color: #1f1f1fbf;
@@ -600,10 +600,29 @@ main#archives {
         /* Styles list */
         & #archive-list {
             /* Styles blank */
-            & #archive-blank { aspect-ratio: 3 / 4; }
+            & #archive-blank { aspect-ratio: 4 / 5; }
 
             /* Styles archive */
-            & .archive { aspect-ratio: 3 / 4; }
+            & .archive {
+                /* Changes size */
+                aspect-ratio: 4 / 5;
+                
+                /* Creates cycle animation */
+                &.archive-back { left: 50%; translate: -50% 0%; width: 40%; z-index: 0; }
+                &.archive-left { left: 50%; translate: -50% 0%; width: 40%; z-index: 1; }
+                &.archive-right { left: 50%; translate: -50% 0%; width: 40%; z-index: 2; }
+                &.archive-front { left: 50%; translate: -50% 0%; width: 50%; z-index: 3; }
+            
+                /* Styles card */
+                & a {
+                    /* Styles details */
+                    & section {
+                        /* Styles texts */
+                        & h3 { text-align: center; }
+                        & p { display: none; }
+                    }
+                }
+            }
         }
     } }
 }
