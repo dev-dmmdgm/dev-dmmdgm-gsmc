@@ -79,8 +79,8 @@ for file in Path("data").rglob("*.png"):
     if "time" in answers:
         answers["time"] = process_timestamp(answers["time"])
 
-    if "name" in answers:
-        answers["name"] = KNOWN_UUIDS[answers["name"]]
+    if "camera" in answers:
+        answers["camera"] = KNOWN_UUIDS[answers["camera"]]
 
     # Save data to disk
     data_file.write_text(json.dumps(image_data | answers | {
