@@ -10,12 +10,12 @@ const glob = new Bun.Glob(nodePath.resolve(data, "**", "*.png"));
 const pngs = await Array.fromAsync(glob.scan());
 
 // Converts pngs to avifs
-for(const png of pngs) {
+for (const png of pngs) {
     // Checks avif
     const avif = png.slice(0, ".png".length * -1) + ".avif";
     if(await Bun.file(avif).exists()) continue;
     
     // Writes avif
-    await sharp(png).avif().toFile(avif);
+    sharp(png).avif().toFile(avif);
     console.log(`Converted ${png} to ${avif}.`);
 }
