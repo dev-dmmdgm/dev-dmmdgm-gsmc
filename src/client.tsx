@@ -9,7 +9,7 @@ import { useEffect, useState } from "preact/hooks";
 import "./style.css";
 
 // Defines root
-const root = "http://127.0.0.1:3000";
+const root = "https://gsmc.dmmdgm.dev";
 
 // Defines routes
 function HomeRoute() {
