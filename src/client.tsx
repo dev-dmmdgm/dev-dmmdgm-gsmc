@@ -270,12 +270,14 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
         fetch(new URL(`/api/archives/${props.season}/gallery`, root)).then(async (response) => {
             // Creates gallery
             if(!response.ok) return;
-            setGallery(await response.json() as Gallery);
+            const galleryJSON = await response.json() as Gallery;
+            setGallery(galleryJSON.sort((a, b) => a.filename.localeCompare(b.filename)));
         });
         fetch(new URL(`/api/archives/${props.season}/profiles`, root)).then(async (response) => {
             // Creates profiles
             if(!response.ok) return;
-            setProfiles(await response.json() as Profile[]);
+            const profilesJSON = await response.json() as Profile[];
+            setProfiles(profilesJSON);
         });
     }, []);
     useEffect(() => {
@@ -385,9 +387,9 @@ function ArchivesRoute() {
         fetch(new URL("/api/archives", root)).then(async (response) => {
             // Creates archives
             if(!response.ok) return;
-            const archives = await response.json() as Archive[];
-            if(archives.length === 0) return;
-            archives.sort((a, b) => +new Date(a.since) - +new Date(b.since));
+            const archivesJSON = await response.json() as Archive[];
+            if(archivesJSON.length === 0) return;
+            archivesJSON.sort((a, b) => +new Date(a.since) - +new Date(b.since));
             
             // Updates listeners
             archivePreviousListener = async () => {
@@ -396,7 +398,7 @@ function ArchivesRoute() {
                 archiveBusy = true;
 
                 // Cycles elements
-                updateArchive(archiveBack, archives[(archives.length + archiveIndex - 2) % archives.length]);
+                updateArchive(archiveBack, archivesJSON[(archivesJSON.length + archiveIndex - 2) % archivesJSON.length]);
                 archiveBack.classList.replace("archive-back", "archive-left");
                 archiveLeft.classList.replace("archive-left", "archive-front");
                 archiveRight.classList.replace("archive-right", "archive-back");
@@ -405,7 +407,7 @@ function ArchivesRoute() {
 
                 // Awaits animation
                 archiveTimeout = setTimeout(() => {
-                    archiveIndex = (archives.length + archiveIndex - 1) % archives.length;
+                    archiveIndex = (archivesJSON.length + archiveIndex - 1) % archivesJSON.length;
                     archiveBusy = false;
                 }, 500);
             };
@@ -415,7 +417,7 @@ function ArchivesRoute() {
                 archiveBusy = true;
 
                 // Cycles elements
-                updateArchive(archiveBack, archives[(archiveIndex + 2) % archives.length]);
+                updateArchive(archiveBack, archivesJSON[(archiveIndex + 2) % archivesJSON.length]);
                 archiveBack.classList.replace("archive-back", "archive-right");
                 archiveLeft.classList.replace("archive-left", "archive-back");
                 archiveRight.classList.replace("archive-right", "archive-front");
@@ -424,7 +426,7 @@ function ArchivesRoute() {
                 
                 // Awaits animation
                 archiveTimeout = setTimeout(() => {
-                    archiveIndex = (archiveIndex + 1) % archives.length;
+                    archiveIndex = (archiveIndex + 1) % archivesJSON.length;
                     archiveBusy = false;
                 }, 500);
             };
@@ -434,10 +436,10 @@ function ArchivesRoute() {
             archiveNext.addEventListener("click", archiveNextListener);
 
             // Updates archives
-            archiveIndex = archives.length - 1;
-            updateArchive(archiveLeft, archives[(archives.length + archiveIndex - 1) % archives.length]);
-            updateArchive(archiveRight, archives[(archiveIndex + 1) % archives.length]);
-            updateArchive(archiveFront, archives[archiveIndex]);
+            archiveIndex = archivesJSON.length - 1;
+            updateArchive(archiveLeft, archivesJSON[(archivesJSON.length + archiveIndex - 1) % archivesJSON.length]);
+            updateArchive(archiveRight, archivesJSON[(archiveIndex + 1) % archivesJSON.length]);
+            updateArchive(archiveFront, archivesJSON[archiveIndex]);
             archiveBack.classList.add("archive-back");
             archiveLeft.classList.add("archive-left");
             archiveRight.classList.add("archive-right");
