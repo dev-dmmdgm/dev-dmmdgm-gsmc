@@ -1,21 +1,20 @@
 // Imports
 import nodePath from "node:path";
-import sharp from "sharp";
-
-// Defines paths
-const data = nodePath.resolve("data");
 
 // Fetches pngs
+const data = nodePath.resolve("data");
 const glob = new Bun.Glob(nodePath.resolve(data, "**", "*.png"));
-const pngs = await Array.fromAsync(glob.scan());
+const filenames = await Array.fromAsync(glob.scan());
+const iterator = filenames[Symbol.iterator]();
 
-// Converts pngs to avifs
-for (const png of pngs) {
-    // Checks avif
-    const avif = png.slice(0, ".png".length * -1) + ".avif";
-    if(await Bun.file(avif).exists()) continue;
-    
-    // Writes avif
-    await sharp(png).avif().toFile(avif);
-    console.log(`Converted ${png} to ${avif}.`);
+// Defines workers
+const workers = new Array(16).fill(null).map(() => new Worker("src/avifify.worker.ts"));
+const chore = (worker: Worker) => {
+    const next = iterator.next();
+    if(next.done) worker.terminate();
+    else worker.postMessage(next.value);
+};
+for(const worker of workers) {
+    worker.addEventListener("message", () => chore(worker));
+    chore(worker);
 }

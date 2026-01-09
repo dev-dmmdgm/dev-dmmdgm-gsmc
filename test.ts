@@ -1,4 +1,11 @@
-fetch("https://api.minecraftservices.com/minecraft/profile/lookup/617d0b8a-148f-47c0-b4f4-36dfe1ac79c7").then(async (res) => {
-    const json = await res.json();
-    console.log(json);
-});
+if(Bun.isMainThread) {
+    const worker = new Worker("./test.ts");
+    worker.postMessage({ test: "hai" });
+}
+else {
+    self.addEventListener("message", async (data) => {
+        console.log(data);
+        await Bun.sleep(1000);
+        // process.exit();
+    });
+}
