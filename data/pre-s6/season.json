@@ -1,8 +1,8 @@
 {
     "achievements":  [],
     "active":        false,
-    "bannerURL":     "/data/pre-s6/gallery/the_boys.avif",
-    "contentURL":    "/data/pre-s6/content.md",
+    "bannerURL":     "https://gsmc.dmmdgm.dev/data/pre-s6/gallery/the_boys.avif",
+    "contentURL":    "https://gsmc.dmmdgm.dev/data/pre-s6/content.md",
     "description":   "TBD.",
     "modifications": [
         "Adorn",
@@ -31,7 +31,7 @@
         "Tech Reborn",
         "Traveler's Backpack"
     ],
-    "packURL":       "/data/s6/pack.jsonc",
+    "packURL":       "https://gsmc.dmmdgm.dev/data/s6/pack.jsonc",
     "platform":      "Fabric",
     "players":       [
         "8018c39c-3d81-434e-a02d-6e0813340fd6",

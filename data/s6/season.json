@@ -1,8 +1,8 @@
 {
     "achievements":  [],
     "active":        true,
-    "bannerURL":     "/data/s6/gallery/fireworks_3.avif",
-    "contentURL":    "/data/s6/content.md",
+    "bannerURL":     "https://gsmc.dmmdgm.dev/data/s6/gallery/fireworks_3.avif",
+    "contentURL":    "https://gsmc.dmmdgm.dev/data/s6/content.md",
     "description":   "The final Geesecraft season: college while it lasts (cwil).",
     "modifications": [
         "Adorn",
@@ -31,7 +31,7 @@
         "Tech Reborn",
         "Traveler's Backpack"
     ],
-    "packURL":       "/data/s6/pack.jsonc",
+    "packURL":       "https://gsmc.dmmdgm.dev/data/s6/pack.jsonc",
     "platform":      "Fabric",
     "players":       [
         "8018c39c-3d81-434e-a02d-6e0813340fd6",

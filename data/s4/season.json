@@ -7,8 +7,8 @@
         "McGeese, serving up free eggs"
     ],
     "active":        false,
-    "bannerURL":     "/data/s4/gallery/goose_rockets.avif",
-    "contentURL":    "/data/s4/content.md",
+    "bannerURL":     "https://gsmc.dmmdgm.dev/data/s4/gallery/goose_rockets.avif",
+    "contentURL":    "https://gsmc.dmmdgm.dev/data/s4/content.md",
     "description":   "First modded Geesecraft season: a huge mess.",
     "modifications": [
         "Ad Astra",
@@ -25,7 +25,7 @@
         "UU-Extended",
         "WTHIT"
     ],
-    "packURL":       "/data/s4/pack.jsonc",
+    "packURL":       "https://gsmc.dmmdgm.dev/data/s4/pack.jsonc",
     "platform":      "Fabric",
     "players":       [
         "8018c39c-3d81-434e-a02d-6e0813340fd6",

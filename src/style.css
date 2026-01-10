@@ -217,6 +217,140 @@ main#home {
     }
 }
 
+/* Archives Route */
+main#archives {
+    /* Changes size */
+    margin: 50px 50px;
+
+    /* Forces columns */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 25px 0px;
+
+    /* Styles titles */
+    & h1 { font-size: 40px; line-height: 50px; text-align: center; }
+    & h2 { text-align: center; }
+
+    /* Styles list */
+    & #archive-list {
+        /* Changes size */
+        width: 100%;
+
+        /* Forces rows */
+        align-items: center;
+        display: flex;
+        gap: 0px 25px;
+        justify-content: space-between;
+
+        /* Styles button */
+        & button {
+            /* Changes background */
+            background-color: #1f1f1f;
+            border-radius: 5px;
+
+            /* Changes size */
+            height: fit-content;
+            padding: 10px 10px;
+        }
+
+        /* Styles blank */
+        & #archive-blank { aspect-ratio: 16 / 9; width: 50%; }
+
+        /* Styles archive */
+        & .archive {
+            /* Changes background */
+            background-color: #1f1f1f;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 5px #000;
+            overflow: hidden;
+
+            /* Changes position */
+            left: 50%;
+            position: absolute;
+            translate: -50% 0%;
+
+            /* Changes size */
+            aspect-ratio: 16 / 9;
+            height: fit-content;
+
+            /* Creates cycle animation */
+            &.archive-back { left: 50%; translate: -50% 0%; width: 25%; z-index: 0; }
+            &.archive-left { left: 25%; translate: -25% 0%; width: 40%; z-index: 1; }
+            &.archive-right { left: 75%; translate: -75% 0%; width: 40%; z-index: 2; }
+            &.archive-front { left: 50%; translate: -50% 0%; width: 50%; z-index: 3; }
+            transition: left 0.5s ease, translate 0.5s ease, width 0.5s ease, z-index 0.5s ease;
+
+            /* Styles card */
+            & a {
+                /* Changes size */
+                height: 100%;
+
+                /* Forces columns */
+                display: flex;
+                flex-direction: column;
+                gap: 5px 0px;
+
+                /* Styles background */
+                & img { height: 100%; object-fit: cover; width: 100%; }
+
+                /* Styles card */
+                & section {
+                    /* Changes background */
+                    background-color: #1f1f1fbf;
+                    
+                    /* Changes position */
+                    bottom: 0px;
+                    left: 0px;
+                    position: absolute;
+                    
+                    /* Changes size */
+                    padding: 10px 0px;
+                    width: 100%;
+                    
+                    /* Forces columns */
+                    display: flex;
+                    flex-direction: column;
+
+                    /* Styles texts */
+                    & h3, p { font-size: 12px; line-height: 22px; padding: 0px 25px; }
+                }
+            }
+        }
+    }
+
+    /* Handles mobile */
+    @media screen and (max-width: 700px) { & {
+        /* Styles list */
+        & #archive-list {
+            /* Styles blank */
+            & #archive-blank { aspect-ratio: 4 / 5; }
+
+            /* Styles archive */
+            & .archive {
+                /* Changes size */
+                aspect-ratio: 4 / 5;
+                
+                /* Creates cycle animation */
+                &.archive-back { left: 50%; translate: -50% 0%; width: 40%; z-index: 0; }
+                &.archive-left { left: 50%; translate: -50% 0%; width: 40%; z-index: 1; }
+                &.archive-right { left: 50%; translate: -50% 0%; width: 40%; z-index: 2; }
+                &.archive-front { left: 50%; translate: -50% 0%; width: 50%; z-index: 3; }
+            
+                /* Styles card */
+                & a {
+                    /* Styles details */
+                    & section {
+                        /* Styles texts */
+                        & h3 { text-align: center; }
+                        & p { display: none; }
+                    }
+                }
+            }
+        }
+    } }
+}
+
 /* Archive Route */
 main#archive {
     /* Forces columns */
@@ -505,140 +639,6 @@ main#archive {
             & #archive-gallery {
                 /* Styles screenshot */
                 & button { width: 100%; }
-            }
-        }
-    } }
-}
-
-/* Archives Route */
-main#archives {
-    /* Changes size */
-    margin: 50px 50px;
-
-    /* Forces columns */
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 25px 0px;
-
-    /* Styles titles */
-    & h1 { font-size: 40px; line-height: 50px; text-align: center; }
-    & h2 { text-align: center; }
-
-    /* Styles list */
-    & #archive-list {
-        /* Changes size */
-        width: 100%;
-
-        /* Forces rows */
-        align-items: center;
-        display: flex;
-        gap: 0px 25px;
-        justify-content: space-between;
-
-        /* Styles button */
-        & button {
-            /* Changes background */
-            background-color: #1f1f1f;
-            border-radius: 5px;
-
-            /* Changes size */
-            height: fit-content;
-            padding: 10px 10px;
-        }
-
-        /* Styles blank */
-        & #archive-blank { aspect-ratio: 16 / 9; width: 50%; }
-
-        /* Styles archive */
-        & .archive {
-            /* Changes background */
-            background-color: #1f1f1f;
-            border-radius: 5px;
-            box-shadow: 0px 0px 5px 5px #000;
-            overflow: hidden;
-
-            /* Changes position */
-            left: 50%;
-            position: absolute;
-            translate: -50% 0%;
-
-            /* Changes size */
-            aspect-ratio: 16 / 9;
-            height: fit-content;
-
-            /* Creates cycle animation */
-            &.archive-back { left: 50%; translate: -50% 0%; width: 25%; z-index: 0; }
-            &.archive-left { left: 25%; translate: -25% 0%; width: 40%; z-index: 1; }
-            &.archive-right { left: 75%; translate: -75% 0%; width: 40%; z-index: 2; }
-            &.archive-front { left: 50%; translate: -50% 0%; width: 50%; z-index: 3; }
-            transition: left 0.5s ease, translate 0.5s ease, width 0.5s ease, z-index 0.5s ease;
-
-            /* Styles card */
-            & a {
-                /* Changes size */
-                height: 100%;
-
-                /* Forces columns */
-                display: flex;
-                flex-direction: column;
-                gap: 5px 0px;
-
-                /* Styles background */
-                & img { height: 100%; object-fit: cover; width: 100%; }
-
-                /* Styles card */
-                & section {
-                    /* Changes background */
-                    background-color: #1f1f1fbf;
-                    
-                    /* Changes position */
-                    bottom: 0px;
-                    left: 0px;
-                    position: absolute;
-                    
-                    /* Changes size */
-                    padding: 10px 0px;
-                    width: 100%;
-                    
-                    /* Forces columns */
-                    display: flex;
-                    flex-direction: column;
-
-                    /* Styles texts */
-                    & h3, p { font-size: 12px; line-height: 22px; padding: 0px 25px; }
-                }
-            }
-        }
-    }
-
-    /* Handles mobile */
-    @media screen and (max-width: 700px) { & {
-        /* Styles list */
-        & #archive-list {
-            /* Styles blank */
-            & #archive-blank { aspect-ratio: 4 / 5; }
-
-            /* Styles archive */
-            & .archive {
-                /* Changes size */
-                aspect-ratio: 4 / 5;
-                
-                /* Creates cycle animation */
-                &.archive-back { left: 50%; translate: -50% 0%; width: 40%; z-index: 0; }
-                &.archive-left { left: 50%; translate: -50% 0%; width: 40%; z-index: 1; }
-                &.archive-right { left: 50%; translate: -50% 0%; width: 40%; z-index: 2; }
-                &.archive-front { left: 50%; translate: -50% 0%; width: 50%; z-index: 3; }
-            
-                /* Styles card */
-                & a {
-                    /* Styles details */
-                    & section {
-                        /* Styles texts */
-                        & h3 { text-align: center; }
-                        & p { display: none; }
-                    }
-                }
             }
         }
     } }

@@ -9,9 +9,6 @@ import { LocationProvider, Route, Router } from "preact-iso";
 import { useEffect, useState } from "preact/hooks";
 import "./style.css";
 
-// Defines root
-const root = "https://gsmc.dmmdgm.dev";
-
 // Defines date handlers
 function dateDelta(since: Date, until: Date): number {
     // Calculates delta
@@ -30,14 +27,14 @@ function HomeRoute() {
     useEffect(() => {
         // Creates splash urls
         const splashURLs = [
-            "/data/s1/gallery/park_at_night.avif",
-            "/data/s2/gallery/stable.avif",
-            "/data/s3/gallery/ancient_city_full.avif",
-            "/data/s3/gallery/welcome_to_geeseville.avif",
-            "/data/s4/gallery/race_to_space.avif",
-            "/data/s5/gallery/main_basement_2.avif",
-            "/data/s6/gallery/fountain_beacon.avif",
-            "/data/s6/gallery/iron_farm_sunrise.avif",
+            "https://gsmc.dmmdgm.dev/data/s1/gallery/park_at_night.avif",
+            "https://gsmc.dmmdgm.dev/data/s2/gallery/stable.avif",
+            "https://gsmc.dmmdgm.dev/data/s3/gallery/ancient_city_full.avif",
+            "https://gsmc.dmmdgm.dev/data/s3/gallery/welcome_to_geeseville.avif",
+            "https://gsmc.dmmdgm.dev/data/s4/gallery/race_to_space.avif",
+            "https://gsmc.dmmdgm.dev/data/s5/gallery/main_basement_2.avif",
+            "https://gsmc.dmmdgm.dev/data/s6/gallery/fountain_beacon.avif",
+            "https://gsmc.dmmdgm.dev/data/s6/gallery/iron_farm_sunrise.avif",
         ];
         let splashIndex = Math.floor(Math.random() * splashURLs.length);
 
@@ -92,9 +89,9 @@ function HomeRoute() {
                 </p>
             </div>
             <div>
-                <img src="/data/s1/gallery/ban_hammer.avif"/>
-                <img src="/data/s1/gallery/no_trespassing.avif"/>
-                <img src="/data/s2/gallery/dmmd_looking_up.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/ban_hammer.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/no_trespassing.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s2/gallery/dmmd_looking_up.avif"/>
             </div>
             <div>
                 <p>
@@ -104,9 +101,9 @@ function HomeRoute() {
                 </p>
             </div>
             <div>
-                <img src="/data/s5/gallery/t2_rocket.avif"/>
-                <img src="/data/s6/gallery/dmmd_ruby.avif"/>
-                <img src="/data/s6/gallery/k4ffu_staring_contest.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s5/gallery/t2_rocket.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s6/gallery/dmmd_ruby.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s6/gallery/k4ffu_staring_contest.avif"/>
             </div>
         </section>
         <section class="high">
@@ -126,8 +123,8 @@ function HomeRoute() {
                 </p>
             </div>
             <div>
-                <img src="/data/s6/gallery/bai_bai_chunk_3.avif"/>
-                <img src="/data/s6/gallery/bai_bai_chunk_2.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s6/gallery/bai_bai_chunk_3.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s6/gallery/bai_bai_chunk_2.avif"/>
             </div>
             <div>
                 <p>
@@ -147,9 +144,9 @@ function HomeRoute() {
                 </p>
             </div>
             <div>
-                <img src="/data/s3/gallery/building_iron_farm.avif"/>
-                <img src="/data/s3/gallery/no_death_here_folks.avif"/>
-                <img src="/data/s3/gallery/shulker_chaos.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s3/gallery/building_iron_farm.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s3/gallery/no_death_here_folks.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s3/gallery/shulker_chaos.avif"/>
             </div>
             <div>
                 <p>
@@ -164,8 +161,8 @@ function HomeRoute() {
                 </p>
             </div>
             <div>
-                <img src="/data/s4/gallery/base_of_operations.avif"/>
-                <img src="/data/s4/gallery/silly_dmmd.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s4/gallery/base_of_operations.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s4/gallery/silly_dmmd.avif"/>
             </div>
             <div>
                 <p>
@@ -174,8 +171,8 @@ function HomeRoute() {
                 </p>
             </div>
             <div>
-                <img src="/data/s4/gallery/goose_rockets.avif"/>
-                <img src="/data/s4/gallery/looking_chilly.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s4/gallery/goose_rockets.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s4/gallery/looking_chilly.avif"/>
             </div>
         </section>
         <section class="high">
@@ -200,9 +197,9 @@ function HomeRoute() {
                 </p>
             </div>
             <div>
-                <img src="/data/s4/gallery/weird_selfie.avif"/>
-                <img src="/data/s3/gallery/vibes_1.avif"/>
-                <img src="/data/s6/gallery/weeee.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s4/gallery/weird_selfie.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s3/gallery/vibes_1.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s6/gallery/weeee.avif"/>
             </div>
             <div>
                 <p>&lt;3</p>
@@ -221,11 +218,134 @@ function HomeRoute() {
                 </p>
             </div>
             <div>
-                <img src="/data/s6/gallery/iipython_sailing_into_the_sunset.avif"/>
-                <img src="/data/s6/gallery/rainbow.avif"/>
-                <img src="/data/s6/gallery/ravine_sunset.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s6/gallery/iipython_sailing_into_the_sunset.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s6/gallery/rainbow.avif"/>
+                <img src="https://gsmc.dmmdgm.dev/data/s6/gallery/ravine_sunset.avif"/>
             </div>
         </section>
+    </main>;
+}
+function ArchivesRoute() {
+    // Defines archives
+    let archiveIndex = 0;
+    useEffect(() => {
+        // Defines updater
+        function updateArchive(archiveElement: HTMLDivElement, archive: Archive): void {
+            // Fetches elements
+            const archiveAnchor = archiveElement.children.item(0) as HTMLAnchorElement;
+            const archiveBanner = archiveAnchor.children.item(0) as HTMLImageElement;
+            const archiveSection = archiveAnchor.children.item(1) as HTMLElement;
+            const archiveTitle = archiveSection.children.item(0) as HTMLHeadingElement;
+            const archiveDescription = archiveSection.children.item(1) as HTMLParagraphElement;
+            
+            // Updates elements
+            archiveAnchor.href = `/archives/${archive.season}`;
+            archiveBanner.src = archive.bannerURL ?? "";
+            archiveTitle.innerText = archive.title;
+            archiveDescription.innerText = archive.description;
+        }
+
+        // Creates listeners
+        let archivePreviousListener = async () => {};
+        let archiveNextListener = async () => {};
+
+        // Creates timeout
+        let archiveTimeout = setTimeout(() => {});
+        let archiveBusy = true;
+
+        // Fetches elements
+        const archivePrevious = document.getElementById("archive-previous") as HTMLButtonElement;
+        const archiveNext = document.getElementById("archive-next") as HTMLButtonElement;
+        let archiveBack = document.getElementById("archive-0") as HTMLDivElement;
+        let archiveLeft = document.getElementById("archive-1") as HTMLDivElement;
+        let archiveRight = document.getElementById("archive-2") as HTMLDivElement;
+        let archiveFront = document.getElementById("archive-3") as HTMLDivElement;
+
+        // Fetches api
+        fetch("https://gsmc.dmmdgm.dev/api/archives").then(async (response) => {
+            // Creates archives
+            if(!response.ok) return;
+            const archivesJSON = await response.json() as Archive[];
+            archivesJSON.sort((a, b) => +new Date(a.since) - +new Date(b.since));
+            if(archivesJSON.length === 0) return;
+            
+            // Updates listeners
+            archivePreviousListener = async () => {
+                // Checks busy
+                if(archiveBusy) return;
+                archiveBusy = true;
+
+                // Cycles elements
+                updateArchive(archiveBack, archivesJSON[(archivesJSON.length + archiveIndex - 2) % archivesJSON.length]);
+                archiveBack.classList.replace("archive-back", "archive-left");
+                archiveLeft.classList.replace("archive-left", "archive-front");
+                archiveRight.classList.replace("archive-right", "archive-back");
+                archiveFront.classList.replace("archive-front", "archive-right");
+                [ archiveLeft, archiveFront, archiveBack, archiveRight ] = [ archiveBack, archiveLeft, archiveRight, archiveFront ];
+
+                // Awaits animation
+                archiveTimeout = setTimeout(() => {
+                    archiveIndex = (archivesJSON.length + archiveIndex - 1) % archivesJSON.length;
+                    archiveBusy = false;
+                }, 500);
+            };
+            archiveNextListener = async () => {
+                // Checks busy
+                if(archiveBusy) return;
+                archiveBusy = true;
+
+                // Cycles elements
+                updateArchive(archiveBack, archivesJSON[(archiveIndex + 2) % archivesJSON.length]);
+                archiveBack.classList.replace("archive-back", "archive-right");
+                archiveLeft.classList.replace("archive-left", "archive-back");
+                archiveRight.classList.replace("archive-right", "archive-front");
+                archiveFront.classList.replace("archive-front", "archive-left");
+                [ archiveRight, archiveBack, archiveFront, archiveLeft ] = [ archiveBack, archiveLeft, archiveRight, archiveFront ];
+                
+                // Awaits animation
+                archiveTimeout = setTimeout(() => {
+                    archiveIndex = (archiveIndex + 1) % archivesJSON.length;
+                    archiveBusy = false;
+                }, 500);
+            };
+            
+            // Appends listeners
+            archivePrevious.addEventListener("click", archivePreviousListener);
+            archiveNext.addEventListener("click", archiveNextListener);
+
+            // Updates archives
+            archiveIndex = archivesJSON.length - 1;
+            updateArchive(archiveLeft, archivesJSON[(archivesJSON.length + archiveIndex - 1) % archivesJSON.length]);
+            updateArchive(archiveRight, archivesJSON[(archiveIndex + 1) % archivesJSON.length]);
+            updateArchive(archiveFront, archivesJSON[archiveIndex]);
+            archiveBack.classList.add("archive-back");
+            archiveLeft.classList.add("archive-left");
+            archiveRight.classList.add("archive-right");
+            archiveFront.classList.add("archive-front");
+            archiveBusy = false;
+        });
+
+        // Creates disposer
+        return () => {
+            archivePrevious.removeEventListener("click", archivePreviousListener);
+            archiveNext.removeEventListener("click", archiveNextListener);
+            clearTimeout(archiveTimeout);
+        };
+    }, []);
+
+    // Creates archives route
+    return <main id="archives">
+        <h1>Season Archives</h1>
+        <h2>"Behold, the entire history of Geesecraft!"</h2>
+        <div id="archive-list">
+            <button id="archive-previous">🞀</button>
+            <div id="archive-blank"/>
+            <button id="archive-next">🞂</button>
+            <div class="archive" id="archive-0"><a><img/><section><h3/><p/></section></a></div>
+            <div class="archive" id="archive-1"><a><img/><section><h3/><p/></section></a></div>
+            <div class="archive" id="archive-2"><a><img/><section><h3/><p/></section></a></div>
+            <div class="archive" id="archive-3"><a><img/><section><h3/><p/></section></a></div>
+        </div>
     </main>;
 }
 function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
@@ -254,7 +374,7 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
     const [ screenshotIndex, setScreenshotIndex ] = useState<number | null>(null);
     useEffect(() => {
         // Fetches api
-        fetch(new URL(`/api/archives/${props.season}`, root)).then(async (response) => {
+        fetch(`https://gsmc.dmmdgm.dev/api/archives/${props.season}`).then(async (response) => {
             // Creates archive
             if(!response.ok) return;
             const archiveJSON = await response.json() as Archive;
@@ -268,14 +388,14 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                 });
             }
         });
-        fetch(new URL(`/api/archives/${props.season}/gallery`, root)).then(async (response) => {
+        fetch(`https://gsmc.dmmdgm.dev/api/archives/${props.season}/gallery`).then(async (response) => {
             // Creates gallery
             if(!response.ok) return;
             const galleryJSON = await response.json() as Gallery;
             galleryJSON.sort((a, b) => a.filename.localeCompare(b.filename));
             setGallery(galleryJSON);
         });
-        fetch(new URL(`/api/archives/${props.season}/profiles`, root)).then(async (response) => {
+        fetch(`https://gsmc.dmmdgm.dev/api/archives/${props.season}/profiles`).then(async (response) => {
             // Creates profiles
             if(!response.ok) return;
             const profilesJSON = await response.json() as Profile[];
@@ -285,7 +405,7 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
     useEffect(() => {
         // Updates screenshot
         if(screenshotIndex === null) setCamera(null);
-        else fetch(new URL(`/api/profiles/${gallery[screenshotIndex].camera}`, root)).then(async (response) => {
+        else fetch(`https://gsmc.dmmdgm.dev/api/profiles/${gallery[screenshotIndex].camera}`).then(async (response) => {
             if(!response.ok) setCamera({ avatarURL: "", username: "", uuid: "" });
             const cameraJSON = await response.json() as Profile;
             setCamera(cameraJSON);
@@ -383,129 +503,6 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
         </div>}
     </main>;   
 }
-function ArchivesRoute() {
-    // Defines archives
-    let archiveIndex = 0;
-    useEffect(() => {
-        // Defines updater
-        function updateArchive(archiveElement: HTMLDivElement, archive: Archive): void {
-            // Fetches elements
-            const archiveAnchor = archiveElement.children.item(0) as HTMLAnchorElement;
-            const archiveBanner = archiveAnchor.children.item(0) as HTMLImageElement;
-            const archiveSection = archiveAnchor.children.item(1) as HTMLElement;
-            const archiveTitle = archiveSection.children.item(0) as HTMLHeadingElement;
-            const archiveDescription = archiveSection.children.item(1) as HTMLParagraphElement;
-            
-            // Updates elements
-            archiveAnchor.href = `/archives/${archive.season}`;
-            archiveBanner.src = archive.bannerURL ?? "";
-            archiveTitle.innerText = archive.title;
-            archiveDescription.innerText = archive.description;
-        }
-
-        // Creates listeners
-        let archivePreviousListener = async () => {};
-        let archiveNextListener = async () => {};
-
-        // Creates timeout
-        let archiveTimeout = setTimeout(() => {});
-        let archiveBusy = true;
-
-        // Fetches elements
-        const archivePrevious = document.getElementById("archive-previous") as HTMLButtonElement;
-        const archiveNext = document.getElementById("archive-next") as HTMLButtonElement;
-        let archiveBack = document.getElementById("archive-0") as HTMLDivElement;
-        let archiveLeft = document.getElementById("archive-1") as HTMLDivElement;
-        let archiveRight = document.getElementById("archive-2") as HTMLDivElement;
-        let archiveFront = document.getElementById("archive-3") as HTMLDivElement;
-
-        // Fetches api
-        fetch(new URL("/api/archives", root)).then(async (response) => {
-            // Creates archives
-            if(!response.ok) return;
-            const archivesJSON = await response.json() as Archive[];
-            archivesJSON.sort((a, b) => +new Date(a.since) - +new Date(b.since));
-            if(archivesJSON.length === 0) return;
-            
-            // Updates listeners
-            archivePreviousListener = async () => {
-                // Checks busy
-                if(archiveBusy) return;
-                archiveBusy = true;
-
-                // Cycles elements
-                updateArchive(archiveBack, archivesJSON[(archivesJSON.length + archiveIndex - 2) % archivesJSON.length]);
-                archiveBack.classList.replace("archive-back", "archive-left");
-                archiveLeft.classList.replace("archive-left", "archive-front");
-                archiveRight.classList.replace("archive-right", "archive-back");
-                archiveFront.classList.replace("archive-front", "archive-right");
-                [ archiveLeft, archiveFront, archiveBack, archiveRight ] = [ archiveBack, archiveLeft, archiveRight, archiveFront ];
-
-                // Awaits animation
-                archiveTimeout = setTimeout(() => {
-                    archiveIndex = (archivesJSON.length + archiveIndex - 1) % archivesJSON.length;
-                    archiveBusy = false;
-                }, 500);
-            };
-            archiveNextListener = async () => {
-                // Checks busy
-                if(archiveBusy) return;
-                archiveBusy = true;
-
-                // Cycles elements
-                updateArchive(archiveBack, archivesJSON[(archiveIndex + 2) % archivesJSON.length]);
-                archiveBack.classList.replace("archive-back", "archive-right");
-                archiveLeft.classList.replace("archive-left", "archive-back");
-                archiveRight.classList.replace("archive-right", "archive-front");
-                archiveFront.classList.replace("archive-front", "archive-left");
-                [ archiveRight, archiveBack, archiveFront, archiveLeft ] = [ archiveBack, archiveLeft, archiveRight, archiveFront ];
-                
-                // Awaits animation
-                archiveTimeout = setTimeout(() => {
-                    archiveIndex = (archiveIndex + 1) % archivesJSON.length;
-                    archiveBusy = false;
-                }, 500);
-            };
-            
-            // Appends listeners
-            archivePrevious.addEventListener("click", archivePreviousListener);
-            archiveNext.addEventListener("click", archiveNextListener);
-
-            // Updates archives
-            archiveIndex = archivesJSON.length - 1;
-            updateArchive(archiveLeft, archivesJSON[(archivesJSON.length + archiveIndex - 1) % archivesJSON.length]);
-            updateArchive(archiveRight, archivesJSON[(archiveIndex + 1) % archivesJSON.length]);
-            updateArchive(archiveFront, archivesJSON[archiveIndex]);
-            archiveBack.classList.add("archive-back");
-            archiveLeft.classList.add("archive-left");
-            archiveRight.classList.add("archive-right");
-            archiveFront.classList.add("archive-front");
-            archiveBusy = false;
-        });
-
-        // Creates disposer
-        return () => {
-            archivePrevious.removeEventListener("click", archivePreviousListener);
-            archiveNext.removeEventListener("click", archiveNextListener);
-            clearTimeout(archiveTimeout);
-        };
-    }, []);
-
-    // Creates archives route
-    return <main id="archives">
-        <h1>Season Archives</h1>
-        <h2>"Behold, the entire history of Geesecraft!"</h2>
-        <div id="archive-list">
-            <button id="archive-previous">🞀</button>
-            <div id="archive-blank"/>
-            <button id="archive-next">🞂</button>
-            <div class="archive" id="archive-0"><a><img/><section><h3/><p/></section></a></div>
-            <div class="archive" id="archive-1"><a><img/><section><h3/><p/></section></a></div>
-            <div class="archive" id="archive-2"><a><img/><section><h3/><p/></section></a></div>
-            <div class="archive" id="archive-3"><a><img/><section><h3/><p/></section></a></div>
-        </div>
-    </main>;
-}
 function GalleryRoute() {
     // Defines data
     const modes: {
@@ -581,19 +578,19 @@ function GalleryRoute() {
     const [ profiles, setProfiles ] = useState<Profile[]>([]);
     useEffect(() => {
         // Fetches api
-        fetch(new URL("/api/archives", root)).then(async (response) => {
+        fetch("https://gsmc.dmmdgm.dev/api/archives").then(async (response) => {
             if(!response.ok) return;
             const archivesJSON = await response.json() as Archive[];
             archivesJSON.sort((a, b) => +new Date(a.since) - +new Date(b.since));
             setArchives(archivesJSON);
         });
-        fetch(new URL("/api/galleries", root)).then(async (response) => {
+        fetch("https://gsmc.dmmdgm.dev/api/galleries").then(async (response) => {
             if(!response.ok) return;
             const galleriesJSON = await response.json() as Gallery;
             galleriesJSON.sort((a, b) => a.filename.localeCompare(b.filename));
             setGalleries(galleriesJSON);
         });
-        fetch(new URL("/api/profiles", root)).then(async (response) => {
+        fetch("https://gsmc.dmmdgm.dev/api/profiles").then(async (response) => {
             if(!response.ok) return;
             const profilesJSON = await response.json() as Profile[];
             setProfiles(profilesJSON);

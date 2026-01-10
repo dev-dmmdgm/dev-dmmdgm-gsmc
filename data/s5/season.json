@@ -6,8 +6,8 @@
         "Killed the wither (rather poorly)"
     ],
     "active":        false,
-    "bannerURL":     "/data/s5/gallery/main_basement.avif",
-    "contentURL":    "/data/s5/content.md",
+    "bannerURL":     "https://gsmc.dmmdgm.dev/data/s5/gallery/main_basement.avif",
+    "contentURL":    "https://gsmc.dmmdgm.dev/data/s5/content.md",
     "description":   "The next generation Geesecraft season.",
     "modifications": [
         "Ad Astra",
@@ -32,7 +32,7 @@
         "WTHIT",
         "You're In Grave Danger"
     ],
-    "packURL":       "/data/s5/pack.jsonc",
+    "packURL":       "https://gsmc.dmmdgm.dev/data/s5/pack.jsonc",
     "platform":      "Fabric",
     "players":       [
         "8018c39c-3d81-434e-a02d-6e0813340fd6",

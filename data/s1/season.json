@@ -6,8 +6,8 @@
         "Killed the wither (rather poorly)"
     ],
     "active":        false,
-    "bannerURL":     "/data/s1/gallery/park_at_night.avif",
-    "contentURL":    "/data/s1/content.md",
+    "bannerURL":     "https://gsmc.dmmdgm.dev/data/s1/gallery/park_at_night.avif",
+    "contentURL":    "https://gsmc.dmmdgm.dev/data/s1/content.md",
     "description":   "The original Geesecraft season.",
     "modifications": [
         "EssentialsX",

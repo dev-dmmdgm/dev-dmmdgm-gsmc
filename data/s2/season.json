@@ -6,8 +6,8 @@
         "Killed both the wither, as well as a Warden"
     ],
     "active":        false,
-    "bannerURL":     "/data/s2/gallery/water_fountain.avif",
-    "contentURL":    "/data/s2/content.md",
+    "bannerURL":     "https://gsmc.dmmdgm.dev/data/s2/gallery/water_fountain.avif",
+    "contentURL":    "https://gsmc.dmmdgm.dev/data/s2/content.md",
     "description":   "The real, proper kick off of Geesecraft.",
     "modifications": [
         "DiscordSRV",

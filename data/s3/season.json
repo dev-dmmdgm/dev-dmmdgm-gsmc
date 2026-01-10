@@ -8,8 +8,8 @@
         "Massive wheat farm cared for by Emy"
     ],
     "active":        false,
-    "bannerURL":     "/data/s3/gallery/iipython.avif",
-    "contentURL":    "/data/s3/content.md",
+    "bannerURL":     "https://gsmc.dmmdgm.dev/data/s3/gallery/iipython.avif",
+    "contentURL":    "https://gsmc.dmmdgm.dev/data/s3/content.md",
     "description":   "Spring edition of Geesecraft, starting in early 2023.",
     "modifications": [
         "DiscordSRV",
