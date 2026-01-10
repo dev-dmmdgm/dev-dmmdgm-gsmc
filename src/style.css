@@ -1,6 +1,6 @@
 /* Animations */
 @keyframes float {
-    /* Animates element */
+    /* Creates animation */
     0% { translate: 0px -5px; }
     50% { translate: 0px 5px; }
     100% { translate: 0px -5px; }
@@ -312,9 +312,10 @@ main#archive {
 
                     /* Styles objects */
                     & h3 { font-size: 12px; line-height: 22px; }
+                    & ul { display: flex; flex-direction: column; list-style: none; }
+                    & li { display: inline-flex; gap: 0px 5px; }
                     & a { color: #4f4f8f; font-size: 12px; line-height: 22px; }
                     & p, span { color: #6f6f6f; font-size: 12px; line-height: 22px; }
-                    & ul { display: flex; flex-direction: column; list-style: none; }
                     & span { align-items: center; display: flex; gap: 0px 5px; }
                     & img { height: 15px; width: 15px; }
                 }
@@ -358,7 +359,15 @@ main#archive {
 
                 /* Styles objects */
                 & img { flex: 1; object-fit: contain; width: 100%; }
-                & span { color: #6f6f6f; font-size: 12px; line-height: 22px; text-align: center; }
+                & div {
+                    /* Forces rows */
+                    align-items: center;
+                    display: flex;
+                    gap: 0px 5px;
+                    
+                    /* Styles text */
+                    & span { color: #6f6f6f; font-size: 12px; line-height: 22px; text-align: center; }
+                }
             }
         }
     }
@@ -633,6 +642,17 @@ main#archives {
             }
         }
     } }
+}
+
+/* Gallery Route */
+main#gallery {
+    img {
+        width: 100px;
+    }
+
+    div img {
+        width: 15px;
+    }
 }
 
 /* Error Route */

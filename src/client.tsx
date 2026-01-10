@@ -12,6 +12,18 @@ import "./style.css";
 // Defines root
 const root = "https://gsmc.dmmdgm.dev";
 
+// Defines date handlers
+function dateDelta(since: Date, until: Date): number {
+    // Calculates delta
+    const delta = until.getTime() - since.getTime();
+    return Math.floor(delta / 1000 / 60 / 60 / 24);
+}
+function dateUTC(date: Date): string {
+    // Formats date
+    const offset = date.getTimezoneOffset() * 60 * 1000;
+    return new Date(date.getTime() + offset).toLocaleDateString();
+}
+
 // Defines routes
 function HomeRoute() {
     // Defines splash
@@ -217,19 +229,7 @@ function HomeRoute() {
     </main>;
 }
 function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
-    // Defines date handlers
-    function dateDelta(since: Date, until: Date): number {
-        // Calculates delta
-        const delta = until.getTime() - since.getTime();
-        return Math.floor(delta / 1000 / 60 / 60 / 24);
-    }
-    function dateUTC(date: Date): string {
-        // Formats date
-        const offset = date.getTimezoneOffset() * 60 * 1000;
-        return new Date(date.getTime() + offset).toLocaleDateString();
-    }
-
-    // Defines archive
+    // Defines data
     const [ archive, setArchive ] = useState<Archive>({
         achievements: [],
         active: false,
@@ -272,7 +272,8 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
             // Creates gallery
             if(!response.ok) return;
             const galleryJSON = await response.json() as Gallery;
-            setGallery(galleryJSON.sort((a, b) => a.filename.localeCompare(b.filename)));
+            galleryJSON.sort((a, b) => a.filename.localeCompare(b.filename));
+            setGallery(galleryJSON);
         });
         fetch(new URL(`/api/archives/${props.season}/profiles`, root)).then(async (response) => {
             // Creates profiles
@@ -282,10 +283,12 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
         });
     }, []);
     useEffect(() => {
+        // Updates screenshot
         if(screenshotIndex === null) setCamera(null);
         else fetch(new URL(`/api/profiles/${gallery[screenshotIndex].camera}`, root)).then(async (response) => {
             if(!response.ok) setCamera({ avatarURL: "", username: "", uuid: "" });
-            setCamera(await response.json() as Profile);
+            const cameraJSON = await response.json() as Profile;
+            setCamera(cameraJSON);
         });
     }, [ screenshotIndex ]);
     
@@ -313,15 +316,31 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                     </section>
                     <section>
                         <h3>Achievements</h3>
-                        <ul>{archive.achievements.map((achievement) => <li><span>• {achievement}</span></li>)}</ul>
+                        <ul>
+                            {archive.achievements.map((achievement) => <li>
+                                <span>•</span>
+                                <span>{achievement}</span>
+                            </li>)}
+                        </ul>
                     </section>
                     <section>
                         <h3>Modifications</h3>
-                        <ul>{archive.modifications.map((modification) => <li><span>• {modification}</span></li>)}</ul>
+                        <ul>
+                            {archive.modifications.map((modification) => <li>
+                                <span>•</span>
+                                <span>{modification}</span>
+                            </li>)}
+                        </ul>
                     </section>
                     <section>
                         <h3>Players</h3>
-                        <ul>{profiles.map((profile) => <li><span>• <img src={profile.avatarURL}/> {profile.username}</span></li>)}</ul>
+                        <ul>
+                            {profiles.map((profile) => <li>
+                                <span>•</span>
+                                <img src={profile.avatarURL}/>
+                                <span>{profile.username}</span>
+                            </li>)}
+                        </ul>
                     </section>
                     <section>
                         <h3>Pack Download</h3>
@@ -333,16 +352,25 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                     </section>
                 </div>
             </div>
-            <div id="archive-gallery">{gallery.map((screenshot, index) => <button onClick={() => setScreenshotIndex(index)}><img src={screenshot.url}/><span>{screenshot.name}</span></button>)}</div>
+            <div id="archive-gallery">
+                {gallery.map((screenshot, index) => <button onClick={() => setScreenshotIndex(index)}>
+                    <img src={screenshot.url}/>
+                    <div><span>{screenshot.name}</span></div>
+                </button>)}
+            </div>
         </div>
-        {screenshotIndex !== null ? <div id="screenshot">
+        {screenshotIndex !== null && <div id="screenshot">
             <button id="screenshot-previous" onClick={() => setScreenshotIndex((gallery.length + screenshotIndex - 1) % gallery.length)}>🞀</button>
             <div id="screenshot-display">
                 <img id="screenshot-image" src={gallery[screenshotIndex].url}/>
                 <section>
                     <h3>{gallery[screenshotIndex].name} ({gallery[screenshotIndex].filename})</h3>
                     <span>{gallery[screenshotIndex].description}</span>
-                    <span>{camera !== null ? <><span><img src={camera.avatarURL}/> {camera.username}</span><span>•</span></> : <></>} {dateUTC(new Date(gallery[screenshotIndex].time))}</span>
+                    <span>
+                        {camera !== null && <span><img src={camera.avatarURL}/> {camera.username}</span>}
+                        <span>•</span>
+                        <span>{dateUTC(new Date(gallery[screenshotIndex].time))}</span>
+                    </span>
                     <span>
                         <a href={gallery[screenshotIndex].url} target="_blank" rel="noopener noreferrer">View Image</a>
                         <span>•</span>
@@ -352,7 +380,7 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                 <button id="screenshot-close" onClick={() => setScreenshotIndex(null)}>Close</button>
             </div>
             <button id="screenshot-next" onClick={() => setScreenshotIndex((screenshotIndex + 1) % gallery.length)}>🞂</button>
-        </div> : <></>}
+        </div>}
     </main>;   
 }
 function ArchivesRoute() {
@@ -396,8 +424,8 @@ function ArchivesRoute() {
             // Creates archives
             if(!response.ok) return;
             const archivesJSON = await response.json() as Archive[];
-            if(archivesJSON.length === 0) return;
             archivesJSON.sort((a, b) => +new Date(a.since) - +new Date(b.since));
+            if(archivesJSON.length === 0) return;
             
             // Updates listeners
             archivePreviousListener = async () => {
@@ -479,76 +507,119 @@ function ArchivesRoute() {
     </main>;
 }
 function GalleryRoute() {
-    // // Defines date handler
-    // function dateUTC(date: Date): string {
-    //     // Formats date
-    //     const offset = date.getTimezoneOffset() * 60 * 1000;
-    //     return new Date(date.getTime() + offset).toLocaleDateString();
-    // }
+    // Defines data
+    const modes: {
+        algorithm: (a: Screenshot, b: Screenshot) => number;
+        display: (screenshot: Screenshot) => VNode;
+        label: string;
+    }[] = [
+        {
+            algorithm: (a, b) => a.filename.localeCompare(b.name),
+            display: (screenshot) => <span>{screenshot.name}</span>,
+            label: "A - Z (Name)"
+        },
+        {
+            algorithm: (a, b) => b.filename.localeCompare(a.name),
+            display: (screenshot) => <span>{screenshot.name}</span>,
+            label: "Z - A (Name)"
+        },
+        {
+            algorithm: (a, b) => a.filename.localeCompare(b.filename),
+            display: (screenshot) => <span>{screenshot.filename}</span>,
+            label: "A - Z (Filename)"
+        },
+        {
+            algorithm: (a, b) => b.filename.localeCompare(a.filename),
+            display: (screenshot) => <span>{screenshot.filename}</span>,
+            label: "Z - A (Filename)"
+        },
+        {
+            algorithm: (a, b) => archives.findIndex((archive) => archive.season === b.season) - archives.findIndex((archive) => archive.season === a.season),
+            display: (screenshot) => {
+                const archive = archives.find((archive) => archive.season === screenshot.season);
+                if(typeof archive === "undefined") return <span>Unknown Season</span>;
+                return <span>{archive.title}</span>;
+            },
+            label: "Newest (Season)"
+        },
+        {
+            algorithm: (a, b) => archives.findIndex((archive) => archive.season === a.season) - archives.findIndex((archive) => archive.season === b.season),
+            display: (screenshot) => {
+                const archive = archives.find((archive) => archive.season === screenshot.season);
+                if(typeof archive === "undefined") return <span>Unknown Season</span>;
+                return <span>{archive.title}</span>;
+            },
+            label: "Oldest (Season)"
+        },
+        {
+            algorithm: (a, b) => +new Date(b.time) - +new Date(a.time),
+            display: (screenshot) => <span>{dateUTC(new Date(screenshot.time))}</span>,
+            label: "Newest (Time)"
+        },
+        {
+            algorithm: (a, b) => +new Date(a.time) - +new Date(b.time),
+            display: (screenshot) => <span>{dateUTC(new Date(screenshot.time))}</span>,
+            label: "Oldest (Time)"
+        },
+        {
+            algorithm: (a, b) => a.camera.localeCompare(b.camera),
+            display: (screenshot) => {
+                const camera = profiles.find((profile) => profile.uuid === screenshot.camera.replace(/-/g, ""));
+                if(typeof camera === "undefined") return <span>Unknown Camera</span>;
+                return <span>
+                    <img src={camera.avatarURL}/>
+                    <span>{camera.username}</span>
+                </span>;
+            },
+            label: "Camera"
+        }
+    ];
+    const [ archives, setArchives ] = useState<Archive[]>([]);
+    const [ galleries, setGalleries ] = useState<Gallery>([]);
+    const [ gallery, setGallery ] = useState<Gallery>([]);
+    const [ modeIndex, setModeIndex ] = useState<number>(0);
+    const [ profiles, setProfiles ] = useState<Profile[]>([]);
+    useEffect(() => {
+        // Fetches api
+        fetch(new URL("/api/archives", root)).then(async (response) => {
+            if(!response.ok) return;
+            const archivesJSON = await response.json() as Archive[];
+            archivesJSON.sort((a, b) => +new Date(a.since) - +new Date(b.since));
+            setArchives(archivesJSON);
+        });
+        fetch(new URL("/api/galleries", root)).then(async (response) => {
+            if(!response.ok) return;
+            const galleriesJSON = await response.json() as Gallery;
+            galleriesJSON.sort((a, b) => a.filename.localeCompare(b.filename));
+            setGalleries(galleriesJSON);
+        });
+        fetch(new URL("/api/profiles", root)).then(async (response) => {
+            if(!response.ok) return;
+            const profilesJSON = await response.json() as Profile[];
+            setProfiles(profilesJSON);
+        });
+    }, []);
+    useEffect(() => {
+        // Updates gallery
+        const mode = modes[modeIndex];
+        setGallery(galleries.toSorted(mode.algorithm));
+        console.log(modeIndex);
+    }, [ galleries, modeIndex ]);
 
-    // const [ galleries, setGalleries ] = useState<Gallery>([]);
-    // const [ archives, setArchives ] = useState<Archive[]>([]);
-    // const [ profiles, setProfiles ] = useState<Profile[]>([]);
-    // const [ screenshotIndex, setScreenshotIndex ] = useState<number | null>(null);
-
-    // useEffect(() => {
-    //     // Fetches api
-    //     fetch(new URL("/archives", root)).then(async (response) => {
-    //         // Creates archives
-    //         if(!response.ok) return;
-    //         const archivesJSON = await response.json();
-    //         setArchives(archivesJSON);
-    //     });
-    //     fetch(new URL("/galleries", root)).then(async (response) => {
-    //         // Creates galleries
-    //         if(!response.ok) return;
-    //         const galleriesJSON = await response.json();
-    //         setGalleries(galleriesJSON);
-    //     });
-    //     fetch(new URL("/profiles", root)).then(async (response) => {
-    //         // Creates profiles
-    //         if(!response.ok) return;
-    //         const profilesJSON = await response.json();
-    //         setProfiles(profilesJSON);
-    //     });
-    // }, []);
-
-    // return <main id="gallery">
-    //     <h1>Gallery</h1>
-    //     <h2>"The Gees Family Album"</h2>
-    //     <div id="gallery-action">
-    //         <input id="gallery-find"/>
-    //         <button id="gallery-sort">A - Z</button>
-    //     </div>
-    //     <div id="gallery-display">{
-        
-    //     }</div>
-    //     {screenshotIndex !== null ? <div id="screenshot">
-    //         <button id="screenshot-previous" onClick={() => setScreenshotIndex((gallery.length + screenshotIndex - 1) % gallery.length)}>🞀</button>
-    //         <div id="screenshot-display">
-    //             <img id="screenshot-image" src={gallery[screenshotIndex].url}/>
-    //             <section>
-    //                 <h3>{gallery[screenshotIndex].name} ({gallery[screenshotIndex].filename})</h3>
-    //                 <span>{gallery[screenshotIndex].description}</span>
-    //                 <span>{camera !== null ? <><span><img src={camera.avatarURL}/> {camera.username}</span><span>•</span></> : <></>} {dateUTC(new Date(gallery[screenshotIndex].time))}</span>
-    //                 <span>
-    //                     <a href={gallery[screenshotIndex].url} target="_blank" rel="noopener noreferrer">View Image</a>
-    //                     <span>•</span>
-    //                     <a href={gallery[screenshotIndex].url.slice(0, ".avif".length * -1) + ".png"} target="_blank" rel="noopener noreferrer">Open Original</a>
-    //                 </span>
-    //             </section>
-    //             <button id="screenshot-close" onClick={() => setScreenshotIndex(null)}>Close</button>
-    //         </div>
-    //         <button id="screenshot-next" onClick={() => setScreenshotIndex((screenshotIndex + 1) % gallery.length)}>🞂</button>
-    //     </div> : <></>}
-    // </main>;
-    return <main id="gallery"></main>;
+    // Creates gallery route
+    return <main id="gallery">
+        <button onClick={() => setModeIndex((modeIndex + 1) % modes.length)}>{modes[modeIndex].label}</button>
+        {gallery.map((screenshot) => <button>
+            <img src={screenshot.url}/>
+            <div>{modes[modeIndex].display(screenshot)}</div>
+        </button>)}
+    </main>;
 }
 function PackerRoute() {
-    return <></>;
+    return <main id="packer"></main>;
 }
 function MoreRoute() {
-    return <></>;
+    return <main id="more"></main>;
 }
 function ErrorRoute() {
     // Creates error route
