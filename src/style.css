@@ -239,9 +239,17 @@ main#archive {
         flex-direction: column;
         gap: 25px 0px;
 
-        /* Styles titles */
-        & h1 { font-size: 40px; line-height: 50px; margin: 0px 25px; text-align: center; }
-        & h2 { margin: 0px 25px; text-align: center; }
+        /* Styles head */
+        & #archive-head {
+            /* Forces columns */
+            display: flex;
+            flex-direction: column;
+            gap: 25px 0px;
+
+            /* Styles text */
+            & h3 { font-size: 40px; line-height: 50px; margin: 0px 25px; text-align: center; }
+            & h4 { margin: 0px 25px; text-align: center; }
+        }
 
         /* Styles meta */
         & #archive-meta {

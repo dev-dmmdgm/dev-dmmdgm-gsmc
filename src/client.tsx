@@ -1,4 +1,5 @@
 // Imports
+import type { VNode } from "preact";
 import type { RoutePropsForPath } from "preact-iso";
 import type { Archive, Gallery, Profile, Screenshot } from "./type";
 import DOMPurity from "dompurify";
@@ -246,11 +247,11 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
         version: "",
         worldURL: null
     });
-    const [ content, setContent ] = useState<string>("");
-    const [ profiles, setProfiles ] = useState<Profile[]>([]);
-    const [ gallery, setGallery ] = useState<Gallery>([]);
-    const [ screenshotIndex, setScreenshotIndex ] = useState<number | null>(null);
     const [ camera, setCamera ] = useState<Profile | null>(null);
+    const [ content, setContent ] = useState<string>("");
+    const [ gallery, setGallery ] = useState<Gallery>([]);
+    const [ profiles, setProfiles ] = useState<Profile[]>([]);
+    const [ screenshotIndex, setScreenshotIndex ] = useState<number | null>(null);
     useEffect(() => {
         // Fetches api
         fetch(new URL(`/api/archives/${props.season}`, root)).then(async (response) => {
@@ -292,8 +293,10 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
     return <main id="archive">
         <img id="archive-splash" src={archive.bannerURL ?? ""}/>
         <div id="archive-data">
-            <h1>{archive.title}</h1>
-            <h2>{archive.description}</h2>
+            <div id="archive-head">
+                <h3>{archive.title}</h3>
+                <h4>{archive.description}</h4>
+            </div>
             <div id="archive-meta">
                 <div>{dateUTC(new Date(archive.since))} - {dateUTC(new Date(archive.until))}</div>
                 <div>{dateDelta(new Date(archive.since), new Date(archive.until))} Day(s)</div>
@@ -476,7 +479,70 @@ function ArchivesRoute() {
     </main>;
 }
 function GalleryRoute() {
-    return <></>;
+    // // Defines date handler
+    // function dateUTC(date: Date): string {
+    //     // Formats date
+    //     const offset = date.getTimezoneOffset() * 60 * 1000;
+    //     return new Date(date.getTime() + offset).toLocaleDateString();
+    // }
+
+    // const [ galleries, setGalleries ] = useState<Gallery>([]);
+    // const [ archives, setArchives ] = useState<Archive[]>([]);
+    // const [ profiles, setProfiles ] = useState<Profile[]>([]);
+    // const [ screenshotIndex, setScreenshotIndex ] = useState<number | null>(null);
+
+    // useEffect(() => {
+    //     // Fetches api
+    //     fetch(new URL("/archives", root)).then(async (response) => {
+    //         // Creates archives
+    //         if(!response.ok) return;
+    //         const archivesJSON = await response.json();
+    //         setArchives(archivesJSON);
+    //     });
+    //     fetch(new URL("/galleries", root)).then(async (response) => {
+    //         // Creates galleries
+    //         if(!response.ok) return;
+    //         const galleriesJSON = await response.json();
+    //         setGalleries(galleriesJSON);
+    //     });
+    //     fetch(new URL("/profiles", root)).then(async (response) => {
+    //         // Creates profiles
+    //         if(!response.ok) return;
+    //         const profilesJSON = await response.json();
+    //         setProfiles(profilesJSON);
+    //     });
+    // }, []);
+
+    // return <main id="gallery">
+    //     <h1>Gallery</h1>
+    //     <h2>"The Gees Family Album"</h2>
+    //     <div id="gallery-action">
+    //         <input id="gallery-find"/>
+    //         <button id="gallery-sort">A - Z</button>
+    //     </div>
+    //     <div id="gallery-display">{
+        
+    //     }</div>
+    //     {screenshotIndex !== null ? <div id="screenshot">
+    //         <button id="screenshot-previous" onClick={() => setScreenshotIndex((gallery.length + screenshotIndex - 1) % gallery.length)}>🞀</button>
+    //         <div id="screenshot-display">
+    //             <img id="screenshot-image" src={gallery[screenshotIndex].url}/>
+    //             <section>
+    //                 <h3>{gallery[screenshotIndex].name} ({gallery[screenshotIndex].filename})</h3>
+    //                 <span>{gallery[screenshotIndex].description}</span>
+    //                 <span>{camera !== null ? <><span><img src={camera.avatarURL}/> {camera.username}</span><span>•</span></> : <></>} {dateUTC(new Date(gallery[screenshotIndex].time))}</span>
+    //                 <span>
+    //                     <a href={gallery[screenshotIndex].url} target="_blank" rel="noopener noreferrer">View Image</a>
+    //                     <span>•</span>
+    //                     <a href={gallery[screenshotIndex].url.slice(0, ".avif".length * -1) + ".png"} target="_blank" rel="noopener noreferrer">Open Original</a>
+    //                 </span>
+    //             </section>
+    //             <button id="screenshot-close" onClick={() => setScreenshotIndex(null)}>Close</button>
+    //         </div>
+    //         <button id="screenshot-next" onClick={() => setScreenshotIndex((screenshotIndex + 1) % gallery.length)}>🞂</button>
+    //     </div> : <></>}
+    // </main>;
+    return <main id="gallery"></main>;
 }
 function PackerRoute() {
     return <></>;
