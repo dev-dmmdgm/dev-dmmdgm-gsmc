@@ -659,8 +659,8 @@ main#gallery {
     & h1 { font-size: 40px; line-height: 50px; text-align: center; }
     & h2 { text-align: center; }
 
-    /* Styles tool */
-    & #gallery-tool {
+    /* Styles find */
+    & #gallery-find {
         /* Changes background */
         background-color: #1f1f1f;
         border-radius: 5px;
@@ -859,6 +859,25 @@ main#gallery {
             }
         }
     }
+
+    /* Handles mobile */
+    @media screen and (max-width: 700px) { & {
+        /* Styles screenshot */
+        & #screenshot {
+            /* Styles buttons */
+            & #screenshot-previous, #screenshot-next { display: none; }
+
+            /* Styles display */
+            & #screenshot-display { margin: 0px 50px; }
+        }
+    } }
+    @media screen and (max-width: 500px) { & {
+        /* Styles list */
+        & #gallery-list {
+            /* Styles screenshot */
+            & button { width: 100%; }
+        }
+    } }
 }
 
 /* Error Route */
