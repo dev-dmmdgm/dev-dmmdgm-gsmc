@@ -639,10 +639,17 @@ function GalleryRoute() {
         const mode = sorts[sortIndex];
         setGallery(galleries.filter((screenshot) => {
             if(filter.length === 0) return true;
-            const archiveJSON = JSON.stringify(archivesLookup[screenshot.season] ?? null).toLowerCase();
-            const screenshotJSON = JSON.stringify(screenshot).toLowerCase();
-            const profileJSON = JSON.stringify(profilesLookup[screenshot.camera.replace(/-/g, "")] ?? null).toLowerCase();
-            return archiveJSON.includes(filter) || screenshotJSON.includes(filter) || profileJSON.includes(filter);
+            const archive = archivesLookup[screenshot.season] ?? null;
+            const profile = profilesLookup[screenshot.camera.replace(/-/g, "")] ?? null;
+            if(archive === null || profile === null) return false;
+            const targets = [
+                archive.title, archive.season,
+                screenshot.camera, screenshot.description, screenshot.filename,
+                screenshot.name, screenshot.time, dateUTC(new Date(screenshot.time)),
+                screenshot.url,
+                profile.username, profile.uuid
+            ];
+            return targets.some((target) => target.toLowerCase().includes(filter));
         }).toSorted(mode.algorithm));
         localStorage.setItem("sort-index", sortIndex.toString());
     }, [ filter, galleries, sortIndex ]);
