@@ -622,7 +622,7 @@ function GalleryRoute() {
             algorithm: (a, b) => a.camera.localeCompare(b.camera),
             display: (screenshot) => {
                 const camera = profilesLookup[screenshot.camera.replace(/-/g, "")];
-                if(typeof camera === "undefined") return <span>Unknown Camera</span>;
+                if(typeof camera === "undefined") return <div><span>Unknown Camera</span></div>;
                 return <div>
                     <img src={camera.avatarURL}/>
                     <span>{camera.username}</span>
