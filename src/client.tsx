@@ -673,8 +673,8 @@ function GalleryRoute() {
 
     // Creates gallery route
     return <main id="gallery">
-        <h1>Gallery</h1>
-        <h2>"Welcome to the Gees family album!"</h2>
+        <h1>Gallery Collection</h1>
+        <h2>"Welcome to the Geesefraft family album!"</h2>
         <div id="gallery-find">
             <input placeholder="Search gallery..." onChange={(event) => setFilter(event.currentTarget.value.toLowerCase())}/>
             <button onClick={() => setSortIndex((sortIndex + 1) % sorts.length)}>{sorts[sortIndex].label}</button>
