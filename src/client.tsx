@@ -276,7 +276,9 @@ function ArchivesRoute() {
                 archiveBusy = true;
 
                 // Cycles elements
-                updateArchive(archiveBack, archivesJSON[(archivesJSON.length + archiveIndex - 2) % archivesJSON.length]);
+                archiveIndex = (archivesJSON.length + archiveIndex - 1) % archivesJSON.length;
+                localStorage.setItem("archive-season", archivesJSON[archiveIndex].season);
+                updateArchive(archiveBack, archivesJSON[(archivesJSON.length + archiveIndex - 1) % archivesJSON.length]);
                 archiveBack.classList.replace("archive-back", "archive-left");
                 archiveLeft.classList.replace("archive-left", "archive-front");
                 archiveRight.classList.replace("archive-right", "archive-back");
@@ -285,7 +287,6 @@ function ArchivesRoute() {
 
                 // Awaits animation
                 archiveTimeout = setTimeout(() => {
-                    archiveIndex = (archivesJSON.length + archiveIndex - 1) % archivesJSON.length;
                     archiveBusy = false;
                 }, 500);
             };
@@ -295,7 +296,9 @@ function ArchivesRoute() {
                 archiveBusy = true;
 
                 // Cycles elements
-                updateArchive(archiveBack, archivesJSON[(archiveIndex + 2) % archivesJSON.length]);
+                archiveIndex = (archiveIndex + 1) % archivesJSON.length;
+                localStorage.setItem("archive-season", archivesJSON[archiveIndex].season);
+                updateArchive(archiveBack, archivesJSON[(archiveIndex + 1) % archivesJSON.length]);
                 archiveBack.classList.replace("archive-back", "archive-right");
                 archiveLeft.classList.replace("archive-left", "archive-back");
                 archiveRight.classList.replace("archive-right", "archive-front");
@@ -304,7 +307,6 @@ function ArchivesRoute() {
                 
                 // Awaits animation
                 archiveTimeout = setTimeout(() => {
-                    archiveIndex = (archiveIndex + 1) % archivesJSON.length;
                     archiveBusy = false;
                 }, 500);
             };
@@ -314,7 +316,10 @@ function ArchivesRoute() {
             archiveNext.addEventListener("click", archiveNextListener);
 
             // Updates archives
-            archiveIndex = archivesJSON.length - 1;
+            const archiveSeason = localStorage.getItem("archive-season");
+            const archiveFind = archiveSeason !== null ? archivesJSON.findIndex((archive) => archive.season === archiveSeason) : -1;
+            archiveIndex = archiveFind > -1 ? archiveFind : (archivesJSON.length - 1);
+            localStorage.setItem("archive-season", archivesJSON[archiveIndex].season);
             updateArchive(archiveLeft, archivesJSON[(archivesJSON.length + archiveIndex - 1) % archivesJSON.length]);
             updateArchive(archiveRight, archivesJSON[(archiveIndex + 1) % archivesJSON.length]);
             updateArchive(archiveFront, archivesJSON[archiveIndex]);
@@ -377,6 +382,9 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
             if(!response.ok) return setArchive(empty);
             const archiveJSON = await response.json() as Archive;
             setArchive(archiveJSON);
+
+            // Updates storage
+            localStorage.setItem("archive-season", archiveJSON.season);
 
             // Creates content
             if(archiveJSON.contentURL !== null) {
@@ -625,11 +633,10 @@ function GalleryRoute() {
     ];
     const [ filter, setFilter ] = useState<string>("");
     const [ gallery, setGallery ] = useState<Gallery>([]);
-    const [ sortIndex, setSortIndex ] = useState<number>(0);
+    const [ sortIndex, setSortIndex ] = useState<number>(parseInt(localStorage.getItem("sort-index") ?? "0"));
     useEffect(() => {
         // Updates gallery
         const mode = sorts[sortIndex];
-        console.log("sort start");
         setGallery(galleries.filter((screenshot) => {
             if(filter.length === 0) return true;
             const archiveJSON = JSON.stringify(archivesLookup[screenshot.season] ?? null).toLowerCase();
@@ -637,7 +644,7 @@ function GalleryRoute() {
             const profileJSON = JSON.stringify(profilesLookup[screenshot.camera.replace(/-/g, "")] ?? null).toLowerCase();
             return archiveJSON.includes(filter) || screenshotJSON.includes(filter) || profileJSON.includes(filter);
         }).toSorted(mode.algorithm));
-        console.log("sort end");
+        localStorage.setItem("sort-index", sortIndex.toString());
     }, [ filter, galleries, sortIndex ]);
 
     // Defines screenshot
