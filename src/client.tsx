@@ -645,8 +645,7 @@ function GalleryRoute() {
             const targets = [
                 archive.title, archive.season,
                 screenshot.camera, screenshot.description, screenshot.filename,
-                screenshot.name, screenshot.time, dateUTC(new Date(screenshot.time)),
-                screenshot.url,
+                screenshot.name, dateUTC(new Date(screenshot.time)), screenshot.url,
                 profile.username, profile.uuid
             ];
             return targets.some((target) => target.toLowerCase().includes(filter));
