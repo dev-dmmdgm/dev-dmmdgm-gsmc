@@ -188,7 +188,7 @@ main#home {
     /* Styles section */
     & section {
         /* Changes size */
-        padding: 50px 50px;
+        padding: 25px 25px;
 
         /* Forces columns */
         align-items: center;
@@ -220,7 +220,7 @@ main#home {
 /* Archives Route */
 main#archives {
     /* Changes size */
-    margin: 50px 50px;
+    margin: 25px 25px;
 
     /* Forces columns */
     align-items: center;
@@ -499,7 +499,7 @@ main#archive {
                     display: flex;
                     gap: 0px 5px;
                     
-                    /* Styles text */
+                    /* Styles objects */
                     & span { color: #6f6f6f; font-size: 12px; line-height: 22px; text-align: center; }
                 }
             }
@@ -646,19 +646,225 @@ main#archive {
 
 /* Gallery Route */
 main#gallery {
-    img {
-        width: 100px;
+    /* Changes size */
+    margin: 25px 25px;
+
+    /* Forces columns */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 25px 0px;
+
+    /* Styles titles */
+    & h1 { font-size: 40px; line-height: 50px; text-align: center; }
+    & h2 { text-align: center; }
+
+    /* Styles tool */
+    & #gallery-tool {
+        /* Changes background */
+        background-color: #1f1f1f;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 5px #000;
+        box-sizing: border-box;
+        
+        /* Changes size */
+        padding: 10px 10px;
+        width: 80%;
+
+        /* Forces rows */
+        display: flex;
+        gap: 0px 10px;
+
+        /* Styles objects */
+        & input, button {
+            /* Changes background */
+            background-color: #2f2f2f;
+            border: none;
+            border-radius: 5px;
+
+            /* Changes font */
+            color: #6f6f6f;
+            font-size: 12px;
+            line-height: 22px;
+
+            /* Changes size */
+            padding: 5px 10px;
+        }
+        & input { flex: 1; }
+        & button { width: 125px; }
     }
 
-    div img {
-        width: 15px;
+    /* Styles list */
+    & #gallery-list {
+        /* Changes background */
+        background-color: #1f1f1f;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 5px #000;
+        box-sizing: border-box;
+
+        /* Changes size */
+        padding: 25px 25px;
+        width: 100%;
+
+        /* Forces rows */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px 25px;
+        justify-content: space-around;
+        
+        /* Styles button */
+        & button {
+            /* Changes background */
+            background-color: #2f2f2f;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 5px #111;
+            
+            /* Changes size */
+            padding: 5px 5px;
+            width: 175px;
+
+            /* Forces columns */
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 5px 0px;
+            justify-content: center;
+
+            /* Styles objects */
+            & img { flex: 1; object-fit: contain; width: 100%; }
+            & div {
+                /* Forces rows */
+                align-items: center;
+                display: flex;
+                gap: 0px 5px;
+
+                /* Styles objects */
+                & img { height: 15px; width: 15px; }
+                & span { color: #6f6f6f; font-size: 12px; line-height: 22px; text-align: center; }
+            }
+        }
+
+        /* Styles empty */
+        & #gallery-empty {
+            /* Forces columns */
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px 0px;
+
+            /* Styles texts */
+            & h3 { font-size: 20px; line-height: 30px; }
+        }
+    }
+
+    /* Styles screenshot */
+    & #screenshot {
+        /* Changes background */
+        background-color: #0f0f0fef;
+        z-index: 10;
+
+        /* Changes position */
+        left: 0px;
+        position: fixed;
+        top: 0px;
+        
+        /* Changes size */
+        height: 100%;
+        width: 100%; 
+        
+        /* Forces rows */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Styles buttons */
+        & #screenshot-previous, #screenshot-next {
+            /* Changes background */
+            background-color: #2f2f2f;
+            border-radius: 5px;
+
+            /* Changes size */
+            height: fit-content;
+            margin: 0px 50px;
+            padding: 10px 10px;
+            width: fit-content;
+        }
+
+        /* Styles display */
+        & #screenshot-display {
+            /* Changes size */
+            height: 100%;
+            flex: 1;
+
+            /* Forces columns */
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 25px 0px;
+            justify-content: center;
+            text-align: center;
+
+            /* Styles image */
+            & #screenshot-image {
+                /* Changes background */
+                background-color: #2f2f2f;
+                border-radius: 5px;
+                box-shadow: 0px 0px 5px 5px #000;
+                object-fit: contain;
+
+                /* Changes size */
+                max-height: 50%;
+                max-width: 100%;
+                padding: 5px 5px;
+            }
+
+            /* Styles section */
+            & section {
+                /* Forces columns */
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                /* Styles texts */
+                & h3, span, a {
+                    /* Changes font */
+                    font-size: 12px;
+                    line-height: 22px;
+
+                    /* Forces rows */
+                    align-items: center;
+                    display: flex;
+                    gap: 0px 5px;
+
+                    /* Styles image */
+                    & img { height: 15px; width: 15px; }
+                }
+                & span { color: #6f6f6f; }
+                & a { color: #4f4f8f; }
+            }
+
+            /* Styles close */
+            & #screenshot-close {
+                /* Changes background */
+                background-color: #2f2f2f;
+                border-radius: 5px;
+
+                /* Change ssize */
+                padding: 5px 10px;
+
+                /* Changes font */
+                font-size: 12px;
+                line-height: 22px;
+            }
+        }
     }
 }
 
 /* Error Route */
 main#error {
     /* Changes size */
-    margin: 50px 50px;
+    margin: 25px 25px;
 
     /* Forces columns */
     align-items: center;

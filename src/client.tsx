@@ -489,6 +489,8 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                     <span>
                         {camera !== null && <span><img src={camera.avatarURL}/> {camera.username}</span>}
                         <span>•</span>
+                        <span>{archive.title}</span>
+                        <span>•</span>
                         <span>{dateUTC(new Date(gallery[screenshotIndex].time))}</span>
                     </span>
                     <span>
@@ -511,51 +513,59 @@ function GalleryRoute() {
         label: string;
     }[] = [
         {
-            algorithm: (a, b) => a.filename.localeCompare(b.name),
-            display: (screenshot) => <span>{screenshot.name}</span>,
+            algorithm: (a, b) => a.name.localeCompare(b.name),
+            display: (screenshot) => <div><span>{screenshot.name}</span></div>,
             label: "A - Z (Name)"
         },
         {
-            algorithm: (a, b) => b.filename.localeCompare(a.name),
-            display: (screenshot) => <span>{screenshot.name}</span>,
+            algorithm: (a, b) => b.name.localeCompare(a.name),
+            display: (screenshot) => <div><span>{screenshot.name}</span></div>,
             label: "Z - A (Name)"
         },
         {
             algorithm: (a, b) => a.filename.localeCompare(b.filename),
-            display: (screenshot) => <span>{screenshot.filename}</span>,
+            display: (screenshot) => <div><span>{screenshot.filename}</span></div>,
             label: "A - Z (Filename)"
         },
         {
             algorithm: (a, b) => b.filename.localeCompare(a.filename),
-            display: (screenshot) => <span>{screenshot.filename}</span>,
+            display: (screenshot) => <div><span>{screenshot.filename}</span></div>,
             label: "Z - A (Filename)"
         },
         {
-            algorithm: (a, b) => archives.findIndex((archive) => archive.season === b.season) - archives.findIndex((archive) => archive.season === a.season),
+            algorithm: (a, b) => {
+                const aIndex = archives.findIndex((archive) => archive.season === a.season);
+                const bIndex = archives.findIndex((archive) => archive.season === b.season);
+                return bIndex - aIndex;
+            },
             display: (screenshot) => {
                 const archive = archives.find((archive) => archive.season === screenshot.season);
-                if(typeof archive === "undefined") return <span>Unknown Season</span>;
-                return <span>{archive.title}</span>;
+                if(typeof archive === "undefined") return <div><span>Unknown Season</span></div>;
+                return <div><span>{archive.title}</span></div>;
             },
             label: "Newest (Season)"
         },
         {
-            algorithm: (a, b) => archives.findIndex((archive) => archive.season === a.season) - archives.findIndex((archive) => archive.season === b.season),
+            algorithm: (a, b) => {
+                const aIndex = archives.findIndex((archive) => archive.season === a.season);
+                const bIndex = archives.findIndex((archive) => archive.season === b.season);
+                return aIndex - bIndex;
+            },
             display: (screenshot) => {
                 const archive = archives.find((archive) => archive.season === screenshot.season);
-                if(typeof archive === "undefined") return <span>Unknown Season</span>;
-                return <span>{archive.title}</span>;
+                if(typeof archive === "undefined") return <div><span>Unknown Season</span></div>;
+                return <div><span>{archive.title}</span></div>;
             },
             label: "Oldest (Season)"
         },
         {
             algorithm: (a, b) => +new Date(b.time) - +new Date(a.time),
-            display: (screenshot) => <span>{dateUTC(new Date(screenshot.time))}</span>,
+            display: (screenshot) => <div><span>{dateUTC(new Date(screenshot.time))}</span></div>,
             label: "Newest (Time)"
         },
         {
             algorithm: (a, b) => +new Date(a.time) - +new Date(b.time),
-            display: (screenshot) => <span>{dateUTC(new Date(screenshot.time))}</span>,
+            display: (screenshot) => <div><span>{dateUTC(new Date(screenshot.time))}</span></div>,
             label: "Oldest (Time)"
         },
         {
@@ -563,19 +573,23 @@ function GalleryRoute() {
             display: (screenshot) => {
                 const camera = profiles.find((profile) => profile.uuid === screenshot.camera.replace(/-/g, ""));
                 if(typeof camera === "undefined") return <span>Unknown Camera</span>;
-                return <span>
+                return <div>
                     <img src={camera.avatarURL}/>
                     <span>{camera.username}</span>
-                </span>;
+                </div>;
             },
             label: "Camera"
         }
     ];
     const [ archives, setArchives ] = useState<Archive[]>([]);
+    const [ camera, setCamera ] = useState<Profile | null>(null);
+    const [ filter, setFilter ] = useState<string>("");
     const [ galleries, setGalleries ] = useState<Gallery>([]);
     const [ gallery, setGallery ] = useState<Gallery>([]);
     const [ modeIndex, setModeIndex ] = useState<number>(0);
     const [ profiles, setProfiles ] = useState<Profile[]>([]);
+    const [ screenshotIndex, setScreenshotIndex ] = useState<number | null>(null);
+    const [ season, setSeason ] = useState<string | null>(null);
     useEffect(() => {
         // Fetches api
         fetch("https://gsmc.dmmdgm.dev/api/archives").then(async (response) => {
@@ -599,17 +613,72 @@ function GalleryRoute() {
     useEffect(() => {
         // Updates gallery
         const mode = modes[modeIndex];
-        setGallery(galleries.toSorted(mode.algorithm));
-        console.log(modeIndex);
-    }, [ galleries, modeIndex ]);
+        setGallery(galleries.filter((screenshot) => {
+            if(filter.length === 0) return true;
+            const archiveJSON = JSON.stringify(archives.find((archive) => archive.season === screenshot.season) ?? null).toLowerCase();
+            const screenshotJSON = JSON.stringify(screenshot).toLowerCase();
+            const profileJSON = JSON.stringify(profiles.find((profile) => profile.uuid === screenshot.camera.replace(/-/g, ""))).toLowerCase();
+            return archiveJSON.includes(filter) || screenshotJSON.includes(filter) || profileJSON.includes(filter);
+        }).toSorted(mode.algorithm));
+    }, [ filter, galleries, modeIndex ]);
+    useEffect(() => {
+        // Updates screenshot
+        if(screenshotIndex === null) {
+            setCamera(null);
+            setSeason(null);
+        }
+        else {
+            const cameraJSON = profiles.find((profile) => profile.uuid === gallery[screenshotIndex].camera.replace(/-/g, ""));
+            const archiveJSON = archives.find((archive) => archive.season === gallery[screenshotIndex].season);
+            if(typeof cameraJSON === "undefined") setCamera(null);
+            else setCamera(cameraJSON);
+            if(typeof archiveJSON === "undefined") setSeason(null);
+            else setSeason(archiveJSON.title);
+        }
+    }, [ screenshotIndex ]);
 
     // Creates gallery route
     return <main id="gallery">
-        <button onClick={() => setModeIndex((modeIndex + 1) % modes.length)}>{modes[modeIndex].label}</button>
-        {gallery.map((screenshot) => <button>
-            <img src={screenshot.url}/>
-            <div>{modes[modeIndex].display(screenshot)}</div>
-        </button>)}
+        <h1>Gallery</h1>
+        <h2>"Welcome to the Gees family album!"</h2>
+        <div id="gallery-tool">
+            <input placeholder="Search gallery..." onChange={(event) => setFilter(event.currentTarget.value.toLowerCase())}/>
+            <button onClick={() => setModeIndex((modeIndex + 1) % modes.length)}>{modes[modeIndex].label}</button>
+        </div>
+        <div id="gallery-list">
+            {gallery.map((screenshot, index) => <button onClick={() => setScreenshotIndex(index)}>
+                <img src={screenshot.url}/>
+                {modes[modeIndex].display(screenshot)}
+            </button>)}
+            {gallery.length < 1 && <div id="gallery-empty">
+                <h3>No Results Found</h3>
+                <h4>Kachow!</h4>
+            </div>}
+        </div>
+        {screenshotIndex !== null && <div id="screenshot">
+            <button id="screenshot-previous" onClick={() => setScreenshotIndex((gallery.length + screenshotIndex - 1) % gallery.length)}>🞀</button>
+            <div id="screenshot-display">
+                <img id="screenshot-image" src={gallery[screenshotIndex].url}/>
+                <section>
+                    <h3>{gallery[screenshotIndex].name} ({gallery[screenshotIndex].filename})</h3>
+                    <span>{gallery[screenshotIndex].description}</span>
+                    <span>
+                        {camera !== null && <span><img src={camera.avatarURL}/> {camera.username}</span>}
+                        <span>•</span>
+                        <span>{season}</span>
+                        <span>•</span>
+                        <span>{dateUTC(new Date(gallery[screenshotIndex].time))}</span>
+                    </span>
+                    <span>
+                        <a href={gallery[screenshotIndex].url} target="_blank" rel="noopener noreferrer">View Image</a>
+                        <span>•</span>
+                        <a href={gallery[screenshotIndex].url.slice(0, ".avif".length * -1) + ".png"} target="_blank" rel="noopener noreferrer">Open Original</a>
+                    </span>
+                </section>
+                <button id="screenshot-close" onClick={() => setScreenshotIndex(null)}>Close</button>
+            </div>
+            <button id="screenshot-next" onClick={() => setScreenshotIndex((screenshotIndex + 1) % gallery.length)}>🞂</button>
+        </div>}
     </main>;
 }
 function PackerRoute() {
