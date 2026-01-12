@@ -673,7 +673,7 @@ main#gallery {
 
         /* Forces rows */
         display: flex;
-        gap: 0px 10px;
+        gap: 10px 10px;
 
         /* Styles objects */
         & input, button {
@@ -872,6 +872,15 @@ main#gallery {
         }
     } }
     @media screen and (max-width: 500px) { & {
+        /* Styles find */
+        & #gallery-find {
+            /* Forces columns */
+            flex-direction: column-reverse;
+
+            /* Styles objects */
+            & input, button { box-sizing: border-box; width: 100%; }
+        }
+
         /* Styles list */
         & #gallery-list {
             /* Styles screenshot */

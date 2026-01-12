@@ -651,7 +651,7 @@ function GalleryRoute() {
             return targets.some((target) => target.toLowerCase().includes(filter));
         }).toSorted(mode.algorithm));
         localStorage.setItem("sort-index", sortIndex.toString());
-    }, [ filter, galleries, sortIndex ]);
+    }, [ archives, filter, galleries, profiles, sortIndex ]);
 
     // Defines screenshot
     const [ camera, setCamera ] = useState<Profile | null>(null);
