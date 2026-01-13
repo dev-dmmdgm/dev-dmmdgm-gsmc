@@ -1,7 +1,7 @@
 // Imports
-import type { Archive, Gallery, Profile } from "./type";
+import type { Archive, Gallery } from "./type";
 import nodePath from "node:path";
-import profiles from "./profiles";
+import profiles from "./profiles.json";
 
 // Defines paths
 const data = nodePath.resolve("data");

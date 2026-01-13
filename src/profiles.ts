@@ -20,4 +20,10 @@ const profiles: Profile[] = players.filter((player) => player !== null).map((pla
     username: player.name,
     uuid: player.id
 }));
-export default profiles;
+
+// Writes profiles
+await Bun.file("src/profiles.json").write(JSON.stringify(profiles, null, 4));
+console.log("Downloaded profiles.");
+
+// Exports
+export {};
