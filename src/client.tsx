@@ -674,7 +674,7 @@ function GalleryRoute() {
     // Creates gallery route
     return <main id="gallery">
         <h1>Gallery Collection</h1>
-        <h2>"Welcome to the Geesefraft family album!"</h2>
+        <h2>"Welcome to the Geesecraft family album!"</h2>
         <div id="gallery-find">
             <input placeholder="Search gallery..." onChange={(event) => setFilter(event.currentTarget.value.toLowerCase())}/>
             <button onClick={() => setSortIndex((sortIndex + 1) % sorts.length)}>{sorts[sortIndex].label}</button>
@@ -716,10 +716,91 @@ function GalleryRoute() {
     </main>;
 }
 function PackerRoute() {
-    return <main id="packer"></main>;
+    // Creates packer route
+    return <main id="packer">
+        <h1>GSMC Pack</h1>
+        <h2>"Still downloading manually? Check out gsmc-pack!"</h2>
+        <div id="packer-list">
+            <a href="https://github.com/DmmDGM/gsmc-pack/releases" target="_blank" rel="noopener noreferrer">Download GSMC Pack</a>
+            <a href="https://github.com/DmmDGM/gsmc-pack" target="_blank" rel="noopener noreferrer">Clone from Source (Requires Bun)</a>
+            <a href="https://pack.iipython.dev" target="_blank" rel="noopener noreferrer">Use Web Version (by iiPythonx)</a>
+        </div>
+        <div id="packer-disclaimer">
+            <p>A tool to downloads mods, shaders, resourcepacks, and more automatically, so you don't have to do it manually!</p>
+            <p>(All downloads are pulled directly from their intended sources to support the original content creators.)</p>
+            <p>(GSMC Pack is neither approved by or associated with Mojang Studio or Microsoft.)</p>
+        </div>
+    </main>;
 }
 function MoreRoute() {
-    return <main id="more"></main>;
+    return <main id="more">
+        <h1>More Information</h1>
+        <h2>"The boring stuff goes here."</h2>
+        <section>
+            <h3>Privacy Policy</h3>
+            <p>
+                Geesecraft Website (gsmc.dmmdgm.dev), by itself, does not collect cookies or personal information from visitors.
+                After all, it is mostly a static site for season archival and for hosting raw data files related to Geesecraft.
+                Feel free to check the source code for accuracy, which can be found in the upper right corner or below in the footer.
+            </p>
+            <p>
+                However, it does use Cloudflare to provide service.
+                Please see <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare's Privacy Policy</a> for more information on how Cloudflare processes your information.
+            </p>
+            <p>
+                Additionally, some pages may have YouTube embeds or contain links directed to YouTube.
+                Please see <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube's Terms of Service</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a> for more information on how Google processes your information.
+            </p>
+            <p>
+                Links directed to <a href="https://iipython.dev/" target="_blank" rel="noopener noreferrer">https://iipython.dev</a> and all subdomains are subjected to <a href="https://iipython.dev/privacy.txt" target="_blank" rel="noopener noreferrer">iiPython's Privacy Policy</a>.
+            </p>
+            <p>
+                Links directed to Discord and GitHub are subjected to <a href="https://discord.com/privacy/" target="_blank" rel="noopener noreferrer">Discord's Privacy Policy</a> and <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub's Privacy Policy</a> respectively.
+            </p>
+        </section>
+        <section>
+            <h3>License</h3>
+            <p>
+                "Geesecraft" isn't exactly trademarked, but please follows the policy of "dont disrespect the brand bro".
+                Geesecraft Website (gsmc.dmmdgm.dev) and all its derived asset files are protected under the <a href="https://mit-license.org/" target="_blank" rel="nooperner noreferrer">MIT license</a>.
+                All data files, including, but not limited to, season archive files, gallery images, and world downloads, are protected under <a href="https://www.wtfpl.net/" target="_blank" rel="noopener noreferrer">WTFPL</a>.
+            </p>
+        </section>
+        <section>
+            <h3>API Usage</h3>
+            <p>
+                Try not to spam it? We made the API usage open and free to everyone because we think everyone should have access to our Geesecraft archive, (and also because we can't keep track of it since we don't collect any data from you).
+            </p>
+            <p>
+                • "/api/archives" - get all of the season archives' "season.json" in a single array
+            </p>
+            <p>
+                • "/api/archives/:season" - get a specific season archive's "season.json"
+            </p>
+            <p>
+                • "/api/archives/:season/gallery" - see "/api/galleries/:season"
+            </p>
+            <p>
+                • "/api/archives/:season/profiles" - get all of the memebers's details in the specific season
+            </p>
+            <p>
+                • "/api/galleries" - get all of the season archives' gallery in a single array
+            </p>
+            <p>
+                • "/api/galleries/:season" - get a specific season archive's gallery
+            </p>
+            <p>
+                • "/api/profiles" - get all of the members' details in the entirety of Geesecraft
+            </p>
+            <p>
+                • "/api/profiles/:player" - get a specific member's details from Geesecraft
+            </p>
+        </section>
+        <section>
+            <h3>Kachow</h3>
+            <p>Last Updated: 2025-01-12 23:09 EST.</p>
+        </section>
+    </main>;
 }
 function ErrorRoute() {
     // Creates error route
@@ -760,11 +841,11 @@ function App() {
             <Route default component={ErrorRoute}/>
         </Router>
         <footer>
-            <div>Geesecraft Server by iiPython @ 2021 - 2026</div>
+            <div>Geesecraft Server by <a href="https://iipython.dev/" target="_blank" rel="noopener noreferrer">iiPython</a> @ 2021 - 2026</div>
             <a href="https://discord.gg/HYgcp85g6u" target="_blank" rel="noopener noreferrer">Discord</a>
             <div>IP: gsmc.dmmdgm.dev</div>
             <a href="https://github.com/dev-dmmdgm/dev-dmmdgm-gsmc" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <div>Geesecraft Website by DmmD GM @ 2024 - 2026</div>
+            <div>Geesecraft Website by <a href="https://dmmdgm.dev/" target="_blank" rel="noopener noreferrer">DmmD GM</a> @ 2024 - 2026</div>
         </footer>
     </LocationProvider>;
 }

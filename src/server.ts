@@ -1,6 +1,7 @@
 // Imports
 import type { Archive, Gallery, Profile } from "./type";
 import nodePath from "node:path";
+import profiles from "./profiles";
 
 // Defines paths
 const data = nodePath.resolve("data");
@@ -53,26 +54,15 @@ const server = Bun.serve({
         },
         "/api/archives/:season/profiles": {
             async GET(request) {
-                // Fetches archive
+                // Fetches uuids
                 const dirname = nodePath.resolve(data, request.params.season);
                 if(!dirname.startsWith(data)) return Response.error();
                 const filename = nodePath.resolve(dirname, "season.json");
                 const archive = await Bun.file(filename).json() as Archive;
-
-                // Fetches profiles
-                const players = await Array.fromAsync(archive.players.map(async (player) => { 
-                    const response = await fetch(new URL(`/minecraft/profile/lookup/${player}`, "https://api.minecraftservices.com"));
-                    if(!response.ok) return { id: player, name: player };
-                    return await response.json() as { id: string; name: string; };
-                }));
-                const profiles: Profile[] = players.map((player) => ({
-                    avatarURL: new URL(`/avatar/${player.id}`, "https://mc-heads.net").toString(),
-                    username: player.name,
-                    uuid: player.id
-                }));
+                const uuids = archive.players.map((player) => player.replace(/-/g, ""));
 
                 // Creates response
-                const response = Response.json(profiles);
+                const response = Response.json(profiles.filter((profile) => uuids.includes(profile.uuid)));
                 response.headers.set("access-control-allow-origin", "*");
                 response.headers.set("cache-control", "max-age=86400");
                 return response;
@@ -111,25 +101,6 @@ const server = Bun.serve({
         },
         "/api/profiles": {
             async GET() {
-                // Fetches archives
-                const dirname = nodePath.resolve(data, "*", "season.json");
-                const glob = new Bun.Glob(dirname);
-                const filenames = await Array.fromAsync(glob.scan());
-                const archives = await Array.fromAsync(filenames.map((filename) => Bun.file(filename).json())) as Archive[];
-
-                // Fetches profiles
-                const uuids = Array.from(new Set(archives.flatMap((archive) => archive.players)));
-                const players = await Array.fromAsync(uuids.map(async (uuid) => { 
-                    const query = await fetch(new URL(`/minecraft/profile/lookup/${uuid}`, "https://api.minecraftservices.com"));
-                    if(!query.ok) return { id: "", name: "" };
-                    return await query.json() as { id: string; name: string; };
-                }));
-                const profiles: Profile[] = players.map((player) => ({
-                    avatarURL: new URL(`/avatar/${player.id}`, "https://mc-heads.net").toString(),
-                    username: player.name,
-                    uuid: player.id
-                }));
-
                 // Creates response
                 const response = Response.json(profiles);
                 response.headers.set("access-control-allow-origin", "*");
@@ -140,14 +111,9 @@ const server = Bun.serve({
         "/api/profiles/:player": {
             async GET(request) {
                 // Fetches profile
-                const uuid = request.params.player;
-                const query = await fetch(new URL(`/minecraft/profile/lookup/${uuid}`, "https://api.minecraftservices.com"));
-                const player = query.ok ? await query.json() as { id: string; name: string; } : { id: "", name: "" };
-                const profile: Profile = {
-                    avatarURL: new URL(`/avatar/${player.id}`, "https://mc-heads.net").toString(),
-                    username: player.name,
-                    uuid: player.id
-                };
+                const uuid = request.params.player.replace(/-/g, "");
+                const profile = profiles.find((profile) => profile.uuid === uuid);
+                if(typeof profile === "undefined") return Response.error();
 
                 // Creates response
                 const response = Response.json(profile);
