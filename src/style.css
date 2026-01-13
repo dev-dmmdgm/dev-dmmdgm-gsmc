@@ -962,7 +962,12 @@ main#more {
     /* Styles section */
     & section {
         /* Changes size */
-        width: 100%;
+        width: 80%;
+
+        /* Forces columns */
+        display: flex;
+        flex-direction: column;
+        gap: 10px 0px;
 
         /* Styles texts */
         & a { color: #4f4f8f; }
