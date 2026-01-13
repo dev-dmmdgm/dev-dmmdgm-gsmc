@@ -1,7 +1,7 @@
 // Imports
-import type { Archive, Gallery } from "./type";
+import type { Archive, Gallery, Profile } from "./type";
 import nodePath from "node:path";
-import profiles from "./profiles.json";
+import profilesJSON from "./profiles.json";
 
 // Defines paths
 const data = nodePath.resolve("data");
@@ -54,15 +54,16 @@ const server = Bun.serve({
         },
         "/api/archives/:season/profiles": {
             async GET(request) {
-                // Fetches uuids
+                // Fetches profiles
                 const dirname = nodePath.resolve(data, request.params.season);
                 if(!dirname.startsWith(data)) return Response.error();
                 const filename = nodePath.resolve(dirname, "season.json");
                 const archive = await Bun.file(filename).json() as Archive;
                 const uuids = archive.players.map((player) => player.replace(/-/g, ""));
+                const profiles = profilesJSON.filter((profile) => uuids.includes(profile.uuid)) as Profile[];
 
                 // Creates response
-                const response = Response.json(profiles.filter((profile) => uuids.includes(profile.uuid)));
+                const response = Response.json(profiles);
                 response.headers.set("access-control-allow-origin", "*");
                 response.headers.set("cache-control", "max-age=86400");
                 return response;
@@ -102,7 +103,7 @@ const server = Bun.serve({
         "/api/profiles": {
             async GET() {
                 // Creates response
-                const response = Response.json(profiles);
+                const response = Response.json(profilesJSON);
                 response.headers.set("access-control-allow-origin", "*");
                 response.headers.set("cache-control", "max-age=86400");
                 return response;
@@ -112,7 +113,7 @@ const server = Bun.serve({
             async GET(request) {
                 // Fetches profile
                 const uuid = request.params.player.replace(/-/g, "");
-                const profile = profiles.find((profile) => profile.uuid === uuid);
+                const profile = profilesJSON.find((profile) => profile.uuid === uuid);
                 if(typeof profile === "undefined") return Response.error();
 
                 // Creates response

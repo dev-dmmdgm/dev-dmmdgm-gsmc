@@ -2,6 +2,10 @@
 import nodePath from "node:path";
 import { Archive, Profile } from "./type";
 
+// Creates file
+const file = Bun.file("src/profiles.json");
+const profilesJSON = await file.exists() ? await file.json() : [];
+
 // Fetches uuids
 const data = nodePath.resolve("data");
 const glob = new Bun.Glob(nodePath.resolve(data, "*", "season.json"));
@@ -15,15 +19,15 @@ const players = await Array.fromAsync(uuids.map(async (uuid) => {
     if(!query.ok) return null;
     return await query.json() as { id: string; name: string; };
 }));
-const profiles: Profile[] = players.filter((player) => player !== null).map((player) => ({
+const profiles: Profile[] = Object.assign([], profilesJSON, players.filter((player) => player !== null).map((player) => ({
     avatarURL: new URL(`/avatar/${player.id}`, "https://mc-heads.net").toString(),
     username: player.name,
     uuid: player.id
-}));
+})));
 
 // Writes profiles
 await Bun.file("src/profiles.json").write(JSON.stringify(profiles, null, 4));
-console.log("Downloaded profiles.");
+console.log(`Downloaded ${profiles.length} profile(s).`);
 
 // Exports
 export {};
