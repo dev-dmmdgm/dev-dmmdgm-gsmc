@@ -1,3 +1,4 @@
 data/**/*.avif
 dist
 node_modules
+src/profiles.json
