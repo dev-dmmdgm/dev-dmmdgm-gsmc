@@ -1,11 +1,15 @@
 // Imports
 import type { Archive, Gallery, Profile } from "./type";
 import nodePath from "node:path";
-import profilesJSON from "./profiles.json";
 
 // Defines paths
+const assets = nodePath.resolve("public/assets");
 const data = nodePath.resolve("data");
 const dist = nodePath.resolve("dist");
+
+// Fetches profiles
+const profilesFile = Bun.file(nodePath.resolve(assets, "profiles.json"));
+const profilesJSON = await profilesFile.exists() ? await profilesFile.json() as Profile[] : [];
 
 // Defines server
 const server = Bun.serve({
