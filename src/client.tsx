@@ -736,6 +736,7 @@ function PackerRoute() {
     </main>;
 }
 function MoreRoute() {
+    // Creates more route
     return <main id="more">
         <h1>More Information</h1>
         <h2>"The boring stuff goes here."</h2>
