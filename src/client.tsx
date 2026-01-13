@@ -401,6 +401,13 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
             setProfiles(profilesJSON);
         });
     }, []);
+
+    // Defines lookup
+    const [ profilesLookup, setProfilesLookup ] = useState<Record<string, Profile>>({});
+    useEffect(() => {
+        // Updates lookups
+        setProfilesLookup(Object.fromEntries(profiles.map((profile) => [ profile.uuid, profile ])));
+    }, [ profiles ]);
     
     // Defines gallery
     const [ gallery, setGallery ] = useState<Gallery>([]);
@@ -421,11 +428,7 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
     useEffect(() => {
         // Updates screenshot
         if(screenshotIndex === null) setCamera(null);
-        else fetch(`https://gsmc.dmmdgm.dev/api/profiles/${gallery[screenshotIndex].camera}`).then(async (response) => {
-            if(!response.ok) return setCamera(null);
-            const cameraJSON = await response.json() as Profile;
-            setCamera(cameraJSON);
-        });
+        else setCamera(profilesLookup[gallery[screenshotIndex].camera.replace(/-/g, "")] ?? null);
     }, [ screenshotIndex ]);
     
     // Creates archive route
@@ -664,8 +667,8 @@ function GalleryRoute() {
             setSeason(null);
         }
         else {
-            const cameraJSON = profiles.find((profile) => profile.uuid === gallery[screenshotIndex].camera.replace(/-/g, ""));
-            const archiveJSON = archives.find((archive) => archive.season === gallery[screenshotIndex].season);
+            const cameraJSON = profilesLookup[gallery[screenshotIndex].camera.replace(/-/g, "")];
+            const archiveJSON = archivesLookup[gallery[screenshotIndex].season];
             setCamera(cameraJSON ?? null);
             setSeason(typeof archiveJSON !== "undefined" ? archiveJSON.title : null);
         }
