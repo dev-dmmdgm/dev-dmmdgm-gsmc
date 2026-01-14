@@ -3,6 +3,7 @@ import nodePath from "node:path";
 import { Archive, Profile } from "./type";
 
 // Fetches uuids
+const assets = nodePath.resolve("public/assets");
 const data = nodePath.resolve("data");
 const glob = new Bun.Glob(nodePath.resolve(data, "*", "season.json"));
 const filenames = await Array.fromAsync(glob.scan());
@@ -29,7 +30,7 @@ const profiles: Profile[] = players.filter((player) => player !== null).map((pla
 }));
 
 // Writes profiles
-await Bun.file("src/profiles.json").write(JSON.stringify(profiles, null, 4));
+await Bun.file(nodePath.resolve(assets, "profiles.json")).write(JSON.stringify(profiles, null, 4));
 console.log(`Downloaded ${profiles.length} profile(s).`);
 
 // Exports
