@@ -75,7 +75,7 @@ We were also increasingly realizing that we were struggling to keep up with our 
 
 The solution? We began to farms everywhere, and I mean, **everywhere**.
 
-We build a 99.9% efficient iron farm by <a href="https://www.youtube.com/channel/@NicoisLOST" target="_blank" rel="noreferrer noopener">Nico is LOST</a> that utilizes the nether portal to trick Minecraft into spawning iron golems at near therotical maximum rate, giving us almost infinite amount of iron by the end of the season.
+We built a 99.9% efficient iron farm by <a href="https://www.youtube.com/channel/@NicoisLOST" target="_blank" rel="noreferrer noopener">Nico is LOST</a> that utilizes the nether portal to trick Minecraft into spawning iron golems at near therotical maximum rate, giving us an almost infinite amount of iron by the end of the season.
 
 <iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/S_WYtYZZEZQ" allowfullscreen></iframe>
 
@@ -152,7 +152,7 @@ Here's an image of iiPython staring into the sunset with a dragon head that we s
 
 <img src="https://gsmc.dmmdgm.dev/data/s3/gallery/iipython_sunset.avif"/>
 
-And here's a video of us blowing it up after the season too.
+And here's a video of us blowing it up after the season, too.
 
 <iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/SqkDTt-1Eng" allowfullscreen></iframe>
 

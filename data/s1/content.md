@@ -9,7 +9,7 @@ Originally there were supposed to be two people, **iiPython** and **Matt**. Howe
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/ban_hammer.avif"/>
 
-Soon, **Emy** joined the server as well. Together, we started to construct a small town called Goos Town. It had a few houses, a floating island, and a mini park. We also build a white concrete wall around the base to prevent hostile mobs from entering the region.
+Soon, **Emy** joined the server as well. Together, we started to construct a small town called Goos Town. It had a few houses, a floating island, and a mini park. We also built a white concrete wall around the base to prevent hostile mobs from entering the region.
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/park_at_night.avif"/>
 
@@ -39,7 +39,7 @@ Since this season wasn't meant to be serious, we used `/enchant` on wooden stick
 We got some netherite and began to create OP gears for ourselves.
 Naturally, as geese, we decided to form a heroic squad to restore peace upon this chaotic land... and to kill each other for fun!
 
-We also made a secret bank underneathe the park as our secret bunker, where we would "host meetings" and store our valuables.
+We also made a secret bank underneath the park as our secret bunker, where we would "host meetings" and store our valuables.
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/bank_vault.avif"/>
 
