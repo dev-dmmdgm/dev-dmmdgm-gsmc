@@ -428,7 +428,7 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
     useEffect(() => {
         // Updates screenshot
         if(screenshotIndex === null) setCamera(null);
-        else setCamera(profilesLookup[gallery[screenshotIndex].camera.replace(/-/g, "")] ?? null);
+        else setCamera(profilesLookup[gallery[screenshotIndex].camera] ?? null);
     }, [ screenshotIndex ]);
     
     // Creates archive route
@@ -634,7 +634,7 @@ function GalleryRoute() {
         {
             algorithm: (a, b) => a.camera.localeCompare(b.camera),
             display: (screenshot) => {
-                const camera = profilesLookup[screenshot.camera.replace(/-/g, "")];
+                const camera = profilesLookup[screenshot.camera];
                 if(typeof camera === "undefined") return <div><span>Unknown Camera</span></div>;
                 return <div>
                     <img src={camera.avatarURL}/>
@@ -653,7 +653,7 @@ function GalleryRoute() {
         setGallery(galleries.filter((screenshot) => {
             if(filter.length === 0) return true;
             const archive = archivesLookup[screenshot.season] ?? null;
-            const profile = profilesLookup[screenshot.camera.replace(/-/g, "")] ?? null;
+            const profile = profilesLookup[screenshot.camera] ?? null;
             if(archive === null || profile === null) return false;
             const targets = [
                 archive.title, archive.season,
@@ -677,7 +677,7 @@ function GalleryRoute() {
             setSeason(null);
         }
         else {
-            const cameraJSON = profilesLookup[gallery[screenshotIndex].camera.replace(/-/g, "")];
+            const cameraJSON = profilesLookup[gallery[screenshotIndex].camera];
             const archiveJSON = archivesLookup[gallery[screenshotIndex].season];
             setCamera(cameraJSON ?? null);
             setSeason(typeof archiveJSON !== "undefined" ? archiveJSON.title : null);
