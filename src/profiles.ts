@@ -33,7 +33,7 @@ const profiles = await Array.fromAsync(uuids.map(async (uuid) => {
         };
     };
     const profile: Profile = {
-        avatarURL: json.data.player.avatar,
+        avatarURL: json.data.player.avatar.replace("/avatar", "/helm"),
         username: json.data.player.username,
         uuid: json.data.player.id
     };
