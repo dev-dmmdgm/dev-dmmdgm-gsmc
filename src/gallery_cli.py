@@ -86,5 +86,5 @@ for file in Path("data").rglob("*.png"):
     data_file.write_text(json.dumps(image_data | answers | {
         "filename": file.with_suffix(".avif").name,
         "season": season_id,
-        "url": f"/data/{season_id}/gallery/{file.with_suffix('.avif').name}"
+        "url": f"https://gsmc.dmmdgm.dev/data/{season_id}/gallery/{file.with_suffix('.avif').name}"
     }, indent = 4))

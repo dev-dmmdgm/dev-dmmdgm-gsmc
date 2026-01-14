@@ -459,11 +459,9 @@ main#archive {
 
                     /* Changes size */
                     margin: 10px auto;
-                    max-height: 400px;
+                    max-height: 200px;
                     max-width: 80%;
-                    min-width: 50%;
                     padding: 5px 5px;
-                    width: fit-content;
                 }
                 & > pre, > table {
                     /* Changes background */
@@ -675,7 +673,7 @@ main#archive {
     }
 
     /* Handles mobile */
-    @media screen and (max-width: 700px) { & {
+    @media screen and (max-width: 900px) { & {
         /* Styles data */
         & #archive-data {
             /* Styles body */
@@ -687,7 +685,8 @@ main#archive {
                 & #archive-logistics { width: auto; }
             }
         }
-
+    } }
+    @media screen and (max-width: 700px) { & {
         /* Styles screenshot */
         & #screenshot {
             /* Styles buttons */

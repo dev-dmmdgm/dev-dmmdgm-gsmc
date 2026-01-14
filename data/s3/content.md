@@ -55,14 +55,14 @@ He even tamed a lil' fox.
 
 ---
 
-#### Fepi Surprise
+#### New Members!
 
-We also had another temporary member joining Geesecraft this season, **Fepi**!
+We also had a few new temporary members joining Geesecraft this season, namely, **Fepi** and **Rock**!
 
-She built a house and swam in our aquarium before she disappeared forever.
+Fepi built a house before she disappeared forever, and rock swam in Emy's aquarium for some reason.
 
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/fepi_house.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/fepis_house.avif"/>
 
 <img src="https://gsmc.dmmdgm.dev/data/s3/gallery/rock_in_emyquarium.avif"/>
 
@@ -75,7 +75,8 @@ We were also increasingly realizing that we were struggling to keep up with our 
 
 The solution? We began to farms everywhere, and I mean, **everywhere**.
 
-We built a 99.9% efficient iron farm by <a href="https://www.youtube.com/channel/@NicoisLOST" target="_blank" rel="noreferrer noopener">Nico is LOST</a> that utilizes the nether portal to trick Minecraft into spawning iron golems at near therotical maximum rate, giving us an almost infinite amount of iron by the end of the season.
+We built a 99.9% efficient iron farm by <a href="https://www.youtube.com/channel/@NicoisLOST" target="_blank" rel="noreferrer noopener">Nico is LOST</a>.
+It utilizes the nether portal to trick Minecraft into spawning iron golems at near therotical maximum rate, giving us an almost infinite amount of iron by the end of the season.
 
 <iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/S_WYtYZZEZQ" allowfullscreen></iframe>
 
@@ -100,7 +101,7 @@ I think the main reason why it broke is because we didn't have chunk loaders bac
 
 But wait, there's more.
 
-The totem farm by <a href="https://www.youtube.com/@NoSamurai" target="_blank" rel="noreferrer noopener">NoSamurai</a> gave us plenty of totems to work it.
+The totem farm by <a href="https://www.youtube.com/@NoSamurai" target="_blank" rel="noreferrer noopener">NoSamurai</a> gave us plenty of totems to work with.
 
 <iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/bu1RKt4hohE" allowfullscreen></iframe>
 
@@ -111,9 +112,17 @@ It took us a while to make it, but it was 100% worth it - it made us very, very,
 
 <iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/hvO-re1dFpA" allowfullscreen></iframe>
 
-(Image coming soon).
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/wither_skeleton_farm.avif"/>
 
-Some other farms we built were a <a href="https://www.youtube.com/watch?v=Bjg1_GEPdDk" target="_blank" rel="noopener noreferrer">TNT-based automatic tree farm</a> for logs, an <a href="https://www.youtube.com/watch?v=zIh4pm1rlV8" target="_blank" rel="noopener noreferrer">AFK creeper farm</a> for gunpowder, an <a href="https://www.youtube.com/watch?v=sdt1o7UvCE0" target="_blank" rel="noopener noreferrer">automatic cobblestone farm</a> for cobblestone (you wouldn't believe how many times it ran out), a <a href="https://www.youtube.com/watch?v=yq2uS6TcDEs" target="_blank" rel="noopener noreferrer">simple drowned farm</a> for copper and forks (tridents), and a <a href="https://www.youtube.com/watch?v=DFXppgfjI_A" target="_blank" rel="noopener noreferrer">small cave spider farm</a> for spider eyes and strings.
+Some other farms we built includes:
+
+| Name | Purpose |
+| - | - |
+| <a href="https://www.youtube.com/watch?v=Bjg1_GEPdDk" target="_blank" rel="noopener noreferrer">TNT-based Automatic Tree Farm</a> | Logs |
+| <a href="https://www.youtube.com/watch?v=zIh4pm1rlV8" target="_blank" rel="noopener noreferrer">AFK Creeper Farm</a> | Gunpowder, Rockets |
+| <a href="https://www.youtube.com/watch?v=sdt1o7UvCE0" target="_blank" rel="noopener noreferrer">Automatic Cobblestone Generator</a> | Cobblestone (You wouldn't believe how many times it ran out.) |
+| <a href="https://www.youtube.com/watch?v=yq2uS6TcDEs" target="_blank" rel="noopener noreferrer">Simple Drowned Farm</a> | Copper and Forks (Tridents) |
+| <a href="https://www.youtube.com/watch?v=DFXppgfjI_A" target="_blank" rel="noopener noreferrer">Mini Cave Spider Farm</a> | Spider Eyes and Strings |
 
 ---
 
@@ -166,4 +175,4 @@ Things were getting stale, to say the least.
 That's why we had decided to introduce mods for the next season.
 Hopefully it would be a lot of fun to experiment with brand new items and mechanics in Minecraft.
 
-Until next time~ <sub>(Which is literally in 2 weeks.)</sub>
+Until next time~ <sub>(Which was literally in 2 weeks.)</sub>
