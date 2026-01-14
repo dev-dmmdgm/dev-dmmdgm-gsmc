@@ -2,7 +2,7 @@
 import type { VNode } from "preact";
 import type { RoutePropsForPath } from "preact-iso";
 import type { Archive, Gallery, Profile, Screenshot } from "./type";
-import DOMPurity from "dompurify";
+import DOMPurify from "dompurify";
 import { marked } from "marked";
 import { render } from "preact";
 import { LocationProvider, Route, Router } from "preact-iso";
@@ -376,6 +376,9 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
     const [ content, setContent ] = useState<string>("");
     const [ profiles, setProfiles ] = useState<Profile[]>([]);
     useEffect(() => {
+        // Updates storage
+        localStorage.setItem("archive-season", props.season);
+
         // Fetches api
         fetch(`https://gsmc.dmmdgm.dev/api/archives/${props.season}`).then(async (response) => {
             // Creates archive
@@ -383,12 +386,9 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
             const archiveJSON = await response.json() as Archive;
             setArchive(archiveJSON);
 
-            // Updates storage
-            localStorage.setItem("archive-season", archiveJSON.season);
-
             // Creates content
             if(archiveJSON.contentURL !== null) {
-                fetch(archiveJSON.contentURL).then(async (subresponse) => {
+                fetch(archiveJSON.contentURL.replace("https://gsmc.dmmdgm.dev", "http://localhost:5173")).then(async (subresponse) => {
                     if(!subresponse.ok) return;
                     setContent(await subresponse.text());
                 });
@@ -447,8 +447,18 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                 <div>{archive.active ? "Active" : "Sunset"}</div>
             </div>
             <div id="archive-body">
-                <div id="archive-content" dangerouslySetInnerHTML={{ __html: DOMPurity.sanitize(marked.parse(content, { async: false })) }}/>
+                <div id="archive-content" dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(marked.parse(content, { async: false }), {
+                        ADD_ATTR: [ "allowfullscreen", "target" ],
+                        ADD_TAGS: [ "iframe" ],
+                        USE_PROFILES: { html: true }
+                    })
+                }}/>
                 <div id="archive-logistics">
+                    <section>
+                        <h3>Title (Season)</h3>
+                        <p>{archive.title} ({archive.season})</p>
+                    </section>
                     <section>
                         <h3>Description</h3>
                         <p>{archive.description}</p>
