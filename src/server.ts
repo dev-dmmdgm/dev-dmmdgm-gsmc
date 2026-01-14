@@ -63,7 +63,7 @@ const server = Bun.serve({
                 if(!dirname.startsWith(data)) return Response.error();
                 const filename = nodePath.resolve(dirname, "season.json");
                 const archive = await Bun.file(filename).json() as Archive;
-                const uuids = archive.players.map((player) => player.replace(/-/g, ""));
+                const uuids = archive.players.map((player) => player);
                 const profiles = profilesJSON.filter((profile) => uuids.includes(profile.uuid)) as Profile[];
 
                 // Creates response
@@ -116,7 +116,7 @@ const server = Bun.serve({
         "/api/profiles/:player": {
             async GET(request) {
                 // Fetches profile
-                const uuid = request.params.player.replace(/-/g, "");
+                const uuid = request.params.player;
                 const profile = profilesJSON.find((profile) => profile.uuid === uuid);
                 if(typeof profile === "undefined") return Response.error();
 
