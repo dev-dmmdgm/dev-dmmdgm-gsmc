@@ -1,37 +1,48 @@
 // Imports
+import type { Archive, Profile } from "./type";
 import nodePath from "node:path";
-import { Archive, Profile } from "./type";
 
 // Fetches uuids
 const assets = nodePath.resolve("public/assets");
 const data = nodePath.resolve("data");
+const file = Bun.file(nodePath.resolve(assets, "profiles.json"));
 const glob = new Bun.Glob(nodePath.resolve(data, "*", "season.json"));
 const filenames = await Array.fromAsync(glob.scan());
 const archives = await Array.fromAsync(filenames.map((filename) => Bun.file(filename).json())) as Archive[];
+const cache = await file.exists() ? await file.json() as Profile[] : [];
 
 // Fetches profiles
 const uuids = Array.from(new Set(archives.flatMap((archive) => archive.players)));
-const players = await Array.fromAsync(uuids.map(async (uuid) => {
-    for(let i = 0; i < 5; i++) {
-        const query = await fetch(new URL(`/minecraft/profile/lookup/${uuid}`, "https://api.minecraftservices.com"));
-        if(query.status === 429) {
-            console.log("Ratelimit reached, waiting 5 seconds...");
-            await Bun.sleep(5000);
-            continue;
-        }
-        return query.ok ? await query.json() as { id: string; name: string; } : null;
-    }
-    return null;
-}));
-const profiles: Profile[] = players.filter((player) => player !== null).map((player) => ({
-    avatarURL: new URL(`/avatar/${player.id}`, "https://mc-heads.net").toString(),
-    username: player.name,
-    uuid: player.id
+const profiles = await Array.fromAsync(uuids.map(async (uuid) => {
+    // Checks cache
+    const cached = cache.find((profile) => profile.uuid === uuid.replace(/-/g, ""));
+    if(typeof cached !== "undefined") return cached;
+
+    // Checks query
+    const query = await fetch(new URL(`/api/player/minecraft/${uuid}`, "https://playerdb.co"));
+    if(!query.ok) throw new Error(`Cannot resolve profile "${uuid}" at this time.`);
+
+    // Parses data
+    const json = await query.json() as {
+        data: {
+            player: {
+                avatar: string;
+                id: string;
+                username: string;
+            };
+        };
+    };
+    const profile: Profile = {
+        avatarURL: json.data.player.avatar,
+        username: json.data.player.username,
+        uuid: json.data.player.id
+    };
+    console.log(`Downloaded profile ${profile.uuid} (${profile.username}) from API.`);
+    return profile;
 }));
 
 // Writes profiles
-await Bun.file(nodePath.resolve(assets, "profiles.json")).write(JSON.stringify(profiles, null, 4));
-console.log(`Downloaded ${profiles.length} profile(s).`);
+await file.write(JSON.stringify(profiles, null, 4));
 
 // Exports
 export {};
