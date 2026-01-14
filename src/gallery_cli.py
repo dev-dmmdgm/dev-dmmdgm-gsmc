@@ -63,7 +63,7 @@ for file in Path("data").rglob("*.png"):
     season_data = json.loads((file.parents[1] / "season.json").read_text())
 
     # Launch image in current window
-    subprocess.run(["vscodium", file.absolute()])
+    subprocess.run(["codium", file.absolute()])
 
     # Ask our questions
     queries = {
