@@ -13,20 +13,26 @@ Soon, **Emy** joined the server as well. Together, we started to construct a sma
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/park_at_night.avif"/>
 
+---
+
 #### Extra Plugins
 
 Well... Let's just say, we weren't exactly the best at the game back then.
 In fact, we probably had keep-inventory <sub>and maybe even cheats (looks at iiPython)</sub> on to faciliate our lives and to accelerate progression during the season. We also had **EssentialsX** to get access to `/home`, `/nick`, and `/tpa` commands.
 
-Of course, we had fun ones too. We installed **PlayerHeads** to get cool player heads (duh) so we can go around and decorate our base a little.
+Of course, we had fun ones, too. We installed **PlayerHeads** to get cool player heads (duh) so we can go around and decorate our base a little.
+
+---
 
 #### Boat Game!!!
 
 Its discovery was more or less an accident. Regardless, after realizing that you can deflect a boat on ice with a knockback sword, we swiftly made a mini ice rink to play a simple ping-pong / tennis game on it.
 
-Of course, since this season wasn't meant to be serious, we used `/enchant` on wooden sticks instead so the boats don't get destroyed as we play the game.
+Since this season wasn't meant to be serious, we used `/enchant` on wooden sticks instead so the boats don't get destroyed as we play the game.
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/friendship.avif"/>
+
+---
 
 #### The Goos Police & The Secret Bunker
 
@@ -37,15 +43,19 @@ We also made a secret bank underneathe the park as our secret bunker, where we w
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/bank_vault.avif"/>
 
+---
+
 #### iiPython's House
 
 iiPython built a house on August 3rd, which was recorded on video, apparently. 
 
-<iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/7x6n9Tej7Hc?si=Mspf5VyUGSaUWBDn" allowfullscreen></iframe>
+<iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/7x6n9Tej7Hc" allowfullscreen></iframe>
 
 It was then struck by lightning, too... for some reason?
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/lightning_house.avif"/>
+
+---
 
 #### Farewell, OG Geesecraft...
 

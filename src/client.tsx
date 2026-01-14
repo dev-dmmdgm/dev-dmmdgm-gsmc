@@ -447,8 +447,18 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                 <div>{archive.active ? "Active" : "Sunset"}</div>
             </div>
             <div id="archive-body">
-                <div id="archive-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(marked.parse(content, { async: false }), { ADD_ATTR: [ "allowfullscreen" ], ADD_TAGS: [ "iframe" ], USE_PROFILES: { html: true } }) }}/>
+                <div id="archive-content" dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(marked.parse(content, { async: false }), {
+                        ADD_ATTR: [ "allowfullscreen", "target" ],
+                        ADD_TAGS: [ "iframe" ],
+                        USE_PROFILES: { html: true }
+                    })
+                }}/>
                 <div id="archive-logistics">
+                    <section>
+                        <h3>Title (Season)</h3>
+                        <p>{archive.title} ({archive.season})</p>
+                    </section>
                     <section>
                         <h3>Description</h3>
                         <p>{archive.description}</p>
