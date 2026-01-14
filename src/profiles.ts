@@ -15,7 +15,7 @@ const cache = await file.exists() ? await file.json() as Profile[] : [];
 const uuids = Array.from(new Set(archives.flatMap((archive) => archive.players)));
 const profiles = await Array.fromAsync(uuids.map(async (uuid) => {
     // Checks cache
-    const cached = cache.find((profile) => profile.uuid === uuid.replace(/-/g, ""));
+    const cached = cache.find((profile) => profile.uuid === uuid);
     if(typeof cached !== "undefined") return cached;
 
     // Checks query
