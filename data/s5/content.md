@@ -2,7 +2,9 @@
 
 ## "I'm honestly excited for s5." - K4
 
-#### 
+#### More Mods = More Fun
+
+Season 5 of Geesecraft starts off by including even more mods in 
 
 ---
 

@@ -2,75 +2,65 @@
 
 ## "Kachow, Geesecraft!"
 
-#### Once upon a Time
+#### Where It All Started
 
-All journeys once had a beginning, and Geesecraft's began here, in season 1.
+Welcome to season 1 of Geesecraft, the original season where the roots of Geesecraft truly began.
 
-It was definitely a simpler era back then, so simple, in fact, that it wasn't even known as Geesecraft at the time.
+It was a simpler era back then. There were no automatic farms, no complicated mods, not even progression-focused goals, just pure silliness and chaos. It was so simple, in fact, that it wasn't even known as Geesecraft at this time.
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/motd.avif"/>
 
-Originally, **iiPython** was going to invite **Matt** to test whether the multiplayer server was properly set up.
-However, due to various reasons, Matt never ended up showing up to the server.
-So, as a backup plan, iiPython decided to invite **DmmD** to fulfill Matt's role instead.
-Little did iiPython know at the time, Geesecraft was about to get a lot crazier from that point on.
+Originally, it existed because **iiPython** wanted to invite **Matt** to test whether his multiplayer server was properly set up on his cheap laptop. However, despite accepting his request, Matt never ended up joining. As a backup plan, iiPython chose **DmmD** as his alternative experiment dummy. Little did iiPython know, because of his decisions, Geesecraft was about to get a lot more crazy from that point onwards.
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/ban_hammer.avif"/>
 
-The server became public shortly after, and anyone was allowed on the whitelist with minimal questions asked.
-**Emy** and **Ryan** (who did not own a Minecraft account) joined the server around this time as well.
+The server became semi-public shortly after. Anyone was allowed on the whitelist with minimal questioning. **Emy** and **Ryan** (who did not own a Minecraft account) joined the server around this time as well.
 
-Together, we constructed a small civilization called the Goose Town in the center of a spruce forest.
-It had an apartment, a store with a pork vending machine in its basement, a floating island where iiPython called home, and a mini park, which we were really proud of at the time.
-We also built a white concrete wall around the base to prevent hostile mobs from entering the area.
+Together, we built a small civilization called the **Goose Town**, located in the center of a spruce forest. It had a three-story tall concrete apartment, a store in the corner with an underground porkchop vending machine in its basement, a two-level tall greenhouse to produce food, a spruce cabin where iiPython called home on a floating island, and a mini park with custom trees and pretty lanterns, which we were really proud of, by the way. (I mean, come on. It's literally the banner art for the season!) We also surrounded the base with a layer of stone bricks to prevent hostile mobs from entering the area.
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/park_at_night.avif"/>
 
 ---
 
-#### Extra Plugins
+#### A Couple Extra Plugins Wouldn't Hurt
 
-Now, we weren't exactly the best at the game when Geesecraft first began.
-As a result, we also installed some plugins to make progression easier for us.
+Now, admittedly, we weren't exactly the best at the game when this season first began. So, we installed some plugins to help and make progression easier for us.
 
-One of which was **EssentialsX**, a utility plugin that gave us access to commands, such as `/home`, `/warp`, and `/tpa`.
-It was recommended by DmmD, and its purpose was to make navigation a lot less painful than needed.
-Another one was **GSit**, which allowed us to sit on staircases, slabs, carpets, and even other players' heads.
-Lastly, there's **PlayerHeads**, where we could get cool player heads to add more depth to our wall and desk decorations.
+One of these plugins was **EssentialsX**, a utility plugin that gave us access to commands, such as `/home`, `/warp`, and `/tpa`. It was recommended by DmmD, and its purpose was to make navigation a lot less painful than needed. Another one was **GSit**, which allowed us to sit on staircases, slabs, carpets, and even other players' heads. Lastly, there's **PlayerHeads**, where we could get cool player heads to add more depth to our wall and desk decorations.
 
-<img src="https://gsmc.dmmdgm.dev/data/s1/gallery/turtle_dmmd.md"/>
+<img src="https://gsmc.dmmdgm.dev/data/s1/gallery/turtle_dmmd.avif"/>
 
 ---
 
-#### Boat Game!!!
+#### Da Boat Game!!!
 
-Its discovery was more or less an accident, but it was a pleasant finding nonetheless.
-We realized that you could deflect a boat on ice and give it a lot of velocity if you hit it with a sword.
-And that was all it takes for us to invent a silly little game out of it.
-Basically, it is a two-player game where each player had to use their knockback stick <sub>(did I mention we had cheats on for this season)</sub> to hit the boat into their opponent's goal, like <a href="https://en.wikipedia.org/wiki/Air_hockey" target="_blank" rel="noopener noreferrer">air hockey</a> if you will.
+Its discovery was more or less of an accident, but we realized that you could deflect a boat on ice and give it a lot of velocity if you hit it with a sword. That was all it takes for us to invent a silly little game out of it. It is basically a two-player game where each player must use their knockback stick <sub>(oops, did I mention we had cheats on for this season)</sub> to hit the boat into their opponent's goal, sort of like <a href="https://en.wikipedia.org/wiki/Air_hockey" target="_blank" rel="noopener noreferrer">air hockey</a> if you will.
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/friendship.avif"/>
 
+We later upgraded the game by adding water streams on each side of the ice rink to make passing the boat to the serving player a lot more convinient. After the park was constructed, it was relocated to the center of the playground.
+
 ---
 
-#### The Goos Police & The Secret Bunker
+#### The Royale G.O.O.S.
 
-We got some netherite and began to create OP gears for ourselves.
-Naturally, as geese, we decided to form a heroic squad to restore peace upon this chaotic land... and to kill each other for fun!
-
-We also made a secret bank underneath the park as our secret bunker, where we would "host meetings" and store our valuables.
+After we got our hands on some netherite, we began to craft netherite gears to show off our power. We called ourselves the **Royale G.O.O.S.**. We held meetings and stored our valuables in a secret bunker made out of obsidian underneath the park.
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/bank_vault.avif"/>
 
+We also designed shield patterns for our regime.
+
+<img src="https://gsmc.dmmdgm.dev/data/s1/gallery/missing_shulker.avif"/>
+
 ---
 
-#### iiPython's House
+#### iiPython's New House
 
-iiPython built a house on August 3rd, which was recorded on video, apparently. 
+On August 3rd, iiPython built a brand new birch starter house next to DmmD's convenience store. The entire process was recorded with shaders on by DmmD in a YouTube video, which you can find below.
 
 <iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/7x6n9Tej7Hc" allowfullscreen></iframe>
 
-It was then struck by lightning, too... for some reason?
+It was then later struck by lightning, too... for some reason?
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/lightning_house.avif"/>
 
@@ -78,7 +68,8 @@ It was then struck by lightning, too... for some reason?
 
 #### Farewell, OG Geesecraft...
 
-Summer doesn't last forever, unfortunately, and it was originally meant to be a test server anyway.
-School was starting for most of us, and there was no way we could balance out Geesecraft with constant school work.
-Therefore, so we decided to end the season.
-Plus, we could always come back to it next summer. :3
+We decided to end the season after summer break was over. The server died down after school work began to pile on us, and we thought it would be quite pointless to continue hosting it when no one was able to play on Geesecraft anymore. Its official shutdown date was unfortunately lost to time, but we estinated it to be around September 15th.
+
+Thus, the entire first season of Geesecraft concludes here.
+
+o7, #Geesecraft.
