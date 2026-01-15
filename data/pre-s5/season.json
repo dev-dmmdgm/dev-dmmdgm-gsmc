@@ -1,9 +1,13 @@
 {
-    "achievements":  [],
+    "achievements":  [
+        "Built a cute FNAF-themed house",
+        "Made a hot tub for everyone.",
+        "Tested toilet."
+    ],
     "active":        false,
     "bannerURL":     "https://gsmc.dmmdgm.dev/data/pre-s5/gallery/room_2.avif",
     "contentURL":    "https://gsmc.dmmdgm.dev/data/pre-s5/content.md",
-    "description":   "TBD.",
+    "description":   "Mod testing season for Season 5.",
     "modifications": [
         "Ad Astra",
         "Ad-Astra: Giselle Addon",
