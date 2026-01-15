@@ -38,10 +38,11 @@ However, it unfortunately didn't go anywhere since we sucked at redstone, and we
 
 #### FBI Open Up!!!
 
-Well, I guess this is where it all ends...
+<img src="https://media.tenor.com/_YqdfwYLiQ4AAAAd/traffic-fbi-open-up.gif"/>
+
+I guess this is where it all ends...
 
 Due to a police raid, we lost the world saves for season 1 and season 2.
 To this day, they still haven't returned the hard drive back to us.
-At least we still got these screenshots.
 
-With summer ending soon anyway, we decided to end the second season of Geesecraft.
+Well, at least we still got these cool screenshots before the worlds were lost forever.

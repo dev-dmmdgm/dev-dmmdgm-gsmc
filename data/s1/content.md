@@ -59,7 +59,7 @@ It was then struck by lightning, too... for some reason?
 
 #### Farewell, OG Geesecraft...
 
-Summer doesn't last forever, unfortunately, and the server was originally meant to be a test server anyway.
-With school starting after the summer break, there was no way we could balance out Geesecraft with the constant pressure from school work.
-Therefore, we made the difficult decision to call it a day for Geesecraft.
-Maybe we can come back to it next summer. :3
+Summer doesn't last forever, unfortunately, and it was originally meant to be a test server anyway.
+School was starting for most of us, and there was no way we could balance out Geesecraft with constant school work.
+Therefore, so we decided to end the season.
+Plus, we could always come back to it next summer. :3
