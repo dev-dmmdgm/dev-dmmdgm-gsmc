@@ -2,14 +2,27 @@
 
 ## "Kachow, Geesecraft!"
 
-#### The Beginning of the Beginning
+#### Once upon a Time
 
-Geesecraft began here in Season 1. It was a simple era back then; in fact, so simple that it wasn't even known as Geesecraft at the time.
-Originally there were supposed to be two people, **iiPython** and **Matt**. However, for some reason, the latter could not show up. Requiring further testing to the server, **DmmD** was invited to the Minecraft world.
+All journeys once had a beginning, and Geesecraft's began here, in season 1.
+
+It was definitely a simpler era back then, so simple, in fact, that it wasn't even known as Geesecraft at the time.
+
+<img src="https://gsmc.dmmdgm.dev/data/s1/gallery/motd.avif"/>
+
+Originally, **iiPython** was going to invite **Matt** to test whether the multiplayer server was properly set up.
+However, due to various reasons, Matt never ended up showing up to the server.
+So, as a backup plan, iiPython decided to invite **DmmD** to fulfill Matt's role instead.
+Little did iiPython know at the time, Geesecraft was about to get a lot crazier from that point on.
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/ban_hammer.avif"/>
 
-Soon, **Emy** joined the server as well. Together, we started to construct a small town called Goos Town. It had a few houses, a floating island, and a mini park. We also built a white concrete wall around the base to prevent hostile mobs from entering the region.
+The server became public shortly after, and anyone was allowed on the whitelist with minimal questions asked.
+**Emy** and **Ryan** (who did not own a Minecraft account) joined the server around this time as well.
+
+Together, we constructed a small civilization called the Goose Town in the center of a spruce forest.
+It had an apartment, a store with a pork vending machine in its basement, a floating island where iiPython called home, and a mini park, which we were really proud of at the time.
+We also built a white concrete wall around the base to prevent hostile mobs from entering the area.
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/park_at_night.avif"/>
 
@@ -17,18 +30,24 @@ Soon, **Emy** joined the server as well. Together, we started to construct a sma
 
 #### Extra Plugins
 
-Well... Let's just say, we weren't exactly the best at the game back then.
-In fact, we probably had keep-inventory <sub>and maybe even cheats (looks at iiPython)</sub> on to faciliate our lives and to accelerate progression during the season. We also had **EssentialsX** to get access to `/home`, `/nick`, and `/tpa` commands.
+Now, we weren't exactly the best at the game when Geesecraft first began.
+As a result, we also installed some plugins to make progression easier for us.
 
-Of course, we had fun ones, too. We installed **PlayerHeads** to get cool player heads (duh) so we can go around and decorate our base a little.
+One of which was **EssentialsX**, a utility plugin that gave us access to commands, such as `/home`, `/warp`, and `/tpa`.
+It was recommended by DmmD, and its purpose was to make navigation a lot less painful than needed.
+Another one was **GSit**, which allowed us to sit on staircases, slabs, carpets, and even other players' heads.
+Lastly, there's **PlayerHeads**, where we could get cool player heads to add more depth to our wall and desk decorations.
+
+<img src="https://gsmc.dmmdgm.dev/data/s1/gallery/turtle_dmmd.md"/>
 
 ---
 
 #### Boat Game!!!
 
-Its discovery was more or less an accident. Regardless, after realizing that you can deflect a boat on ice with a knockback sword, we swiftly made a mini ice rink to play a simple ping-pong / tennis game on it.
-
-Since this season wasn't meant to be serious, we used `/enchant` on wooden sticks instead so the boats don't get destroyed as we play the game.
+Its discovery was more or less an accident, but it was a pleasant finding nonetheless.
+We realized that you could deflect a boat on ice and give it a lot of velocity if you hit it with a sword.
+And that was all it takes for us to invent a silly little game out of it.
+Basically, it is a two-player game where each player had to use their knockback stick <sub>(did I mention we had cheats on for this season)</sub> to hit the boat into their opponent's goal, like <a href="https://en.wikipedia.org/wiki/Air_hockey" target="_blank" rel="noopener noreferrer">air hockey</a> if you will.
 
 <img src="https://gsmc.dmmdgm.dev/data/s1/gallery/friendship.avif"/>
 

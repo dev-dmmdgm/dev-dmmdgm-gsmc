@@ -1,6 +1,6 @@
 # Geesecraft / Season 3
 
-## "I'm bored... Wanna play Geesecraft?"
+## "Geesecraft s3 gonna be lit." - iiPython
 
 #### It's Summer... Spring Again!
 

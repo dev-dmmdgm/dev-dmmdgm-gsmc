@@ -1,5 +1,7 @@
 # Geesecraft / Season 5
 
+## "I'm honestly excited for s5." - K4
+
 #### 
 
 ---
