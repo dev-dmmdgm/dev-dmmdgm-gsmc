@@ -468,6 +468,7 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                         <ul>
                             {archive.achievements.map((achievement) => <li>
                                 <span>•</span>
+                                <span> </span>
                                 <span>{achievement}</span>
                             </li>)}
                         </ul>
@@ -477,6 +478,7 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                         <ul>
                             {archive.modifications.map((modification) => <li>
                                 <span>•</span>
+                                <span> </span>
                                 <span>{modification}</span>
                             </li>)}
                         </ul>
@@ -486,7 +488,9 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                         <ul>
                             {profiles.map((profile) => <li>
                                 <span>•</span>
+                                <span> </span>
                                 <img src={profile.avatarURL}/>
+                                <span> </span>
                                 <span>{profile.username}</span>
                             </li>)}
                         </ul>

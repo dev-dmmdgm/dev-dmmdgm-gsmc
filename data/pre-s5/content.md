@@ -10,6 +10,6 @@ Also worth noting is this season was composed of two different worlds, one used 
 
 ---
 
-#### Screenshot Updates (2026-01-07)
+#### Screenshot Update (2026-01-07)
 
 We had a quick screenshot update on January 7th, 2026 since not many existed previously.

@@ -511,10 +511,9 @@ main#archive {
                     /* Styles objects */
                     & h3 { font-size: 12px; line-height: 22px; }
                     & ul { display: flex; flex-direction: column; list-style: none; }
-                    & li { align-items: center; display: flex; gap: 0px 5px; }
                     & a { color: #4f4f8f; font-size: 12px; line-height: 22px; }
                     & p, span { color: #6f6f6f; font-size: 12px; line-height: 22px; }
-                    & img { height: 15px; width: 15px; }
+                    & img { height: 15px; width: 15px; vertical-align: middle; }
                 }
             }
         }
