@@ -3,9 +3,9 @@ import type { Archive, Profile } from "./type";
 import nodePath from "node:path";
 
 // Fetches uuids
-const assets = nodePath.resolve("public/assets");
 const data = nodePath.resolve("data");
-const file = Bun.file(nodePath.resolve(assets, "profiles.json"));
+const src = nodePath.resolve("src");
+const file = Bun.file(nodePath.resolve(src, "profiles.json"));
 const glob = new Bun.Glob(nodePath.resolve(data, "*", "season.json"));
 const filenames = await Array.fromAsync(glob.scan());
 const archives = await Array.fromAsync(filenames.map((filename) => Bun.file(filename).json())) as Archive[];
