@@ -1,6 +1,6 @@
 # Geesecraft / Season 3
 
-## <a href="https://gsmc.dmmdgm.dev/assets/gonna_be_lit.png" target="_blank" rel="noopener onreferrer">"Geesecraft s3 gonna be lit."</a> - iiPython
+## <a href="https://gsmc.dmmdgm.dev/data/s3/quote.avif" target="_blank" rel="noopener onreferrer">"Geesecraft s3 gonna be lit."</a> - iiPython
 
 #### It's Summer... Spring Again!
 
