@@ -1,6 +1,6 @@
 # Geesecraft / Season 5
 
-## "I'm honestly excited for s5." - K4
+## <a href="https://gsmc.dmmdgm.dev/assets/honestly_excited.png" target="_blank" rel="noopener onreferrer">"I'm honestly excited for s5."</a> - K4
 
 #### More Mods = More Fun
 

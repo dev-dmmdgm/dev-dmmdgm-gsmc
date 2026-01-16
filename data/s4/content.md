@@ -1,7 +1,6 @@
 # Geesecraft / Season 4
 
-## "Yes, we need more 1.20 mods." - iiPython
-
+## <a href="https://gsmc.dmmdgm.dev/assets/we_need_mods.png" target="_blank" rel="noopener onreferrer">"Yes, we need 1.20 mods."</a> - iiPython
 #### Welcome to Modded Minecraft
 
 Season 4 is the first season we decided to introduce mods into the world.
