@@ -30,4 +30,4 @@ We had a quick screenshot update on January 7th, 2026, since not many existed pr
 
 Here is a clip of us stress testing the lightning rods. ***(Epilepsy warning.)***
 
-<video src="/data/pre-s5/lightning.mp4" type="video/mp4" controls>
+<video src="https://gsmc.dmmdgm.dev/data/pre-s5/lightning.mp4" type="video/mp4" controls>
