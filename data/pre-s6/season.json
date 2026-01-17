@@ -1,9 +1,13 @@
 {
-    "achievements":  [],
+    "achievements":  [
+        "Built a cute cafe in the end",
+        "K4 won a boxing fight against DmmD",
+        "Made a fun ice rink to skate on"
+    ],
     "active":        false,
     "bannerURL":     "https://gsmc.dmmdgm.dev/data/pre-s6/gallery/the_boys.avif",
     "contentURL":    "https://gsmc.dmmdgm.dev/data/pre-s6/content.md",
-    "description":   "TBD.",
+    "description":   "CWIL in progress.",
     "modifications": [
         "Adorn",
         "Advanced Reborn",
