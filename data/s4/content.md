@@ -12,7 +12,7 @@ Welcome to Season 4! This season marked the second anniversary of Geesecraft, an
 
 The two most exciting and game-changing mods that we added this season were none other than **Tech Reborn** and **Applied Energistics 2**.
 
-Tech Reborn solved one of the core issues that we had in the previous seasons, which was the fact that vanilla Minecraft heavily lacked fresh content for us to experiment with all the time. This mod introduced industrial machinaries, generators and electricity, and nano-technology weapons and geras for us to try our hands on. Progression through Tech Reborn was also much lengthier compared to the base game, which was good news since it meant we could finally jump out of the two-week Minecraft phase and focus more on the long-term goals over the entire duration of the season.
+Tech Reborn solved one of the core issues that we had in the previous seasons, which was the fact that vanilla Minecraft heavily lacked fresh content for us to experiment with all the time. This mod introduced industrial machinaries, generators and electricity, and nano-technology weapons and gears for us to try our hands on. Progression through Tech Reborn was also much lengthier compared to the base game, which was good news since it meant we could finally jump out of the two-week Minecraft phase and focus more on the long-term goals over the entire duration of the season.
 
 Applied Energistics 2, on the other hand, tackled a more fundamental problem that exists in almost every Minecraft server - storage. As the season progressed, our storage became more and more unmanageable. Items were scattered in multiple different chests across multiple different locations, and sorting became a pain. AE2 meant we could dump everything into one centralized storage unit and never have to worry about not being able to find our items ever again. It also had the added benefit of bringing internet into the game with wireless technology.
 
@@ -54,13 +54,13 @@ There were other planets, too. We visited each one of them, but sadly none of th
 
 #### UU Matter in Production
 
-In case you didn't know, **UU Matter** is the magical power that allows us to craft virtually anything in this game. Think of it like the fundamental building ~~block~~ dust for everything in this blocky universe. However, the problem? It took forever to even generate a single one of this dust. Recyclers don't have a guaranteed chance to produce scraps, and you need a crap ton of scraps to get just one UU matter. It was expensive as hell. Our solution was this abomination.
+In case you didn't know, **UU Matter** is the magical power that allows us to craft virtually anything in this game. Think of it like the fundamental building ~~block~~ dust for everything in this blocky universe. However, the problem? It took forever to even generate a single one of this dust. Recyclers don't have a guaranteed chance to produce scraps, and you need a crap ton of scraps to get just one UU matter. It was expensive as hell, so our solution was this abomination.
 
 <img src="https://gsmc.dmmdgm.dev/data/s4/gallery/uu_factory_1.avif"/>
 
 It is essentially a cobblestone generator. The contraption generates cobblestone from water and lava, which AE2's destruction panels mine and pick up to transport into an autocrafter. It then turns cobblestones into cobblestone slabs, doubling the item count essentially, and feeds them into the recycler. In other words, prepare to be forever rich in UU matter for this season!
 
-Unfortunately, due to a lack of wool (needed for thicker cables) and power generation (too far from main base), we could really only properly setup one of the four sides that we had allocated for the contraption. Even then, it was enough to produce over **200 THOUSAND** UU matter by the end of the season, which was just simply insane.
+Unfortunately, due to a lack of wool (needed for thicker cables) and power generation (too far from the main base), we could really only properly setup one of the four sides that we had allocated for the contraption. Even then, it was enough to produce over **200 THOUSAND** UU matter by the end of the season, which was just simply insane.
 
 ---
 

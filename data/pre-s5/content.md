@@ -8,9 +8,9 @@ Welcome to the pre-season of season 5. Technically, this is not a true season, s
 
 ---
 
-#### FNAF Movie Recreation
+#### Building an Abandoned Ruins
 
-The FNAF movie was recently aired when this pre-season happened. As a huge fan of the actual game, K4 dragged iiPython into building a FNAF-themed map together in an oak forest biome. This was the result!
+iiPython and K4 thought it would be a fun idea to build an abandoned ruins together in the middle of an oak forest biome. This was the result!
 
 <img src="https://gsmc.dmmdgm.dev/data/pre-s5/gallery/room_1.avif">
 
