@@ -69,3 +69,11 @@ Unfortunately, due to a lack of wool (needed for thicker cables) and power gener
 Honestly, it was a pretty enjoyable season overall. We didn't expect mods would be this fun to play around with, so we would definitely be trying out more for the next season. Until next time!
 
 <img src="https://gsmc.dmmdgm.dev/data/s4/gallery/silly_dmmd.avif"/>
+
+---
+
+#### Video Clips from the Past
+
+Here is the entire clip of us fighting the ender dragon in season 4.
+
+<iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/iSgJp98DL60" allowfullscreen></iframe>
