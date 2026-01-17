@@ -388,7 +388,9 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
 
             // Creates content
             if(archiveJSON.contentURL !== null) {
-                fetch(archiveJSON.contentURL.replace("https://gsmc.dmmdgm.dev", "http://localhost:5173")).then(async (subresponse) => {
+                // TEMP: REPLACING FOR LOCALHOST ONLY
+                const TEMP_URL = process.env.PROD ? archiveJSON.contentURL : archiveJSON.contentURL.replace("https://gsmc.dmmdgm.dev", "http://localhost:5173");
+                fetch(TEMP_URL).then(async (subresponse) => {
                     if(!subresponse.ok) return;
                     setContent(await subresponse.text());
                 });
