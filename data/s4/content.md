@@ -18,7 +18,7 @@ Applied Energistics 2, on the other hand, tackled a more fundamental problem tha
 
 <img src="https://gsmc.dmmdgm.dev/data/s4/gallery/inf_uu_matter_lmao.avif"/>
 
-Although, AE2 did take a lot of power to run, especially in the late game when we were trying to set up interdimentional gateways. So, we agreed to specialize our tasks. **iiPython** took the job of managing TR-related progressions and generating enough power for AE2, while **DmmD** handled the networking and storage expanding portion of AE2.
+Although, AE2 did take a lot of power to run, especially in the late game when we were trying to set up interdimensional gateways. So, we agreed to specialize our tasks. **iiPython** took the job of managing TR-related progressions and generating enough power for AE2, while **DmmD** handled the networking and storage expanding portion of AE2.
 
 ---
 
@@ -38,7 +38,7 @@ To complement with Croptopia, McGeese was built right next to DmmD's incomplete 
 
 Tell me, who was the first goose to step foot on the moon? That's right, it's Goos Wingstrong!
 
-**Ad Astra** (and **Agape Space** technically, too, but we don't talk about it) added galactic exploration to Geesecraft by guiding us to build complicated rocketships and launching our brave astrogeese into outer space! After struggling a bit to establish temporary oxygen in our lunar shelter, we became the first group of geese to ever step foot on the moon and colonize its surface. We even brought our internet over using the interdimentional ME gateway so we could truly access our items anytime, anywhere&trade;. Oh, in case you were wondering, there were moon rovers in this mod! Naturally, we took the opportunity and vroom'd at mach 10 till the following dawn like some drunk goos on bread because why not. :3
+**Ad Astra** (and **Agape Space** technically, too, but we don't talk about it) added galactic exploration to Geesecraft by guiding us to build complicated rocketships and launching our brave astrogeese into outer space! After struggling a bit to establish temporary oxygen in our lunar shelter, we became the first group of geese to ever step foot on the moon and colonize its surface. We even brought our internet over using the interdimensional ME gateway so we could truly access our items anytime, anywhere&trade;. Oh, in case you were wondering, there were moon rovers in this mod! Naturally, we took the opportunity and vroom'd at mach 10 till the following dawn like some drunk goos on bread because why not. :3
 
 <img src="https://gsmc.dmmdgm.dev/data/s4/gallery/race_to_space.avif"/>
 

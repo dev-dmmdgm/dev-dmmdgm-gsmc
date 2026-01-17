@@ -40,6 +40,8 @@ Eventually, we made it to the final tier of the rocketship, only to be disappoin
 
 <img src="https://gsmc.dmmdgm.dev/data/s5/gallery/max_tier_rocket.avif"/>
 
+---
+
 #### The Last Season of Geesecraft
 
 Season 5 would be the last season of Geesecraft <sub>(Source: Trust me.)</sub>, since both iiPython and DmmD had graduated highschool at this point. With the two main players going off into college, the server would most likely descend into silence. It was fun while it lasted.
