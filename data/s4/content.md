@@ -72,7 +72,7 @@ Honestly, it was a pretty enjoyable season overall. We didn't expect mods would 
 
 ---
 
-#### Video Clips from the Past
+#### Additional Video Clips
 
 Here is the entire clip of us fighting the ender dragon in season 4.
 

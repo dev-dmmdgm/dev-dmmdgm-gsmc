@@ -12,14 +12,22 @@ Welcome to the pre-season of season 5. Technically, this is not a true season, s
 
 The FNAF movie was recently aired when this pre-season happened. As a huge fan of the actual game, K4 dragged iiPython into building a FNAF-themed map together in an oak forest biome. This was the result!
 
-<img src="https://gsmc.dmmdgm.dev/data/pre-s5/gallery/room_1.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/pre-s5/gallery/room_1.avif">
 
-<img src="https://gsmc.dmmdgm.dev/data/pre-s5/gallery/looking_up.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/pre-s5/gallery/looking_up.avif">
 
-<img src="https://gsmc.dmmdgm.dev/data/pre-s5/gallery/entrance.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/pre-s5/gallery/entrance.avif">
 
 ---
 
 #### Screenshot Update (2026-01-07)
 
 We had a quick screenshot update on January 7th, 2026, since not many existed previously.
+
+---
+
+#### Additional Video Clips
+
+Here is a clip of us stress testing the lightning rods. ***(Epilepsy warning.)***
+
+<video src="/data/pre-s5/lightning.mp4" type="video/mp4" controls>

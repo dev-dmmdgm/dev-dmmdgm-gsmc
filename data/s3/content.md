@@ -6,7 +6,7 @@
 
 Yes, you saw that correctly. Season 3 wasn't the typical summer-break season like the two previous seasons we had on Geesecraft. It began right before the spring break of 2023, and it was meant to be a stress relief before we start a new legitamate season in the summer again. (We did have a debate on whether we should hold this season until summer, but maybe we were just a little bit too addicted to Geesecraft, so here we are with season 3 in spring!) 
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/emy_thinking.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/emy_thinking.avif">
 
 ---
 
@@ -14,11 +14,11 @@ Yes, you saw that correctly. Season 3 wasn't the typical summer-break season lik
 
 This season spawned us on a remote island in the middle of nowhere. Since there weren't any trees on the island, we swam east until we found a proper land mass. iiPython constructed his first house by the shores, and DmmD and Emy, as always, settled in like parasites and claimed part of it as their own.
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/first_home.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/first_home.avif">
 
 DmmD also built a fish shack in front of iiPython's house, where he would sell fish <sub>(FISH!)</sub> for a few iron ingots. Fishing became DmmD's hobby throughout the season, even though he was never able to catch enough fish to properly restock his barrels. The price tag was mainly for show. Anyone was allowed to take fish for free.
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/fish_market.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/fish_market.avif">
 
 ---
 
@@ -28,15 +28,15 @@ iiPython originally had a wheat field around his house so he could sustain himse
 
 Before Image:
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/farm2.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/farm2.avif">
 
 After Image:
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/emy_farm_1.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/emy_farm_1.avif">
 
 Excessive? Nuh uh! This is Geesecraft we're talking about after all. Either don't have enough or go crazy with it.
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/emy_farm_on_minimap.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/emy_farm_on_minimap.avif">
 
 ---
 
@@ -44,11 +44,11 @@ Excessive? Nuh uh! This is Geesecraft we're talking about after all. Either don'
 
 K4 joined the server a few weeks after the season had already begun. Once again, he chose to build his base far, far away in a snowy spruce biome. We had to rely on elytras just to navigate between our main base and his home. (Oh well.)
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/arctic.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/arctic.avif">
 
 Oh, he also tamed a lil' fox as his buddy. Look at how cute it is. (It took us a while to find a snow variant.)
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/k4s_fox.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/k4s_fox.avif">
 
 ---
 
@@ -58,9 +58,9 @@ This season, we welcomed two new temporarily members to Geesecraft, **Fepi** and
 
 Fepi built a cool wooden house before disappearing forever. Rock took a good swim in Emy's aquarium for some reason.
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/fepis_house.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/fepis_house.avif">
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/rock_in_emyquarium.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/rock_in_emyquarium.avif">
 
 ---
 
@@ -72,19 +72,19 @@ The first problem we encountered was that we were constantly running out of iron
 
 <iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/S_WYtYZZEZQ" allowfullscreen></iframe>
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/iron_farm_lobby.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/iron_farm_lobby.avif">
 
 Seeing how miserably our previous iteration of the XP farm had failed last season, we realized a typical mob farm was no longer enough to sustain our experience needs, especially after we could get our hands on the mending enchantment. Instead, we went with an enderman XP farm designed by <a href="https://www.youtube.com/@BlazeDude" target="_blank" rel="noreferrer noopener">BlazeDude</a>, which was so efficient that it could get us to level 30 in less than five minutes. We also moved our entire enchanting setup to the end so it would be easier to stack enchantments when needed.
 
 <iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/tMgBbvH7AhY" allowfullscreen></iframe>
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/kirby_shield.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/kirby_shield.avif">
 
 Portable storage was a huge issue as well. We thought installing plugins that forces every shulker to drop two guaranteed shulker shells would be too close to cheating. As a result, we needed a new way to mass produce shulker boxes. Introducing the all new shulker shell farm, designed by <a href="https://www.youtube.com/@Shulkercraft" target="_blank" rel="noreferrer noopener">Shulkercraft</a>. The project was so tedious that it took us about eight hours to complete. We even had to dig a long ass tunnel just to migrate the initial shulkers all the way to the farm three thousand blocks away from spawn. Needless to say, it was an absolute pain in the goose to build it in survival.
 
 <iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/Ou4YJXk5eUs" allowfullscreen></iframe>
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/shulker_chaos.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/shulker_chaos.avif">
 
 Oh, and by the way. It kept breaking for some reason. I think it was because because we didn't know how to build active chunk loaders back then, so whenever someone tried to unload the chunks with the farm in it, it would break instantly.
 
@@ -94,13 +94,13 @@ On a more serious note, though, it also gave us plenty of emeralds for the villa
 
 <iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/bu1RKt4hohE" allowfullscreen></iframe>
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/no_death_here_folks.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/no_death_here_folks.avif">
 
 The wither skeleton farm was probably the most impressive one we had on the season. We followed a tutorial by <a href="https://www.youtube.com/@moretingz" target="_blank" rel="noreferrer noopener">moretingz</a>, which required us to find a nether fortress in the soulsand valley for maximum efficiency. We also had a wall where we would place each wither skeleton skull we obtained from the farm to flex our wealth. It was filled up after three days of grinding. In other news, we were very, VERY rich in beacons (thanks also to our iron farm).
 
 <iframe style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/hvO-re1dFpA" allowfullscreen></iframe>
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/wither_skeleton_farm.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/wither_skeleton_farm.avif">
 
 There were a lot more farms that we built over the season, which we could not go over one by one. You can find a complete list along with the tutorials that we followed for each of them below.
 
@@ -128,11 +128,11 @@ Yeah, the withers were no match against our army of iron bois. #REKT
 
 We visited the deep dark for the first time this season. We honestly didn't know what to expect, since we never paid much attention to the recent Minecraft changelogs. As preparation, we brought with us a bunch of totems of undying, golden apples, and the best diamond gears we had. We also used some *unusual* techniques to find it.
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/ancient_city_glitch.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/ancient_city_glitch.avif">
 
 Turns out, it wasn't as scary as we had initially imagined. Sure, the warden did deal a <sub>~~shit~~</sub> ton of damage to us, but it was overall manageable.
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/ancient_city_full.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/ancient_city_full.avif">
 
 ---
 
@@ -142,7 +142,7 @@ Remember the starter house that we built at the very beginning of the season? It
 
 Here's an image of iiPython staring into the sunset with a dragon head that we stole from one of the end ships in the background.
 
-<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/iipython_sunset.avif"/>
+<img src="https://gsmc.dmmdgm.dev/data/s3/gallery/iipython_sunset.avif">
 
 Oh, and here is a video of us blowing it up into smithereens after the season, too.
 
