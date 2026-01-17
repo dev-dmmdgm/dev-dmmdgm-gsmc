@@ -4,12 +4,22 @@
 
 #### Mod-Testing in Progress
 
-This is the pre-season we played on prior to the launch of Season 5. It had the same mod list, however you can easily play the world with only Tech Reborn and Paladin's Furniture installed.
+Welcome to the pre-season of season 5. Technically, this is not a true season, since we were allowed creative mode for mod testing. However, we did save this world so you and I could look back into it in the future and see what kind of mess we did when we had unlimited powers. Also, it is worth noting that while a ton of mods were listed in the official mod list, you can just as easily enter this world with just Tech Reborn and Paladin's Furniture installed. Additionally, this season was composed of two separate worlds, one used for mod testing, and another one for creative building.
 
-Also worth noting is this season was composed of two different worlds, one used for mod testing, and one later just used for building in.
+---
+
+#### FNAF Movie Recreation
+
+The FNAF movie was recently aired when this pre-season happened. As a huge fan of the actual game, K4 dragged iiPython into building a FNAF-themed map together in an oak forest biome. This was the result!
+
+<img src="https://gsmc.dmmdgm.dev/data/pre-s5/gallery/room_1.avif"/>
+
+<img src="https://gsmc.dmmdgm.dev/data/pre-s5/gallery/looking_up.avif"/>
+
+<img src="https://gsmc.dmmdgm.dev/data/pre-s5/gallery/entrance.avif"/>
 
 ---
 
 #### Screenshot Update (2026-01-07)
 
-We had a quick screenshot update on January 7th, 2026 since not many existed previously.
+We had a quick screenshot update on January 7th, 2026, since not many existed previously.
