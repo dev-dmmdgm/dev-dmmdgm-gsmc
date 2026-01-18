@@ -429,6 +429,35 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
         // Updates screenshot
         if(screenshotIndex === null) setCamera(null);
         else setCamera(profilesLookup[gallery[screenshotIndex].camera] ?? null);
+        
+        // Appends listener
+        const keyboardListener = (event: KeyboardEvent) => {
+            switch(event.key) {
+                case "Escape": {
+                    if(screenshotIndex === null) break;
+                    event.preventDefault();
+                    setScreenshotIndex(null);
+                    break;
+                }
+                case "ArrowLeft": {
+                    if(screenshotIndex === null) break;
+                    event.preventDefault();
+                    setScreenshotIndex((gallery.length + screenshotIndex - 1) % gallery.length);
+                    break;
+                }
+                case "ArrowRight": {
+                    if(screenshotIndex === null) break;
+                    event.preventDefault();
+                    setScreenshotIndex((screenshotIndex + 1) % gallery.length);
+                    break;
+                }
+            }
+            console.log(event, screenshotIndex);
+        };
+        document.addEventListener("keydown", keyboardListener);
+
+        // Creates disposer
+        return () => document.removeEventListener("keydown", keyboardListener);
     }, [ screenshotIndex ]);
     
     // Creates archive route
@@ -686,6 +715,35 @@ function GalleryRoute() {
             setCamera(cameraJSON ?? null);
             setSeason(typeof archiveJSON !== "undefined" ? archiveJSON.title : null);
         }
+        
+        // Appends listener
+        const keyboardListener = (event: KeyboardEvent) => {
+            switch(event.key) {
+                case "Escape": {
+                    if(screenshotIndex === null) break;
+                    event.preventDefault();
+                    setScreenshotIndex(null);
+                    break;
+                }
+                case "ArrowLeft": {
+                    if(screenshotIndex === null) break;
+                    event.preventDefault();
+                    setScreenshotIndex((gallery.length + screenshotIndex - 1) % gallery.length);
+                    break;
+                }
+                case "ArrowRight": {
+                    if(screenshotIndex === null) break;
+                    event.preventDefault();
+                    setScreenshotIndex((screenshotIndex + 1) % gallery.length);
+                    break;
+                }
+            }
+            console.log(event, screenshotIndex);
+        };
+        document.addEventListener("keydown", keyboardListener);
+
+        // Creates disposer
+        return () => document.removeEventListener("keydown", keyboardListener);
     }, [ screenshotIndex ]);
 
     // Creates gallery route
