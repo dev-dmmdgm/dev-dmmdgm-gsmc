@@ -246,8 +246,9 @@ function ArchivesRoute() {
         }
 
         // Creates listeners
-        let archivePreviousListener = async () => {};
-        let archiveNextListener = async () => {};
+        let archivePreviousListener = () => {};
+        let archiveNextListener = () => {};
+        let keyboardListener = (event: KeyboardEvent) => {};
 
         // Creates timeout
         let archiveTimeout = setTimeout(() => {});
@@ -270,7 +271,7 @@ function ArchivesRoute() {
             if(archivesJSON.length === 0) return;
             
             // Updates listeners
-            archivePreviousListener = async () => {
+            archivePreviousListener = () => {
                 // Checks busy
                 if(archiveBusy) return;
                 archiveBusy = true;
@@ -290,7 +291,7 @@ function ArchivesRoute() {
                     archiveBusy = false;
                 }, 500);
             };
-            archiveNextListener = async () => {
+            archiveNextListener = () => {
                 // Checks busy
                 if(archiveBusy) return;
                 archiveBusy = true;
@@ -310,11 +311,25 @@ function ArchivesRoute() {
                     archiveBusy = false;
                 }, 500);
             };
+            keyboardListener = (event: KeyboardEvent) => {
+                // Checks key
+                switch(event.key) {
+                    case "ArrowLeft": {
+                        archivePreviousListener();
+                        break;
+                    }
+                    case "ArrowRight": {
+                        archiveNextListener();
+                        break;
+                    }
+                }
+            };
             
             // Appends listeners
             archivePrevious.addEventListener("click", archivePreviousListener);
             archiveNext.addEventListener("click", archiveNextListener);
-
+            document.addEventListener("keydown", keyboardListener);
+            
             // Updates archives
             const archiveSeason = localStorage.getItem("archive-season");
             const archiveFind = archiveSeason !== null ? archivesJSON.findIndex((archive) => archive.season === archiveSeason) : -1;
@@ -329,11 +344,12 @@ function ArchivesRoute() {
             archiveFront.classList.add("archive-front");
             archiveBusy = false;
         });
-
+        
         // Creates disposer
         return () => {
             archivePrevious.removeEventListener("click", archivePreviousListener);
             archiveNext.removeEventListener("click", archiveNextListener);
+            document.removeEventListener("keydown", keyboardListener);
             clearTimeout(archiveTimeout);
         };
     }, []);
@@ -432,6 +448,7 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
         
         // Appends listener
         const keyboardListener = (event: KeyboardEvent) => {
+            // Checks key
             switch(event.key) {
                 case "Escape": {
                     if(screenshotIndex === null) break;
@@ -452,7 +469,6 @@ function ArchiveRoute(props: RoutePropsForPath<"/archives/:season">) {
                     break;
                 }
             }
-            console.log(event, screenshotIndex);
         };
         document.addEventListener("keydown", keyboardListener);
 
@@ -718,6 +734,7 @@ function GalleryRoute() {
         
         // Appends listener
         const keyboardListener = (event: KeyboardEvent) => {
+            // Checks key
             switch(event.key) {
                 case "Escape": {
                     if(screenshotIndex === null) break;
@@ -738,7 +755,6 @@ function GalleryRoute() {
                     break;
                 }
             }
-            console.log(event, screenshotIndex);
         };
         document.addEventListener("keydown", keyboardListener);
 
