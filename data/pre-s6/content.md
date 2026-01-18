@@ -1,6 +1,6 @@
 # Geesecraft / Pre-Season 6
 
-## <a href="https://gsmc.dmmdgm.dev/data/pre-s6/quote.avif" target="_blank" rel="noopener onreferrer">"S6 before I die."</a> - iiPython
+## <a href="https://gsmc.dmmdgm.dev/data/pre-s6/quote.avif" target="_blank" rel="noopener noreferrer">"S6 before I die."</a> - iiPython
 
 #### Experimenting with Mods
 

@@ -1,6 +1,6 @@
 # Geesecraft / Season 4
 
-## <a href="https://gsmc.dmmdgm.dev/data/s4/quote.avif" target="_blank" rel="noopener onreferrer">"Yes, we need 1.20 mods."</a> - iiPython
+## <a href="https://gsmc.dmmdgm.dev/data/s4/quote.avif" target="_blank" rel="noopener noreferrer">"Yes, we need 1.20 mods."</a> - iiPython
 
 #### The Era of Modded Minecraft
 

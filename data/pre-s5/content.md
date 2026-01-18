@@ -1,6 +1,6 @@
 # Geesecraft / Pre-Season 5
 
-## <a href="https://gsmc.dmmdgm.dev/data/pre-s5/quote.avif" target="_blank" rel="noopener onreferrer">"I'm gonna test this furniture mod rq."</a> - iiPython
+## <a href="https://gsmc.dmmdgm.dev/data/pre-s5/quote.avif" target="_blank" rel="noopener noreferrer">"I'm gonna test this furniture mod rq."</a> - iiPython
 
 #### Mod-Testing in Progress
 

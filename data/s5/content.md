@@ -1,6 +1,6 @@
 # Geesecraft / Season 5
 
-## <a href="https://gsmc.dmmdgm.dev/data/s5/quote.avif" target="_blank" rel="noopener onreferrer">"I'm honestly excited for s5."</a> - K4
+## <a href="https://gsmc.dmmdgm.dev/data/s5/quote.avif" target="_blank" rel="noopener noreferrer">"I'm honestly excited for s5."</a> - K4
 
 #### Time for Even More Mods
 
